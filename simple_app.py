@@ -10,7 +10,7 @@ def predict_difficulty(sentence):
     vectorizer = TfidfVectorizer(max_features=10000)
     
     # Load the training data (replace df_training_data with your actual training data)
-    df_training_data = pd.read_csv("your_training_data.csv")
+    df_training_data = pd.read_csv("training_data.csv")
     X = vectorizer.fit_transform(df_training_data['sentence']).toarray()
     y = df_training_data['difficulty']
     
