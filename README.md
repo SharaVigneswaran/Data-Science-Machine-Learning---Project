@@ -14,6 +14,8 @@ For learners, being presented with too-difficult texts can hinder learning, whil
 
 Our long-term goal is to integrate **LogoRank** into the daily learning routine of language learners worldwide, making it an indispensable tool in their language learning journey. Before testing our App, here is how we created an algorithm just for you!
 
+## Application Development process
+
 ### Reporting Table
 
 | Metric     | Logistic Regression | KNN    | Decision Tree | Random Forest | Neural Network |
