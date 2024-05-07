@@ -16,22 +16,22 @@ def predict_difficulty(sentence):
     else:
         return "C2"
 
+def display_difficulty(prediction):
+    difficulty_scale = {'A1': (0.1, '👶'), 'A2': (0.2, '🧒'), 'B1': (0.4, '👦'), 'B2': (0.6, '🧑'), 'C1': (0.8, '👨'), 'C2': (1.0, '🧓')}
+    progress_value, emoji = difficulty_scale[prediction]
+    st.progress(progress_value)
+    st.markdown(f"**Difficulty Level:** {emoji} {prediction}")
+
 def main():
     st.title("Language Proficiency Classifier")
 
-    # Text input for the user to enter a sentence
     sentence = st.text_input("Enter a sentence:")
-
     if st.button("Classify"):
-        # Predict the difficulty level based on the input sentence
         if sentence.strip() != "":
             prediction = predict_difficulty(sentence)
-            st.write("Predicted Difficulty Level:", prediction)
-            # Add visual representation of difficulty level
-            difficulty_color = {'A1': 'red', 'A2': 'orange', 'B1': 'yellow', 'B2': 'green', 'C1': 'blue', 'C2': 'purple'}
-            st.markdown(f"**Difficulty Level:** <font color='{difficulty_color[prediction]}'>{prediction}</font>", unsafe_allow_html=True)
+            display_difficulty(prediction)
         else:
-            st.write("Please enter a sentence.")
+            st.warning("Please enter a sentence to classify its difficulty level.")
 
 if __name__ == "__main__":
     main()
