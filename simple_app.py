@@ -1,4 +1,5 @@
 import random 
+import streamlit as st
 
 def predict_difficulty(sentence):
     # Define difficulty levels
