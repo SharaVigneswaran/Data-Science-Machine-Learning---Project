@@ -10,7 +10,7 @@ def predict_difficulty(sentence):
 
 # Define the Streamlit app layout
 def main():
-    st.title("Language Proficiency Classifier (Logistic Regression)")
+    st.title("Language Proficiency Classifier (Random Model)")
 
     # Text input for the user to enter a sentence
     sentence = st.text_input("Enter a sentence:")
