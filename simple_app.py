@@ -5,7 +5,7 @@ from PIL import Image
 
 # Configure the Streamlit page with layout settings, title, and icon
 st.set_page_config(
-    layout="centered", page_title="Language Proficiency Classifier", page_icon="📚"
+    layout="centered", page_title="LogoRank", page_icon="📚"
 )
 
 ############ 2. CREATE THE LOGO AND HEADING ############
