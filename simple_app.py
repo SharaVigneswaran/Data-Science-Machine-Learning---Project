@@ -1,7 +1,34 @@
 import streamlit as st
 
+############ 1. IMPORTING LIBRARIES ############
+# Importing necessary libraries for app development
+
+from PIL import Image
+
+############ 2. SETTING UP THE PAGE LAYOUT AND TITLE ############
+
+# Configure the Streamlit page with layout settings, title, and icon
+st.set_page_config(
+    layout="centered", page_title="Language Proficiency Classifier", page_icon="📚"
+)
+
+############ 3. CREATE THE LOGO AND HEADING ############
+
+# Using columns to layout the logo and title side by side
+c1, c2 = st.columns([0.2, 1.8])
+
+with c1:
+    # Displaying a logo image if available
+    st.image(Image.open("path_to_logo.png"), width=60)
+
+with c2:
+    # Heading of the app
+    st.title("Language Proficiency Classifier")
+
+############ 4. APP FUNCTIONALITY ############
+
+# Placeholder function to predict difficulty based on sentence length
 def predict_difficulty(sentence):
-    # Placeholder prediction based on the length of the sentence
     words_count = len(sentence.split())
     if words_count < 10:
         return "A1"
@@ -16,6 +43,7 @@ def predict_difficulty(sentence):
     else:
         return "C2"
 
+# Function to display difficulty level with emoji and description
 def display_difficulty(prediction):
     difficulty_scale = {
         'A1': (0.1, '👶', 'Beginner'),
@@ -29,17 +57,12 @@ def display_difficulty(prediction):
     st.progress(progress_value)
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
 
-def main():
-    st.set_page_config(page_title="Language Proficiency Classifier", layout="wide")
-    st.title("Language Proficiency Classifier")
-    st.markdown("### Enter a sentence to classify its difficulty level")
+# Main interaction: text input and instant feedback
+sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
 
-    sentence = st.text_input("", placeholder="Type here...")
-    if sentence:
+# Using Streamlit's session state to manage app states
+if sentence:
+    if not "last_input" in st.session_state or sentence != st.session_state.last_input:
+        st.session_state.last_input = sentence
         prediction = predict_difficulty(sentence)
         display_difficulty(prediction)
-    else:
-        st.warning("Please enter a sentence to classify its difficulty level.")
-
-if __name__ == "__main__":
-    main()
