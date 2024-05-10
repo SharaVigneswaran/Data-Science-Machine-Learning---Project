@@ -15,7 +15,7 @@ c1, c2 = st.columns([0.2, 1.8])
 
 with c1:
     # Displaying a logo image if available
-    st.image(Image.open("path_to_logo.png"), width=60)
+    st.image(Image.open("Capture d’écran 2024-05-10 à 11.36.38.png"), width=60)
 
 with c2:
     # Heading of the app
