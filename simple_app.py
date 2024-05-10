@@ -13,11 +13,14 @@ st.set_page_config(
 # Using columns to layout the logo and title side by side
 c1, c2 = st.columns([0.2, 1.8])
 
-with c1:
+with cols[0]:
     # Displaying a logo image if available
-    st.image(Image.open("Capture d’écran 2024-05-10 à 11.36.38.png"), width=60)
+    try:
+        st.image(Image.open("logo.png"), width=60)  # Adjust the path as necessary
+    except Exception as e:
+        st.error(f"Error loading logo: {e}")
 
-with c2:
+with cols[1]:
     # Heading of the app
     st.title("Language Proficiency Classifier")
 
