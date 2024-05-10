@@ -1,18 +1,14 @@
 import streamlit as st
-
-############ 1. IMPORTING LIBRARIES ############
-# Importing necessary libraries for app development
-
 from PIL import Image
 
-############ 2. SETTING UP THE PAGE LAYOUT AND TITLE ############
+############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
 # Configure the Streamlit page with layout settings, title, and icon
 st.set_page_config(
     layout="centered", page_title="Language Proficiency Classifier", page_icon="📚"
 )
 
-############ 3. CREATE THE LOGO AND HEADING ############
+############ 2. CREATE THE LOGO AND HEADING ############
 
 # Using columns to layout the logo and title side by side
 c1, c2 = st.columns([0.2, 1.8])
@@ -25,7 +21,7 @@ with c2:
     # Heading of the app
     st.title("Language Proficiency Classifier")
 
-############ 4. APP FUNCTIONALITY ############
+############ 3. APP FUNCTIONALITY ############
 
 # Placeholder function to predict difficulty based on sentence length
 def predict_difficulty(sentence):
