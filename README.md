@@ -14,7 +14,7 @@ For learners, being presented with too-difficult texts can hinder learning, whil
 
 Our long-term goal is to integrate LogoRank into the daily learning routine of language learners worldwide, making it an indispensable tool in their language learning journey. Before testing our App, here is how we created an algorithm just for you!
 
-## Application Development process
+## Application Development Process
 
 Our journey in developing the application involved a meticulous process of testing various models, integrating sophisticated language models, and implementing data augmentation techniques to enhance performance and accuracy. Here's an overview of our development process:
 
