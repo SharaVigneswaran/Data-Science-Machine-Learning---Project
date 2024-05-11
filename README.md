@@ -6,7 +6,6 @@
   <div style="position: relative; text-align: right;">
   <img src="LogoRank.jpeg" alt="LogoRank" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
-</div>
 
 **LogoRank** is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
 
@@ -82,7 +81,10 @@ The model behaves by ...
 During the creation porcess of the algorithm several challenges were phased. 
 
 Firstly, to long running time on Colab ...
-
+<div align="center">
+  <div style="position: relative; text-align: right;">
+  <img src="Overload error.png" alt="LogoRank" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;">
+</div>
 Secondly, Overfitting of data ...
 
 Thirdly, Non representative augmented dataset ...
