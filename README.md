@@ -3,8 +3,6 @@
   <img src="LogoRank.jpeg" alt="LogoRank" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 
-<div align="center">
-
 **LogoRank** is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
 
 ## The Idea Behind LogoRank
@@ -35,13 +33,13 @@ By integrating BERT and CamenBERT into our application pipeline, we observed sub
 
 ### Data Augmentation with ChatGPT
 In addition to leveraging advanced models, we employed innovative data augmentation techniques to enhance the diversity and robustness of our training data. Leveraging the conversational abilities of ChatGPT, we generated synthetic data instances to supplement our existing dataset.
-We added X lignes to each difficulty from A1 to C2 expending the dataset from 4800 to X lines. 
+--> We added X lignes to each difficulty from A1 to C2 expending the dataset from 4800 to X lines. 
 
 This approach enabled us to create a more comprehensive and varied training dataset, encompassing a wider range of linguistic patterns, styles, and contexts. By augmenting our data in this manner, we mitigated the risk of overfitting, enhanced model generalization, and improved overall performance on unseen data.
 
 ### Conclusion
 In summary, our application development process encompassed a comprehensive journey of exploration, experimentation, and innovation. By iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies, we were able to create a robust and effective application capable of delivering accurate and reliable predictions in real-world scenarios. Our commitment to continuous improvement and adaptation ensured that our application remained at the forefront of advancements in machine learning and natural language processing, poised to address evolving challenges and opportunities in the digital landscape.
-</div>
+
 ### Reporting Table 
 
 | Metric     | Logistic Regression | KNN    | Decision Tree | Random Forest | Neural Network | Neural Network (CNN) | XGBoost      | 
@@ -67,7 +65,7 @@ The model with the highest accuracy is augmented CamenBERT ...
 
 The confusion matrix shows ...
 
-Here is a snpi of the code ...
+Here is a snipp of the code ...
 
 The model behaves by ...
 
