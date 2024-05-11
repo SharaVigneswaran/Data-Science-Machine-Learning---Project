@@ -84,8 +84,10 @@ During the creation porcess of the algorithm several challenges were phased.
 Firstly, to long running time on Colab ...
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="Overload error.png" alt="LogoRank" style="width: 500px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="Overload error.png" alt="LogoRank" style="width: 700px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
+</div>
+
 Secondly, Overfitting of data ...
 
 Thirdly, Non representative augmented dataset ...
