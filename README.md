@@ -79,9 +79,16 @@ The model behaves by ...
 
 ### Erronerous Predictions
 
-During the creation porcess of the algorithm several challenges were phased. 
+During the development of our machine learning model, we encountered several significant challenges. 
 
-Firstly, to long running time on Colab ...
+A critical issue was the long running time on Google Colab, exacerbated by our dependency on external APIs for generating text embeddings. Particularly, we faced a 'ServiceUnavailableError' indicating that the OpenAI's server was temporarily overloaded or under maintenance (as shown in the error screenshot). 
+
+The primary issue indicated by the error is that the server hosting the model (in this case, OpenAI's server for embeddings) was temporarily unavailable or overloaded. This can happen during periods of high demand or server maintenance. It reflected the dependency on third-party services and the need for robust error handling and retry mechanisms in our code.
+
+Moreover, our large languge machine learning models, especially those involving extended datasets and complex computations, had long running times. This can be exacerbated when dependent on external services where network latency and server response times add to the overall execution time.
+
+To address such challenges in future implementations, we had to start using Colab Pro and execute the code with better performing GPUs.
+
 <div align="center">
   <div style="position: relative; text-align: right;">
   <img src="Overload error.png" alt="LogoRank" style="width: 700px; height: auto; position: absolute; top: 10px; right: 10px;">
