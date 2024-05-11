@@ -1,5 +1,5 @@
 # Welcome to LogoRank
-[LogoRank](DALL·E 2024-05-11 12.39.59 - Refined logo design for 'LogoRank', a startup enhancing French language learning. The logo should feature the name 'LogoRank' prominently with a subtl.webp)
+![LogoRank](LogoRank.jpeg)
 
 **LogoRank** is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
 
