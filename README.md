@@ -1,7 +1,6 @@
 # Welcome to LogoRank
-![LogoRank](LogoRank.jpeg)
 <div style="position: relative;">
-  <img src="LogoRank.jpeg" alt="LogoRank" style="width: 100px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="LogoRank.jpeg" alt="LogoRank" style="width: 300px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 
 
