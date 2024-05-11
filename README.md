@@ -37,8 +37,7 @@ Recognizing the transformative potential of large language models, we transition
 By integrating BERT and CamenBERT into our application pipeline, we observed substantial improvements in performance across various metrics, including accuracy, precision, and recall. The model demonstrated a remarkable ability to understand context, discern subtle nuances, and generate accurate predictions, thereby elevating the overall efficacy of our application.
 
 ### Data Augmentation with ChatGPT
-In addition to leveraging advanced models, we employed innovative data augmentation techniques to enhance the diversity and robustness of our training data. Leveraging the conversational abilities of ChatGPT, we generated synthetic data instances to supplement our existing dataset.
---> We added X lignes to each difficulty from A1 to C2 expending the dataset from 4800 to X lines. 
+In addition to leveraging advanced models, we employed innovative data augmentation techniques to enhance the diversity and robustness of our training data. Leveraging the conversational abilities of ChatGPT, we generated synthetic data instances to supplement our existing dataset. We added 50 lignes to each difficulty from A1 to C2 expending the dataset from 4'800 to 5'100 lines. 
 
 This approach enabled us to create a more comprehensive and varied training dataset, encompassing a wider range of linguistic patterns, styles, and contexts. By augmenting our data in this manner, we mitigated the risk of overfitting, enhanced model generalization, and improved overall performance on unseen data.
 
@@ -62,6 +61,10 @@ In summary, our application development process encompassed a comprehensive jour
 | Recall     | 0.4750       | 0.4813             |
 | F1-score   | 0.4729       | 0.4703             |
 | Accuracy   | 0.4750       | 0.4813             |
+
+BERT
+CamenBERT
+CamenBERT augmented 
 
 
 ## The Most accurate Model
