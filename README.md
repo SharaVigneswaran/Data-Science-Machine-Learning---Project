@@ -81,6 +81,7 @@ The model behaves by ...
 
 During the development of our machine learning model, we encountered several significant challenges. 
 
+**1. Service Overload and Long Running Time**
 A critical issue was the long running time on Google Colab, exacerbated by our dependency on external APIs for generating text embeddings. Particularly, we faced a 'ServiceUnavailableError' indicating that the OpenAI's server was temporarily overloaded or under maintenance (as shown in the error screenshot). 
 
 The primary issue indicated by the error is that the server hosting the model (in this case, OpenAI's server for embeddings) was temporarily unavailable or overloaded. This can happen during periods of high demand or server maintenance. It reflected the dependency on third-party services and the need for robust error handling and retry mechanisms in our code.
