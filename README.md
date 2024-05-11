@@ -26,4 +26,28 @@ Our long-term goal is to integrate **LogoRank** into the daily learning routine 
 | Accuracy   | 0.4427              | 0.3552 | 0.2938        | 0.3729        | 0.4375         |
 
 
-The model with the highest accuracy is blabla.
+## The Most accurate Model
+
+The model with the highest accuracy is augmented CamenBERT ... 
+
+The confusion matrix shows ...
+
+Here is a snpi of the code ...
+
+The model behaves by ...
+
+### Erronerous Predictions
+
+During the creation porcess of the algorithm several challenges were phased. 
+
+Firstly, to long running time on Colab ...
+
+Secondly, Overfitting of data ...
+
+Thirdly, Non representative augmented dataset ...
+
+Finally, pretrained models that were not accurate ...
+
+
+### Features of the LogoRank Application 
+
