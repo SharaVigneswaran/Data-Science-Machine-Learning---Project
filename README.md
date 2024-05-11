@@ -1,4 +1,4 @@
-# Welcome to LogoRank <div style="position: relative; display: flex; justify-content: center;">  <img src="LogoRank.jpeg" alt="LogoRank" style="width: 240px; height: auto;"> </div>
+# Welcome to LogoRank <div style="position: relative; text-align: right;"> <img src="LogoRank.jpeg" alt="LogoRank" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;"> </div>
 
 
 **LogoRank** is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
