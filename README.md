@@ -45,7 +45,7 @@ This approach enabled us to create a more comprehensive and varied training data
 ### Conclusion
 In summary, our application development process encompassed a comprehensive journey of exploration, experimentation, and innovation. By iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies, we were able to create a robust and effective application capable of delivering accurate and reliable predictions in real-world scenarios. Our commitment to continuous improvement and adaptation ensured that our application remained at the forefront of advancements in machine learning and natural language processing, poised to address evolving challenges and opportunities in the digital landscape.
 
-### Reporting Table Initial Model Testing
+### Reporting Table Initial Models
 
 | Metric     | Logistic Regression | KNN    | Decision Tree | Random Forest | Neural Network | Neural Network (CNN) | XGBoost      | 
 |------------|---------------------|--------|---------------|---------------|----------------|----------------------|--------------|
@@ -56,12 +56,12 @@ In summary, our application development process encompassed a comprehensive jour
 
 ### Reporting Table Large Language Models
 
-| Metric     | RoBERTa      |
-|------------|--------------|
-| Precision  | 0.5054       |
-| Recall     | 0.4750       |
-| F1-score   | 0.4729       |
-| Accuracy   | 0.4750       |
+| Metric     | RoBERTa      | OpenAI Embeddings  |
+|------------|--------------|--------------------|
+| Precision  | 0.5054       | 0.4706             |
+| Recall     | 0.4750       | 0.4813             |
+| F1-score   | 0.4729       | 0.4703             |
+| Accuracy   | 0.4750       | 0.4813             |
 
 
 ## The Most accurate Model
@@ -88,4 +88,7 @@ Finally, pretrained models that were not accurate ...
 
 
 ### Features of the LogoRank Application 
+
+
+link to the video 
 
