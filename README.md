@@ -152,8 +152,12 @@ By implementing these strategies, we aimed to develop a more robust model that p
 **3. Non-Representative augmented dataset**
 Thirdly, Non-representative augmented dataset ...
 
+.... 
+
+**4. Non-Accurate Model**
 Finally, pretrained models that were not accurate ...
 the model="gpt-3.5-turbo-instruct" 
+
 
 ### Features of the LogoRank Application 
 
