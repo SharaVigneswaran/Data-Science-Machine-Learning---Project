@@ -62,8 +62,14 @@ In summary, our application development process encompassed a comprehensive jour
 | F1-score     | 0.4729       | 0.4703                  | 0.4924              |
 | Accuracy     | 0.4750       | 0.4813                  | 0.4958              |
 
-BERT
-CamenBERT
+ 
+| Metric       | RoBERTa      | OpenAI Embeddings <br> *model="text-embedding-3-large"*     | BERT (Multilingual) <br>  *model= 'bert-base-multilingual-cased'* | Camembert <br> *low learning rate of 3e-5* |
+|--------------|--------------|-------------------------|---------------------|--------------|
+| Precision    | 0.5054       | 0.4706                  | 0.5533              | 0.6220       |
+| Recall       | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
+| F1-score     | 0.4729       | 0.4703                  | 0.4924              | 0.5995       |
+| Accuracy     | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
+
 CamenBERT augmented 
 
 
