@@ -41,14 +41,17 @@ def display_difficulty(prediction):
     }
     progress_value, emoji, level_desc = difficulty_scale[prediction]
 
-
-# Function to animate progress
+    # Function to animate progress
     def animate_progress(level):
         with st.empty():
-            for percent_complete in range(int(level * 100)):
+            for percent_complete in range(int(level * 100) + 1):  # +1 to ensure it completes
                 time.sleep(0.05)
                 st.progress(percent_complete / 100.0)
-        st.progress(level)
+
+    # Animate the progress bar to the appropriate level
+    animate_progress(progress_value)
+
+    # Display the difficulty level after the progress bar animation
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
 
 # History tracking
