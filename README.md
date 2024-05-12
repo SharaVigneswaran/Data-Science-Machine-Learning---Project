@@ -114,7 +114,7 @@ Several factors could have contributed to overfitting in our model:
 
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="Overfitting.png" alt="LogoRank" style="width: 700px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="Overfitting.png" alt="LogoRank" style="width: 450px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
