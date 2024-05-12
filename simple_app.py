@@ -10,7 +10,12 @@ st.set_page_config(
 )
 
 ############ 2. CREATE THE LOGO AND HEADING ############
+# Using columns to layout the logo and title side by side
+c1, c2 = st.columns([0.2, 1.8])
 
+with c2:
+    # Heading of the app
+    st.title("Language Proficiency Classifier")
 ############ 3. APP FUNCTIONALITY ############
 
 # Placeholder function to predict difficulty based on sentence length
