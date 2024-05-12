@@ -21,6 +21,7 @@ with st.sidebar:
 c1, c2, c3 = st.columns([0.1, 0.8, 0.1])
 
 with c2:
+    st.image("images/French.jpg")  # An illustrative image related to language learning
     st.title("Test Your French Level")
 
 ############ 4. APP FUNCTIONALITY ############
