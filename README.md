@@ -159,8 +159,10 @@ Finally, pretrained models that were not accurate ...
 the model="gpt-3.5-turbo-instruct" 
 
 
-### Features of the LogoRank Application 
+## Features of the LogoRank Application
 
+- history of sentences
+- learning difficuly bar
 
 link to the video 
 
