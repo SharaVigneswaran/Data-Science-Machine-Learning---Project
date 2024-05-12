@@ -13,7 +13,7 @@ st.set_page_config(
 # Using columns to layout the logo and title side by side
 c1, c2 = st.columns([0.2, 1.8])
 
-with c1]:
+with c1:
     # Displaying a logo image if available
     try:
         st.image(Image.open("Capture d’écran 2024-05-10 à 11.36.38.png"), width=60)  
