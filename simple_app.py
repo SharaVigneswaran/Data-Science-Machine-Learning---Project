@@ -1,91 +1,71 @@
 import streamlit as st
 from PIL import Image
-import time 
+import time
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
 # Configure the Streamlit page with layout settings, title, and icon
-st.set_page_config(
-    layout="centered", page_title="LogoRank", page_icon="📚"
-)
+st.set_page_config(layout="wide", page_title="LogoRank", page_icon="📚")
 
-############ 2. CREATE THE LOGO AND HEADING ############
-# Using columns to layout the logo and title side by side
-c1, c2 = st.columns([0.2, 1.8])
+############ 2. SIDEBAR FOR APP SETTINGS ############
 
-with c1:
-    try:
-        logo = Image.open("file.png")
-        st.image(logo, width=60)
-    except Exception as e:
-        st.error(f"Error loading logo: {e}")
+# Sidebar for user settings or additional options
+with st.sidebar:
+    st.title("Settings")
+    display_animation = st.checkbox("Animate Progress Bar", value=True)
+    show_history = st.checkbox("Show Sentence History", value=True)
+
+############ 3. MAIN PAGE LAYOUT ############
+
+# Using columns to layout the main components
+c1, c2, c3 = st.columns([0.1, 0.8, 0.1])
 
 with c2:
-    # Heading of the app
-    st.title("Language Proficiency Classifier")
-############ 3. APP FUNCTIONALITY ############
+    st.image("images/french_language.jpg")  # An illustrative image related to language learning
+    st.title("Test Your French Level")
 
-# Placeholder function to predict difficulty based on sentence length
+############ 4. APP FUNCTIONALITY ############
+
 def predict_difficulty(sentence):
+    # Placeholder prediction logic
     words_count = len(sentence.split())
-    if words_count < 10:
-        return "A1"
-    elif words_count < 20:
-        return "A2"
-    elif words_count < 30:
-        return "B1"
-    elif words_count < 40:
-        return "B2"
-    elif words_count < 50:
-        return "C1"
-    else:
-        return "C2"
+    return "A1" if words_count < 10 else "A2" if words_count < 20 else "B1" if words_count < 30 else "B2" if words_count < 40 else "C1" if words_count < 50 else "C2"
 
-# Function to display difficulty level with emoji and description
 def display_difficulty(prediction):
-    difficulty_scale = {
-        'A1': (0.1, '🟢', 'Beginner'),
-        'A2': (0.2, '🟡', 'Elementary'),
-        'B1': (0.4, '🔵', 'Intermediate'),
-        'B2': (0.6, '🟣', 'Upper Intermediate'),
-        'C1': (0.8, '🟠', 'Advanced'),
-        'C2': (1.0, '🔴', 'Proficiency')
-    }
+    difficulty_scale = {'A1': (0.1, '🟢', 'Beginner'), 'A2': (0.2, '🟡', 'Elementary'),
+                        'B1': (0.4, '🔵', 'Intermediate'), 'B2': (0.6, '🟣', 'Upper Intermediate'),
+                        'C1': (0.8, '🟠', 'Advanced'), 'C2': (1.0, '🔴', 'Proficiency')}
     progress_value, emoji, level_desc = difficulty_scale[prediction]
 
-    # Function to animate progress
-    def animate_progress(level):
+    if display_animation:
+        # Function to animate progress
         with st.empty():
-            for percent_complete in range(int(level * 100) + 1):  # +1 to ensure it completes
+            for percent_complete in range(int(progress_value * 100) + 1):
                 time.sleep(0.05)
                 st.progress(percent_complete / 100.0)
 
-    # Animate the progress bar to the appropriate level
-    animate_progress(progress_value)
-
-    # Display the difficulty level after the progress bar animation
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
 
-# History tracking
 if 'history' not in st.session_state:
     st.session_state.history = []
 
-# Main interaction: text input and instant feedback
 sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
 
 if sentence:
-    if not "last_input" in st.session_state or sentence != st.session_state.last_input:
+    if "last_input" not in st.session_state or sentence != st.session_state.last_input:
         st.session_state.last_input = sentence
         prediction = predict_difficulty(sentence)
         display_difficulty(prediction)
         # Update history
         st.session_state.history.append((sentence, prediction))
-        # Display history
-        st.write("### Sentence History")
-        for sent, pred in reversed(st.session_state.history):
-            st.text(f"Sentence: {sent} - Level: {pred}")
 
-# Suggestions to modify the sentence
+if show_history and st.session_state.history:
+    st.write("### Sentence History")
+    for sent, pred in reversed(st.session_state.history):
+        st.text(f"Sentence: {sent} - Level: {pred}")
+
+############ 5. SUGGESTIONS TO MODIFY SENTENCE ############
+
 if sentence:
     st.write("### Suggestions to Adjust Difficulty")
     words = sentence.split()
@@ -93,3 +73,4 @@ if sentence:
         st.markdown("* Try adding more descriptive words or a subordinate clause to increase complexity.")
     elif len(words) > 50:
         st.markdown("* Consider simplifying the sentence by removing adjectives or splitting into two sentences.")
+
