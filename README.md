@@ -76,7 +76,7 @@ Here is a snipp of the code ...
 
 The model behaves by ...
 
-### Erronerous Predictions
+## Erronerous Predictions
 
 During the development of our machine learning model, we encountered several significant challenges. 
 
