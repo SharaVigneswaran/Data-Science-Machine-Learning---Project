@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import time 
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
@@ -16,7 +17,7 @@ c1, c2 = st.columns([0.2, 1.8])
 with c1:
     # Displaying a logo image if available
     try:
-        st.image(Image.open("Capture d’écran 2024-05-10 à 11.36.38.png"), width=60)  
+        st.image(Image.open("logo.png"), width=60)  
     except Exception as e:
         st.error(f"Error loading logo: {e}")
 
@@ -53,15 +54,41 @@ def display_difficulty(prediction):
         'C2': (1.0, '🧓', 'Proficiency')
     }
     progress_value, emoji, level_desc = difficulty_scale[prediction]
-    st.progress(progress_value)
+
+
+# Function to animate progress
+    def animate_progress(level):
+        with st.empty():
+            for percent_complete in range(int(level * 100)):
+                time.sleep(0.05)
+                st.progress(percent_complete / 100.0)
+        st.progress(level)
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
+
+# History tracking
+if 'history' not in st.session_state:
+    st.session_state.history = []
 
 # Main interaction: text input and instant feedback
 sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
 
-# Using Streamlit's session state to manage app states
 if sentence:
     if not "last_input" in st.session_state or sentence != st.session_state.last_input:
         st.session_state.last_input = sentence
         prediction = predict_difficulty(sentence)
         display_difficulty(prediction)
+        # Update history
+        st.session_state.history.append((sentence, prediction))
+        # Display history
+        st.write("### Sentence History")
+        for sent, pred in reversed(st.session_state.history):
+            st.text(f"Sentence: {sent} - Level: {pred}")
+
+# Suggestions to modify the sentence
+if sentence:
+    st.write("### Suggestions to Adjust Difficulty")
+    words = sentence.split()
+    if len(words) < 10:
+        st.markdown("* Try adding more descriptive words or a subordinate clause to increase complexity.")
+    elif len(words) > 50:
+        st.markdown("* Consider simplifying the sentence by removing adjectives or splitting into two sentences.")
