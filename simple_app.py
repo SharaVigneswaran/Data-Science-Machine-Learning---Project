@@ -16,7 +16,7 @@ c1, c2 = st.columns([0.2, 1.8])
 with cols[0]:
     # Displaying a logo image if available
     try:
-        st.image(Image.open("logo.png"), width=60)  # Adjust the path as necessary
+        st.image(Image.open("Capture d’écran 2024-05-10 à 11.36.38.png"), width=60)  
     except Exception as e:
         st.error(f"Error loading logo: {e}")
 
