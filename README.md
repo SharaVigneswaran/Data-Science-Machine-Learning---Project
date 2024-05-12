@@ -96,9 +96,33 @@ To address such challenges in future implementations, we had to start using Cola
 </div>
 </div>
 
-Secondly, Overfitting of data ...
+**2.The Challenge of Overfitting**
+While developing our machine learning model for sequence classification using the Camembert architecture, we encountered a significant challenge quite common in the field of artificial intelligence: overfitting. Overfitting occurs when a model learns the detail and noise in the training data to an extent that it negatively impacts the model's performance on new data, i.e., the model becomes too well-tuned to the training data and fails to generalise to unseen datasets.
 
-Thirdly, Non representative augmented dataset ...
+In our specific case, the evidence of overfitting was clear from the divergence between the training and validation loss, as seen in our experiments. Initially, the training and validation losses decreased, indicating good learning progress. However, as training continued, the training loss kept decreasing. In contrast, the validation loss increased after the third epoch, suggesting that the model was beginning to fit excessively to the noise or specific details of the training dataset rather than capturing the underlying general patterns.
+
+Why Overfitting Occurred
+Several factors could have contributed to overfitting in our model:
+1.	Model Complexity: The Camembert model is inherently complex and has many parameters. This complexity provides the model with high representational power. Still, it also makes it prone to overfitting, especially when the amount of data is insufficient to support learning such a number of parameters without memorising the data.
+2.	Insufficient Regularization: Our initial model setup did not include sufficient mechanisms to penalise the model's complexity. Techniques like dropout, L2 regularisation (weight decay), or other constraints limiting the magnitude of the model parameters were not adequately implemented.
+3.	Inadequate Training Data: Although we utilised augmented data, the diversity and volume might still be insufficient to train such a deep and complex model as Camembert. Deep learning models generally require large amounts of data to generalise well.
+4.	Training Duration and Learning Rate: Prolonged training without adequate early stopping or adjustments to the learning rate can lead to the model fitting too closely to the training data. In our case, the training continued for several epochs even after the validation loss increased.
+
+Strategies to Mitigate Overfitting
+
+To address overfitting, we plan to implement several strategies:
+
+•	Introduce Dropout: Including dropout layers in the model can help by randomly disabling a fraction of the neurons during training, which can prevent them from co-adapting too much.
+•	Apply Early Stopping: This involves monitoring the validation loss during training and stopping the training process once it degrades, even if the training loss continues to decrease.
+•	Enhance Regularization: Implementing L2 regularisation can penalise large weights in the model, encouraging simpler models that may generalise better.
+•	Data Augmentation and Enrichment: Increasing the size and diversity of the training dataset or employing sophisticated NLP-specific data augmentation techniques could enhance the model's generalisation ability.
+•	Adjust Learning Rate: Refining the learning rate and possibly employing adaptive learning rate techniques such as learning rate schedules or reduction on plateau can significantly impact model training dynamics and outcomes.
+
+By implementing these strategies, we aimed to develop a more robust model that performs well on training data and effectively generalises to new, unseen datasets.
+
+
+**3. Non-Representative augmented dataset**
+Thirdly, Non-representative augmented dataset ...
 
 Finally, pretrained models that were not accurate ...
 the model="gpt-3.5-turbo-instruct" 
