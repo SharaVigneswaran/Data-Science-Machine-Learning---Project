@@ -55,12 +55,12 @@ In summary, our application development process encompassed a comprehensive jour
 
 ### Reporting Table Large Language Models
 
-| Metric     | RoBERTa      | OpenAI Embeddings model="text-embedding-3-large"|
-|------------|--------------|--------------------|
-| Precision  | 0.5054       | 0.4706             |
-| Recall     | 0.4750       | 0.4813             |
-| F1-score   | 0.4729       | 0.4703             |
-| Accuracy   | 0.4750       | 0.4813             |
+| Metric       | RoBERTa      | OpenAI Embeddings *model="text-embedding-3-large"*     | BERT (Multilingual) |
+|--------------|--------------|-------------------------|---------------------|
+| Precision    | 0.5054       | 0.4706                  | 0.5533              |
+| Recall       | 0.4750       | 0.4813                  | 0.4958              |
+| F1-score     | 0.4729       | 0.4703                  | 0.4924              |
+| Accuracy     | 0.4750       | 0.4813                  | 0.4958              |
 
 BERT
 CamenBERT
@@ -102,7 +102,7 @@ Secondly, Overfitting of data ...
 Thirdly, Non representative augmented dataset ...
 
 Finally, pretrained models that were not accurate ...
-
+the model="gpt-3.5-turbo-instruct" 
 
 ### Features of the LogoRank Application 
 
