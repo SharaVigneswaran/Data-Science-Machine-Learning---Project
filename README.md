@@ -55,7 +55,7 @@ In summary, our application development process encompassed a comprehensive jour
 
 ### Reporting Table Large Language Models
 
-| Metric     | RoBERTa      | OpenAI Embeddings  |
+| Metric     | RoBERTa      | OpenAI Embeddings model="text-embedding-3-large"|
 |------------|--------------|--------------------|
 | Precision  | 0.5054       | 0.4706             |
 | Recall     | 0.4750       | 0.4813             |
