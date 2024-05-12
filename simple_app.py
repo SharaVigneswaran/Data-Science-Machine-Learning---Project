@@ -39,7 +39,7 @@ def display_difficulty(prediction):
     difficulty_scale = {
         'A1': (0.1, '🟢', 'Beginner'),
         'A2': (0.2, '🟡', 'Elementary'),
-        'B1': (0.4, '🔵', 'Intermediate'),
+        'B1': (0.4, 'red', 'Intermediate'),
         'B2': (0.6, '🟣', 'Upper Intermediate'),
         'C1': (0.8, '🟠', 'Advanced'),
         'C2': (1.0, '🔴', 'Proficiency')
