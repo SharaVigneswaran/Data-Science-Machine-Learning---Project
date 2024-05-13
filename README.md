@@ -155,11 +155,12 @@ Thirdly, Non-representative augmented dataset ...
 .... 
 
 **4. Non-Accurate Model**
+
 In our project, another significant challenge we faced was the issue of model inaccuracy, as evidenced by the low accuracy rate achieved by using an external language model, OpenAI's GPT-3.5 Turbo, to perform text classification.
 
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="ChatGPT 3.5.png" alt="LogoRank" style="width: 450px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="ChatGPT 3.5.png" alt="LogoRank" style="width: 500px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
