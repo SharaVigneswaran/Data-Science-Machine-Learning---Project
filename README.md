@@ -80,7 +80,7 @@ The model behaves by ...
 
 During the development of our machine learning model, we encountered several significant challenges. 
 
-**1. Service Overload and Long Running Time**
+#### **1. Service Overload and Long Running Time**
 
 A critical issue was the long running time on Google Colab, exacerbated by our dependency on external APIs for generating text embeddings. Particularly, we faced a 'ServiceUnavailableError' indicating that the OpenAI's server was temporarily overloaded or under maintenance (as shown in the error screenshot). 
 
@@ -96,7 +96,7 @@ To address such challenges in future implementations, we had to start using Cola
 </div>
 </div>
 
-**2. The Challenge of Overfitting**
+#### **2. The Challenge of Overfitting**
 
 While developing our machine learning model for sequence classification using the Camembert architecture, we encountered a significant challenge quite common in the field of artificial intelligence: overfitting. Overfitting occurs when a model learns the detail and noise in the training data to an extent that it negatively impacts the model's performance on new data, i.e., the model becomes too well-tuned to the training data and fails to generalise to unseen datasets.
 
