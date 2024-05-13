@@ -160,7 +160,7 @@ In our project, another significant challenge we faced was the issue of model in
 
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="ChatGPT 3.5.png" alt="LogoRank" style="width: 500px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="ChatGPT 3.5.png" alt="LogoRank" style="width: 600px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
