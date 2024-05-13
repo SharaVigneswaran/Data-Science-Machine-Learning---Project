@@ -80,7 +80,7 @@ The model behaves by ...
 
 During the development of our machine learning model, we encountered several significant challenges. 
 
-#### **1. Service Overload and Long Running Time**
+### **1. Service Overload and Long Running Time**
 
 A critical issue was the long running time on Google Colab, exacerbated by our dependency on external APIs for generating text embeddings. Particularly, we faced a 'ServiceUnavailableError' indicating that the OpenAI's server was temporarily overloaded or under maintenance (as shown in the error screenshot). 
 
@@ -149,12 +149,12 @@ To address overfitting, we plan to implement several strategies:
 By implementing these strategies, we aimed to develop a more robust model that performs well on training data and effectively generalises to new, unseen datasets.
 
 
-**3. Non-Representative augmented dataset**
+### **3. Non-Representative augmented dataset**
 Thirdly, Non-representative augmented dataset ...
 
 .... 
 
-**4. Non-Accurate Model**
+### **4. Non-Accurate Model**
 
 In our project, another significant challenge we faced was the issue of model inaccuracy, as evidenced by the low accuracy rate achieved by using an external language model, OpenAI's GPT-3.5 Turbo, to perform text classification.
 
