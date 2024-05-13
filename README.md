@@ -104,13 +104,13 @@ In our specific case, the evidence of overfitting was clear from the divergence 
 
 Several factors could have contributed to overfitting in our model:
 
-**1. Model Complexity:** The Camembert model is inherently complex and has many parameters. This complexity provides the model with high representational power. Still, it also makes it prone to overfitting, especially when the amount of data is insufficient to support learning such a number of parameters without memorising the data.
+**• Model Complexity:** The Camembert model is inherently complex and has many parameters. This complexity provides the model with high representational power. Still, it also makes it prone to overfitting, especially when the amount of data is insufficient to support learning such a number of parameters without memorising the data.
 
-**2. Insufficient Regularization:** Our initial model setup did not include sufficient mechanisms to penalise the model's complexity. Techniques like dropout, L2 regularisation (weight decay), or other constraints limiting the magnitude of the model parameters were not adequately implemented.
+**• Insufficient Regularization:** Our initial model setup did not include sufficient mechanisms to penalise the model's complexity. Techniques like dropout, L2 regularisation (weight decay), or other constraints limiting the magnitude of the model parameters were not adequately implemented.
 
-**3. Inadequate Training Data:** Although we utilised augmented data, the diversity and volume might still be insufficient to train such a deep and complex model as Camembert. Deep learning models generally require large amounts of data to generalise well.
+**• Inadequate Training Data:** Although we utilised augmented data, the diversity and volume might still be insufficient to train such a deep and complex model as Camembert. Deep learning models generally require large amounts of data to generalise well.
 
-**4. Training Duration and Learning Rate:** Prolonged training without adequate early stopping or adjustments to the learning rate can lead to the model fitting too closely to the training data. In our case, the training continued for several epochs even after the validation loss increased.
+**• Training Duration and Learning Rate:** Prolonged training without adequate early stopping or adjustments to the learning rate can lead to the model fitting too closely to the training data. In our case, the training continued for several epochs even after the validation loss increased.
 
 <div align="center">
   <div style="position: relative; text-align: right;">
@@ -155,9 +155,24 @@ Thirdly, Non-representative augmented dataset ...
 .... 
 
 **4. Non-Accurate Model**
-Finally, pretrained models that were not accurate ...
-the model="gpt-3.5-turbo-instruct" 
+In our project, another significant challenge we faced was the issue of model inaccuracy, as evidenced by the low accuracy rate achieved by using an external language model, OpenAI's GPT-3.5 Turbo, to perform text classification.
 
+<div align="center">
+  <div style="position: relative; text-align: right;">
+  <img src="Overfitting.png" alt="LogoRank" style="width: 450px; height: auto; position: absolute; top: 10px; right: 10px;">
+</div>
+</div>
+
+We employed OpenAI's GPT-3.5 Turbo model, specifically the "gpt-3.5-turbo-instruct" configuration, to classify text according to a set difficulty scale from A1 to C2. This model is designed to understand and generate natural language or code based on the input provided to it, which makes it suitable for tasks that require a nuanced understanding of text.
+Inherent Challenges:
+
+**• Generalization Over Specialization:** GPT-3.5 Turbo is a highly generalized model designed to understand and generate natural language or code. While it excels in broad applications, it lacks the specialized training on educational data that specifically addresses the nuances of language learning and text difficulty assessment for French texts aimed at English speakers.
+
+**• Prompt Sensitivity:** The efficacy of GPT-3.5's responses is highly dependent on the construction of the prompt. Subtle nuances in how prompts are phrased can lead to significant variances in the output, which may not always align with the specific educational standards used to define text difficulty levels.
+
+**• Model Training and Data Representation:** GPT-3.5 Turbo has not been fine-tuned on a corpus specifically curated for grading French text difficulty, which likely contributed to the suboptimal accuracy observed (23.12%). The model's broad training base may not sufficiently capture the specific features relevant to the linguistic challenges faced by English speakers learning French
+
+While GPT-3.5 Turbo offers a strong foundation due to its advanced natural language processing capabilities, its deployment in LogoRank highlighted the need for more specialized solutions in educational applications. Moving forward, by focusing on specialized training and enhanced model interaction strategies, LogoRank can better achieve its goal of seamlessly integrating into the language learning journey of individuals globally.
 
 ## Features of the LogoRank Application
 
