@@ -145,7 +145,15 @@ This graph represents the training and validation losses over eight epochs for a
 | 7     | 0.008641965876278631  | 1.9333672428037971    |
 | 8     | 0.007510870984554583  | 1.754452733497601     |
 
-Here is another example of a model that overfitted. Indeed, the rapid decrease in training loss compared to the relatively stagnant validation loss is a classic sign of overfitting. The model performs exceptionally well on the training data but struggles to replicate this performance on the validation data, indicating poor generalization.
+
+
+Here is another example of a model, Camembert with data augmentation trained on the full dataset, that overfitted. Indeed, the rapid decrease in training loss compared to the relatively stagnant validation loss is a classic sign of overfitting. The model performs exceptionally well on the training data but struggles to replicate this performance on the validation data, indicating poor generalization. Using the full training set to train the model did not improve our results but instead just created overfitting.
+
+div align="center">
+  <div style="position: relative; text-align: right;">
+  <img src="overfitting 2.png" alt="LogoRank" style="width: 450px; height: auto; position: absolute; top: 10px; right: 10px;">
+</div>
+</div>
 
 
 **Strategies to Mitigate Overfitting**
