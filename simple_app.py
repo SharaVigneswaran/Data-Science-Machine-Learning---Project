@@ -21,7 +21,7 @@ with st.sidebar:
 c1, c2, c3 = st.columns([0.3, 0.4, 0.3])
 
 with c2:
-    st.image("images/Logo.jpeg", width = 500)  # An illustrative image related to language learning
+    st.image("images/Logo.jpeg", use_column_width=True)  # An illustrative image related to language learning
     st.title("Test Your French Level")
     
 ############ 4. APP FUNCTIONALITY ############
