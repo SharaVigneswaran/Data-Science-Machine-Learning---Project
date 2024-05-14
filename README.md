@@ -31,6 +31,8 @@ We commenced our application development by evaluating a suite of fundamental ma
 
 During this phase, we discovered that while these "basic" models provided reasonable performance on certain tasks, they often struggled to capture the nuanced complexities inherent in natural language processing tasks. Their performance was limited by factors such as feature engineering requirements, model capacity, and scalability issues, prompting us to explore more advanced methodologies.
 
+SAy why we used each model (inclusio-exclusion criteria): why we don't keep it. the motivation for the model.
+
 ### Integration of Large Language Models
 Recognizing the transformative potential of large language models, we transitioned to leveraging state-of-the-art architectures such as RoBERTa, Open AI etc. leveraging the powerful capabilities offered by these models to process and understand natural language data.
 
@@ -86,7 +88,7 @@ The model behaves by
 - show the difdferent column
 - 
 
-## Erronerous Predictions
+## Challenges and Erronerous Predictions
 
 During the development of our machine learning model, we encountered several significant challenges. 
 
