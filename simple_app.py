@@ -18,7 +18,7 @@ with st.sidebar:
 ############ 3. MAIN PAGE LAYOUT ############
 
 # Using columns to layout the main components
-st.image("images/Logo.jpeg", width=600)  # An illustrative image related to language learning
+st.image("images/Logo.jpeg", width=600, center=True)  # An illustrative image related to language learning
 st.title("Test Your French Level")
 st.write("""
         Welcome to LogoRank, where language learning meets innovation! Our vision at LogoRank is to revolutionize the way you learn French. With cutting-edge technology and a passion for education, we're dedicated to enhancing your language learning experience like never before.
