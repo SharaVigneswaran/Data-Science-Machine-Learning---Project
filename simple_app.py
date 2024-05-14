@@ -18,15 +18,19 @@ with st.sidebar:
 ############ 3. MAIN PAGE LAYOUT ############
 
 # Using columns to layout the main components
-st.image("images/Logo.jpeg", width=600, center=True)  # An illustrative image related to language learning
-st.title("Test Your French Level")
-st.write("""
+c1, c2, c3 = st.columns([0.3, 0.4, 0.3])
+
+with c2:
+    st.image("images/Logo.jpeg", use_column_width=True)  # An illustrative image related to language learning
+    st.title("Test Your French Level")
+    st.write("""
         Welcome to LogoRank, where language learning meets innovation! Our vision at LogoRank is to revolutionize the way you learn French. With cutting-edge technology and a passion for education, we're dedicated to enhancing your language learning experience like never before.
 
         Join us on a journey where you can progress at your own pace, empowering you to reach new heights in your French proficiency. By integrating LogoRank into your daily learning routine, you'll unlock the key to mastering French effortlessly.
 
         Simply type your sentence below, and let LogoRank determine your current CEFR level in French. Start your language learning adventure with us today!
     """)
+
 ############ 4. APP FUNCTIONALITY ############
 
 def predict_difficulty(sentence):
@@ -69,9 +73,27 @@ if show_history and st.session_state.history:
 
 ############ 5. SUGGESTIONS TO MODIFY SENTENCE ############
 
+if sentence:
+    st.write("### Suggestions to Adjust Difficulty")
+    words = sentence.split()
+    if len(words) < 10:
+        st.markdown("* Try adding more descriptive words or a subordinate clause to increase complexity.")
+        st.image("images/add_words.jpg", caption="Add Descriptive Words")
+    elif len(words) > 50:
+        st.markdown("* Consider simplifying the sentence by removing adjectives or splitting into two sentences.")
+        st.image("images/simplify_sentence.jpg", caption="Simplify Sentence")
 
+    # Additional suggestions based on sentence structure
+    st.markdown("#### Additional Suggestions")
+    if any(word.endswith(('ment', 'tion', 'ance', 'ence')) for word in words):
+        st.markdown("* Your sentence contains some complex words. Consider using simpler synonyms.")
+        st.image("images/simpler_synonyms.jpg", caption="Use Simpler Synonyms")
+
+    if len(words) > 1 and all(words[0].lower() == word.lower() for word in words):
+        st.markdown("* Your sentence seems repetitive. Try to vary your vocabulary.")
+        st.image("images/vary_vocabulary.jpg", caption="Vary Your Vocabulary")
 
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
 # Adding a footer image or branding
-st.image("images/Logo.jpeg", caption="LogoRank", width=500)
+st.image("images/Logo.jpeg", width=200, caption="LogoRank")  # Adjust the width as needed
