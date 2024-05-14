@@ -112,6 +112,8 @@ While developing our machine learning model for sequence classification using th
 
 In our specific case, the evidence of overfitting was clear from the divergence between the training and validation loss, as seen in our experiments. Initially, the training and validation losses decreased, indicating good learning progress. However, as training continued, the training loss kept decreasing. In contrast, the validation loss increased after the third epoch, suggesting that the model was beginning to fit excessively to the noise or specific details of the training dataset rather than capturing the underlying general patterns.
 
+*when doing augmented data*
+
 Several factors could have contributed to overfitting in our model:
 
 **• Model Complexity:** The Camembert model is inherently complex and has many parameters. This complexity provides the model with high representational power. Still, it also makes it prone to overfitting, especially when the amount of data is insufficient to support learning such a number of parameters without memorising the data.
@@ -189,6 +191,8 @@ While GPT-3.5 Turbo offers a strong foundation due to its advanced natural langu
 
 - history of sentences
 - learning difficuly bar
+- recommendations
+- partner d'autre site pour apprendre.
 
 link to the video 
 
