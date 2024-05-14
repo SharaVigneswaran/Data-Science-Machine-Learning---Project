@@ -2,8 +2,7 @@ streamlit
 pandas 
 plotly 
 matplotlib
-yfinance
 scikit-learn 
 torch
-Image
+PIL
 time
