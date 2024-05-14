@@ -18,7 +18,7 @@ with st.sidebar:
 ############ 3. MAIN PAGE LAYOUT ############
 
 # Using columns to layout the main components
-c1, c2, c3 = st.columns([0.3, 0.4, 0.3])
+c1, c2, c3 = st.columns([0.2, 0.6, 0.2])
 
 with c2:
     st.image("images/Logo.jpeg", use_column_width=True)  # An illustrative image related to language learning
