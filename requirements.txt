@@ -4,5 +4,4 @@ plotly
 matplotlib
 scikit-learn 
 torch
-Image
 time
