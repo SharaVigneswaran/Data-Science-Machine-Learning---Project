@@ -205,6 +205,7 @@ While GPT-3.5 Turbo offers a strong foundation due to its advanced natural langu
 - learning difficuly bar
 - recommendations
 - partner d'autre site pour apprendre.
+- sensitive analysis 
 
 link to the video 
 
