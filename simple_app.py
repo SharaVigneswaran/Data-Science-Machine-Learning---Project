@@ -66,11 +66,9 @@ if show_history and st.session_state.history:
 
 ############ 5. SUGGESTIONS TO MODIFY SENTENCE ############
 
-if sentence:
-    st.write("### Suggestions to Adjust Difficulty")
-    words = sentence.split()
-    if len(words) < 10:
-        st.markdown("* Try adding more descriptive words or a subordinate clause to increase complexity.")
-    elif len(words) > 50:
-        st.markdown("* Consider simplifying the sentence by removing adjectives or splitting into two sentences.")
 
+
+############ ADDITIONAL VISUAL ELEMENTS ############
+
+# Adding a footer image or branding
+# st.image("images/footer.jpg", caption="Enhance your French with LogoRank")
