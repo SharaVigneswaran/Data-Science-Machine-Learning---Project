@@ -21,7 +21,7 @@ with st.sidebar:
 c1, c2, c3 = st.columns([0.1, 0.8, 0.1])
 
 with c2:
-    st.image("images/French.jpg")  # An illustrative image related to language learning
+    st.image("images/Logo.jpeg")  # An illustrative image related to language learning
     st.title("Test Your French Level")
 
 ############ 4. APP FUNCTIONALITY ############
@@ -71,4 +71,4 @@ if show_history and st.session_state.history:
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
 # Adding a footer image or branding
-# st.image("images/footer.jpg", caption="Enhance your French with LogoRank")
+st.image("images/Logo.jpeg", caption="Enhance your French with LogoRank")
