@@ -41,6 +41,9 @@ In addition to leveraging advanced models, we employed innovative data augmentat
 
 This approach enabled us to create a more comprehensive and varied training dataset, encompassing a wider range of linguistic patterns, styles, and contexts. By augmenting our data in this manner, we mitigated the risk of overfitting, enhanced model generalization, and improved overall performance on unseen data.
 
+we asked what is A1
+If we ask randonmly it is not representative 
+
 ### Data Augmentation through Coding
 9600 ... 
 
