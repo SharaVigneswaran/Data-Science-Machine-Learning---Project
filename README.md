@@ -145,6 +145,8 @@ This graph represents the training and validation losses over eight epochs for a
 | 7     | 0.008641965876278631  | 1.9333672428037971    |
 | 8     | 0.007510870984554583  | 1.754452733497601     |
 
+Here is another example of a model that overfitted. Indeed, the rapid decrease in training loss compared to the relatively stagnant validation loss is a classic sign of overfitting. The model performs exceptionally well on the training data but struggles to replicate this performance on the validation data, indicating poor generalization.
+
 
 **Strategies to Mitigate Overfitting**
 
