@@ -73,25 +73,6 @@ if show_history and st.session_state.history:
 
 ############ 5. SUGGESTIONS TO MODIFY SENTENCE ############
 
-if sentence:
-    st.write("### Suggestions to Adjust Difficulty")
-    words = sentence.split()
-    if len(words) < 10:
-        st.markdown("* Try adding more descriptive words or a subordinate clause to increase complexity.")
-        st.image("images/add_words.jpg", caption="Add Descriptive Words")
-    elif len(words) > 50:
-        st.markdown("* Consider simplifying the sentence by removing adjectives or splitting into two sentences.")
-        st.image("images/simplify_sentence.jpg", caption="Simplify Sentence")
-
-    # Additional suggestions based on sentence structure
-    st.markdown("#### Additional Suggestions")
-    if any(word.endswith(('ment', 'tion', 'ance', 'ence')) for word in words):
-        st.markdown("* Your sentence contains some complex words. Consider using simpler synonyms.")
-        st.image("images/simpler_synonyms.jpg", caption="Use Simpler Synonyms")
-
-    if len(words) > 1 and all(words[0].lower() == word.lower() for word in words):
-        st.markdown("* Your sentence seems repetitive. Try to vary your vocabulary.")
-        st.image("images/vary_vocabulary.jpg", caption="Vary Your Vocabulary")
 
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
