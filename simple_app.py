@@ -71,5 +71,6 @@ if show_history and st.session_state.history:
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
 # Adding a footer image or branding
-st.image("images/Logo.jpeg", caption="Enhance your French with LogoRank", width=300)
+st.image("images/Logo.jpeg", caption="Enhance your French with LogoRank", use_column_width=True)
+
 
