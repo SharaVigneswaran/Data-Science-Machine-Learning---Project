@@ -74,7 +74,11 @@ The confusion matrix shows ...
 
 Here is a snipp of the code ...
 
-The model behaves by ...
+The model behaves by 
+
+- show the graph with correlation Between lenght and difficulty 
+- show the difdferent column
+- 
 
 ## Erronerous Predictions
 
