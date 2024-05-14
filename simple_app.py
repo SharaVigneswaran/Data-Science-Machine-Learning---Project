@@ -23,7 +23,13 @@ c1, c2, c3 = st.columns([0.3, 0.4, 0.3])
 with c2:
     st.image("images/Logo.jpeg", use_column_width=True)  # An illustrative image related to language learning
     st.title("Test Your French Level")
-    
+    st.write("""
+        Welcome to LogoRank, where language learning meets innovation! Our vision at LogoRank is to revolutionize the way you learn French. With cutting-edge technology and a passion for education, we're dedicated to enhancing your language learning experience like never before.
+
+        Join us on a journey where you can progress at your own pace, empowering you to reach new heights in your French proficiency. By integrating LogoRank into your daily learning routine, you'll unlock the key to mastering French effortlessly.
+
+        Simply type your sentence below, and let LogoRank determine your current CEFR level in French. Start your language learning adventure with us today!
+    """)
 ############ 4. APP FUNCTIONALITY ############
 
 def predict_difficulty(sentence):
