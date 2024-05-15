@@ -72,6 +72,7 @@ new_df_training_data = pd.read_csv(new_training_data_url)
 new_df_training_data.head()
 
 
+
 ### Data Generation and Augmentation through Coding
 To enhance the robustness and diversity of our training data for LogoRank, we employed a technique called data augmentation. Specifically, we used synonym replacement, which involves replacing words in sentences with their synonyms to create new, varied versions of existing texts. This approach helps in mimicking the variability encountered in natural language, thereby improving the model's ability to generalize to new, unseen texts.
 
