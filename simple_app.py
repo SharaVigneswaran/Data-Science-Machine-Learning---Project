@@ -1,7 +1,6 @@
 import streamlit as st
 from PIL import Image
 import time
-from french_conjugator import Conjugator
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
