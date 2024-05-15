@@ -85,7 +85,7 @@ quiz_questions = {
             "question": "Which is the correct conjugation of 'être' for 'nous'?",
             "options": ["es", "suis", "sommes", "êtes"],
             "answer": "sommes"
-        },
+        }, 
         {
             "question": "Translate 'cat' to French.",
             "options": ["chien", "chat", "oiseau", "poisson"],
