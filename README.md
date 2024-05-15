@@ -174,6 +174,7 @@ Several factors could have contributed to overfitting in our model:
 
 This graph represents the training and validation losses over eight epochs for a machine learning model, and it provides a clear visual indication of overfitting. Overfitting is evident when the model performs increasingly well on the training data, as shown by the decreasing blue line (training loss), but performs poorly on unseen validation data, indicated by the increasing red line (validation loss). The divergence of these two curves—where the training loss diminishes and the validation loss escalates—highlights that the model is memorizing the specific details and noise of the training data rather than learning to generalize from it. This is a classic sign of overfitting, where the model's learned parameters are too closely fitted to the idiosyncrasies of the training set and thus fail to predict new data accurately.
 
+<div align="center">
 | Epoch | Training Loss         | Validation Loss       |
 |-------|-----------------------|-----------------------|
 | 1     | 0.15003619283632516   | 1.0499014826491475    |
@@ -184,7 +185,7 @@ This graph represents the training and validation losses over eight epochs for a
 | 6     | 0.010979300375402883  | 1.5590531479101628    |
 | 7     | 0.008641965876278631  | 1.9333672428037971    |
 | 8     | 0.007510870984554583  | 1.754452733497601     |
-
+</div>
 
 
 Here is another example of a model, Camembert with data augmentation trained on the full dataset, that overfitted. Indeed, the rapid decrease in training loss compared to the relatively stagnant validation loss is a classic sign of overfitting. The model performs exceptionally well on the training data but struggles to replicate this performance on the validation data, indicating poor generalization. Using the full training set to train the model did not improve our results but instead just created overfitting.
