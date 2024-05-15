@@ -53,13 +53,13 @@ Thirdly, the model might overfit to the augmented data, especially if the synthe
 Finally, although the dataset was expanded, the increase (from 4,800 to 5,100 lines) might have been insufficient to provide the diversity needed for significant performance improvement. A larger increase or more diverse augmentation techniques might have been necessary to see a positive impact.
 
 To better understand the data, you can view and run the code cell in the following Jupyter Notebook on Colab:
-\\\
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1MbihfSl-H7tilccH8D4iuNLT8PZ1G9L4#scrollTo=xNX382_mcCEY)
 
 ### Data Preview
 Here's a preview of the first few rows of our augmented training dataset:
 
-\```python
+```python
 import pandas as pd
 
 # URL of the augmented training data
@@ -70,7 +70,7 @@ new_df_training_data = pd.read_csv(new_training_data_url)
 
 # Display the first few rows of the DataFrame
 new_df_training_data.head()
-\```
+```
 
 
 ### Data Generation and Augmentation through Coding
