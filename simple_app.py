@@ -98,7 +98,24 @@ def display_difficulty(prediction):
 
     if st.session_state[f"show_answer_{prediction}"]:
         st.markdown(f"**Answer:** {answer}")
+        
+if 'history' not in st.session_state:
+    st.session_state.history = []
 
+sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
+
+if sentence:
+    if "last_input" not in st.session_state or sentence != st.session_state.last_input:
+        st.session_state.last_input = sentence
+        prediction = predict_difficulty(sentence)
+        display_difficulty(prediction)
+        # Update history
+        st.session_state.history.append((sentence, prediction))
+
+if show_history and st.session_state.history:
+    st.write("### Sentence History")
+    for sent, pred in reversed(st.session_state.history):
+        st.text(f"Sentence: {sent} - Level: {pred}")
 
 ############ 5. SUGGESTIONS TO MODIFY SENTENCE ############
 
