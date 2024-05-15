@@ -80,52 +80,126 @@ def display_difficulty(prediction, display_animation):
 
 # Define quiz questions and answers
 quiz_questions = {
-    "A1": {
-        "question": "Which is the correct conjugation of 'être' for 'nous'?",
-        "options": ["es", "suis", "sommes", "êtes"],
-        "answer": "sommes"
-    },
-    "A2": {
-        "question": "Translate 'I have a dog' to French.",
-        "options": ["Je suis un chien", "J'ai un chien", "Tu as un chien", "Il a un chien"],
-        "answer": "J'ai un chien"
-    },
-    "B1": {
-        "question": "Which sentence uses the future tense with 'aller'?",
-        "options": ["Je vais manger", "Je mange", "J'ai mangé", "Je mangerai"],
-        "answer": "Je vais manger"
-    },
-    "B2": {
-        "question": "Form a complex sentence using the subjunctive present with 'pouvoir'.",
-        "options": ["Il faut que tu puisses finir ce projet avant vendredi.", "Je peux finir ce projet.", "Il faut finir ce projet.", "Je finirai ce projet."],
-        "answer": "Il faut que tu puisses finir ce projet avant vendredi."
-    },
-    "C1": {
-        "question": "Which sentence discusses an abstract idea?",
-        "options": ["La liberté est essentielle pour le développement personnel.", "Je mange une pomme.", "Il fait beau aujourd'hui.", "Elle a un chat noir."],
-        "answer": "La liberté est essentielle pour le développement personnel."
-    },
-    "C2": {
-        "question": "Translate 'The juxtaposition of tradition and modernity in French culture is fascinating.' to French.",
-        "options": ["La juxtaposition de la tradition et de la modernité dans la culture française est fascinante.", "La culture française est intéressante.", "Il y a une juxtaposition dans la culture française.", "La tradition en France est moderne."],
-        "answer": "La juxtaposition de la tradition et de la modernité dans la culture française est fascinante."
-    }
+    "A1": [
+        {
+            "question": "Which is the correct conjugation of 'être' for 'nous'?",
+            "options": ["es", "suis", "sommes", "êtes"],
+            "answer": "sommes"
+        },
+        {
+            "question": "Translate 'cat' to French.",
+            "options": ["chien", "chat", "oiseau", "poisson"],
+            "answer": "chat"
+        },
+        {
+            "question": "Which is the correct article for 'chien'?",
+            "options": ["le", "la", "les", "un"],
+            "answer": "le"
+        }
+    ],
+    "A2": [
+        {
+            "question": "Translate 'I have a dog' to French.",
+            "options": ["Je suis un chien", "J'ai un chien", "Tu as un chien", "Il a un chien"],
+            "answer": "J'ai un chien"
+        },
+        {
+            "question": "Which is the correct conjugation of 'avoir' for 'vous' in passé composé?",
+            "options": ["avez eu", "a eu", "avais eu", "auriez eu"],
+            "answer": "avez eu"
+        },
+        {
+            "question": "Translate 'house' to French.",
+            "options": ["maison", "voiture", "école", "église"],
+            "answer": "maison"
+        }
+    ],
+    "B1": [
+        {
+            "question": "Which sentence uses the future tense with 'aller'?",
+            "options": ["Je vais manger", "Je mange", "J'ai mangé", "Je mangerai"],
+            "answer": "Je vais manger"
+        },
+        {
+            "question": "Translate 'We are going to the park' to French.",
+            "options": ["Nous allons au parc", "Nous allons à l'école", "Nous sommes au parc", "Nous allons manger"],
+            "answer": "Nous allons au parc"
+        },
+        {
+            "question": "Which is the correct conjugation of 'faire' for 'ils' in futur simple?",
+            "options": ["ferons", "ferez", "feront", "ferait"],
+            "answer": "feront"
+        }
+    ],
+    "B2": [
+        {
+            "question": "Form a complex sentence using the subjunctive present with 'pouvoir'.",
+            "options": ["Il faut que tu puisses finir ce projet avant vendredi.", "Je peux finir ce projet.", "Il faut finir ce projet.", "Je finirai ce projet."],
+            "answer": "Il faut que tu puisses finir ce projet avant vendredi."
+        },
+        {
+            "question": "Translate 'I want you to come with me' to French.",
+            "options": ["Je veux que tu viennes avec moi.", "Je veux que tu viens avec moi.", "Je veux que tu viendras avec moi.", "Je veux que tu es venu avec moi."],
+            "answer": "Je veux que tu viennes avec moi."
+        },
+        {
+            "question": "Which is the correct conjugation of 'aller' for 'nous' in subjonctif présent?",
+            "options": ["allions", "allons", "alliez", "aille"],
+            "answer": "allions"
+        }
+    ],
+    "C1": [
+        {
+            "question": "Which sentence discusses an abstract idea?",
+            "options": ["La liberté est essentielle pour le développement personnel.", "Je mange une pomme.", "Il fait beau aujourd'hui.", "Elle a un chat noir."],
+            "answer": "La liberté est essentielle pour le développement personnel."
+        },
+        {
+            "question": "Translate 'He speaks fluently and confidently' to French.",
+            "options": ["Il parle couramment et avec confiance.", "Il parle lentement et timidement.", "Il parle vite et fort.", "Il parle doucement et gentiment."],
+            "answer": "Il parle couramment et avec confiance."
+        },
+        {
+            "question": "Which is the correct conjugation of 'venir' for 'je' in plus-que-parfait?",
+            "options": ["étais venu(e)", "étais venu", "étais venue", "étais venir"],
+            "answer": "étais venu(e)"
+        }
+    ],
+    "C2": [
+        {
+            "question": "Translate 'The juxtaposition of tradition and modernity in French culture is fascinating.' to French.",
+            "options": ["La juxtaposition de la tradition et de la modernité dans la culture française est fascinante.", "La culture française est intéressante.", "Il y a une juxtaposition dans la culture française.", "La tradition en France est moderne."],
+            "answer": "La juxtaposition de la tradition et de la modernité dans la culture française est fascinante."
+        },
+        {
+            "question": "Which sentence uses a complex structure correctly?",
+            "options": ["Bien que fatigué, il a continué à travailler.", "Parce que fatigué, il a continué à travailler.", "Même fatigué, il a continué à travailler.", "Fatigué, il a continué à travailler."],
+            "answer": "Bien que fatigué, il a continué à travailler."
+        },
+        {
+            "question": "Which is the correct conjugation of 'savoir' for 'je' in conditionnel passé?",
+            "options": ["aurais su", "aurais sais", "aurais sait", "aurais savoir"],
+            "answer": "aurais su"
+        }
+    ]
 }
 
 def display_quiz(level):
     if level in quiz_questions:
-        question = quiz_questions[level]["question"]
-        options = quiz_questions[level]["options"]
-        correct_answer = quiz_questions[level]["answer"]
+        questions = quiz_questions[level]
+        for i, q in enumerate(questions):
+            question = q["question"]
+            options = q["options"]
+            correct_answer = q["answer"]
 
-        st.markdown(f"**Quiz Question:** {question}")
-        user_answer = st.radio("Choose an answer:", options, key=f"quiz_{level}")
+            st.markdown(f"**Quiz Question {i+1}:** {question}")
+            user_answer = st.radio("Choose an answer:", options, key=f"quiz_{level}_{i}")
 
-        if st.button("Submit Answer", key=f"submit_{level}"):
-            if user_answer == correct_answer:
-                st.success("Correct!")
-            else:
-                st.error(f"Incorrect! The correct answer is: {correct_answer}")
+            if st.button(f"Submit Answer {i+1}", key=f"submit_{level}_{i}"):
+                if user_answer == correct_answer:
+                    st.success("Correct!")
+                else:
+                    st.error(f"Incorrect! The correct answer is: {correct_answer}")
 
 # Call this function to display the quiz after the difficulty level is determined
 def main():
