@@ -33,6 +33,18 @@ During this phase, we discovered that while these "basic" models provided reason
 
 --> Say why we used each model (inclusio-exclusion criteria): why we don't keep it. the motivation for the model.
 
+add the Colab that corresponds to this 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11rgJZTWWMqIaSiTx5SHHPN_lp4qAIdty?usp=sharing#scrollTo=_bG_aWh4jyVH)
+
+</div>
+<div align="center">
+  <div style="position: relative; text-align: right;">
+  <img src="LogoRank.jpeg" alt="LogoRank" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;">
+</div>
+</div>
+
+
 ### Integration of Large Language Models
 Recognizing the transformative potential of large language models, we transitioned to leveraging state-of-the-art architectures such as RoBERTa, Open AI etc. leveraging the powerful capabilities offered by these models to process and understand natural language data.
 
@@ -53,24 +65,6 @@ Thirdly, the model might overfit to the augmented data, especially if the synthe
 Finally, although the dataset was expanded, the increase (from 4,800 to 5,100 lines) might have been insufficient to provide the diversity needed for significant performance improvement. A larger increase or more diverse augmentation techniques might have been necessary to see a positive impact.
 
 To better understand the data, you can view and run the code cell in the following Jupyter Notebook on Colab:
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1MbihfSl-H7tilccH8D4iuNLT8PZ1G9L4#scrollTo=xNX382_mcCEY)
-
-### Data Preview
-Here's a preview of the first few rows of our augmented training dataset:
-
-```python
-import pandas as pd
-
-# URL of the augmented training data
-new_training_data_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/augmented_training_data_50.csv"
-
-# Load the data into a DataFrame
-new_df_training_data = pd.read_csv(new_training_data_url)
-
-# Display the first few rows of the DataFrame
-new_df_training_data.head()
-```
 
 
 ### Data Generation and Augmentation through Coding
