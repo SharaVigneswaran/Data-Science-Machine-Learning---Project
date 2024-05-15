@@ -121,8 +121,49 @@ if show_history and st.session_state.history:
     for sent, pred in reversed(st.session_state.history):
         st.text(f"Sentence: {sent} - Level: {pred}")
 
-############ 5. SUGGESTIONS TO MODIFY SENTENCE ############
+############ 5. QUIZ ############
+# Define quiz questions and answers
+quiz_questions = {
+    "A1": {
+        "question": "Which is the correct conjugation of 'être' for 'nous'?",
+        "options": ["es", "suis", "sommes", "êtes"],
+        "answer": "sommes"
+    },
+    "A2": {
+        "question": "Translate 'I have a dog' to French.",
+        "options": ["Je suis un chien", "J'ai un chien", "Tu as un chien", "Il a un chien"],
+        "answer": "J'ai un chien"
+    },
+    "B1": {
+        "question": "Which sentence uses the future tense with 'aller'?",
+        "options": ["Je vais manger", "Je mange", "J'ai mangé", "Je mangerai"],
+        "answer": "Je vais manger"
+    },
+    "B2": {
+        "question": "Form a complex sentence using the subjunctive present with 'pouvoir'.",
+        "options": ["Il faut que tu puisses finir ce projet avant vendredi.", "Je peux finir ce projet.", "Il faut finir ce projet.", "Je finirai ce projet."],
+        "answer": "Il faut que tu puisses finir ce projet avant vendredi."
+    },
+    "C1": {
+        "question": "Which sentence discusses an abstract idea?",
+        "options": ["La liberté est essentielle pour le développement personnel.", "Je mange une pomme.", "Il fait beau aujourd'hui.", "Elle a un chat noir."],
+        "answer": "La liberté est essentielle pour le développement personnel."
+    },
+    "C2": {
+        "question": "Translate 'The juxtaposition of tradition and modernity in French culture is fascinating.' to French.",
+        "options": ["La juxtaposition de la tradition et de la modernité dans la culture française est fascinante.", "La culture française est intéressante.", "Il y a une juxtaposition dans la culture française.", "La tradition en France est moderne."],
+        "answer": "La juxtaposition de la tradition et de la modernité dans la culture française est fascinante."
+    }
+}
 
+def display_quiz(level):
+    if level in quiz_questions:
+        question = quiz_questions[level]["question"]
+        options = quiz_questions[level]["options"]
+        correct_answer = quiz_questions[level]["answer"]
+
+        st.markdown(f"**Quiz Question:** {question}")
+        user_answer = st.radio("Choose an answer:", options
 
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
