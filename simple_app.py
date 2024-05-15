@@ -76,27 +76,27 @@ def display_difficulty(prediction):
     }
 
     exercises = {
-        "A1": ("Construct a sentence with an adjective and a conjunction. For example: 'The big cat and the small dog are friends.'",
-               "Le grand chat et le petit chien sont amis."),
-        "A2": ("Write a sentence using a relative clause. For example: 'I eat the apple that I bought yesterday.'",
-               "Je mange la pomme que j'ai achetée hier."),
-        "B1": ("Formulate a sentence using the subjunctive mood. For example: 'It is necessary that you know this.'",
-               "Il faut que tu saches cela."),
-        "B2": ("Create a sentence discussing an abstract idea. For example: 'I aspire to explore new cultures.'",
-               "J'aspire à explorer de nouvelles cultures."),
-        "C1": ("Write a nuanced sentence with stylistic elements. For example: 'This provokes deep and thoughtful interest.'",
-               "Cela suscite un intérêt profond et réfléchi."),
-        "C2": ("Discuss a complex topic in a sentence. For example: 'The juxtaposition of tradition and modernity in French culture is fascinating.'",
-               "La juxtaposition de la tradition et de la modernité dans la culture française est fascinante.")
-    }
+    "A1": ("Conjugate the verb 'être' in present tense.",
+           "je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont"),
+    "A2": ("Translate the following sentence to French: 'I have a dog.'",
+           "J'ai un chien."),
+    "B1": ("Write a sentence using the future tense with the verb 'aller'.",
+           "Je vais visiter Paris l'année prochaine."),
+    "B2": ("Form a complex sentence using the subjunctive present with 'pouvoir'.",
+           "Il faut que tu puisses finir ce projet avant vendredi."),
+    "C1": ("Write a short paragraph discussing an abstract idea, such as freedom.",
+           "La liberté est essentielle pour le développement personnel. Elle permet aux individus de s'exprimer et de réaliser leur potentiel."),
+    "C2": ("Translate the following complex sentence to French: 'The juxtaposition of tradition and modernity in French culture is fascinating.'",
+           "La juxtaposition de la tradition et de la modernité dans la culture française est fascinante.")
+}
 
-    st.markdown(f"**Suggestion:** {suggestions[prediction]}")
+st.markdown(f"**Suggestion:** {suggestions[prediction]}")
 
-    exercise_text, answer = exercises[prediction]
-    st.markdown(f"**Exercise:** {exercise_text}")
+exercise_text, answer = exercises[prediction]
+st.markdown(f"**Exercise:** {exercise_text}")
 
-    if st.button(f"Show Answer for {prediction}"):
-        st.markdown(f"**Answer:** {answer}")
+if st.button(f"Show Answer for {prediction}"):
+    st.markdown(f"**Answer:** {answer}")
     
 if 'history' not in st.session_state:
     st.session_state.history = []
