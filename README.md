@@ -114,7 +114,7 @@ The difficulty labels ('A1', 'A2', 'B1', 'B2', 'C1', 'C2') were encoded using La
 **Training Setup:** The model was trained on the NVIDIA CUDA-enabled GPU, which significantly accelerates the training process by enabling parallel processing over large batches of data.
 
 **The Training Process**
-The training was conducted over 5 epochs, with each epoch iterating through all the batches of the training data. We used a batch size of 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a learning rate of (3 \times 10^{-5}\), which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages.
+The training was conducted over 5 epochs, with each epoch iterating through all the batches of the training data. We used a batch size of 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a learning rate of \(3 \times 10^{-5}\), which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages.
 
 Loss and Backpropagation: In each training batch, the model computed the loss (error) between its predictions and the actual labels, using this loss to adjust the model weights through backpropagation. This is crucial for the model to learn from the training data effectively.
 The confusion matrix shows ...
