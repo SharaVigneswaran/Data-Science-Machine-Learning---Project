@@ -32,7 +32,11 @@ with c2:
     """)
 
 ############ 4. APP FUNCTIONALITY ############
-
+def predict_difficulty(sentence):
+    # Placeholder prediction logic
+    words_count = len(sentence.split())
+    return "A1" if words_count < 10 else "A2" if words_count < 20 else "B1" if words_count < 30 else "B2" if words_count < 40 else "C1" if words_count < 50 else "C2"
+    
 def display_difficulty(prediction):
     difficulty_scale = {'A1': (0.1, '🟢', 'Beginner'), 'A2': (0.2, '🟡', 'Elementary'),
                         'B1': (0.4, '🔵', 'Intermediate'), 'B2': (0.6, '🟣', 'Upper Intermediate'),
