@@ -30,6 +30,9 @@ with c2:
 
         Simply type your sentence below, and let LogoRank determine your current CEFR level in French. Start your language learning adventure with us today!
     """)
+    
+    # Add a related video
+    # st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
 ############ 4. APP FUNCTIONALITY ############
 
@@ -201,6 +204,9 @@ def display_quiz(level):
                 else:
                     st.error(f"Incorrect! The correct answer is: {correct_answer}")
 
+            # Adding images to questions
+            # st.image("images/quiz_image.jpg", use_column_width=True)
+
 # Call this function to display the quiz after the difficulty level is determined
 def main():
     if 'history' not in st.session_state:
@@ -236,7 +242,12 @@ def main():
         - Read French books, newspapers, and articles.
         - Write daily journals or essays in French to improve your writing skills.
         - Use flashcards for vocabulary building.
+    """)
+    
+    # Add a related video
+    # st.video("https://www.youtube.com/watch?v=5MgBikgcWnY")
 
+    st.write("""
         **Recommended Apps:**
         - **[Duolingo](https://fr.duolingo.com/):** A fun app for learning languages with gamified lessons.
         - **[Babbel](https://fr.babbel.com/):** Offers interactive courses with a focus on real-life conversations.
@@ -246,13 +257,10 @@ def main():
         - **[LingQ](https://www.lingq.com/fr/):** Provides extensive reading and listening resources to immerse yourself in French.
     """)
 
-
-############ 6.  ############
-
-
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
 # Adding a footer image or branding
+# st.image("images/footer_image.jpg", use_column_width=True)
 
 if __name__ == "__main__":
     main()
