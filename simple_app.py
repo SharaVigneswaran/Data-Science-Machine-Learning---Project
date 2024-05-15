@@ -79,16 +79,6 @@ if show_history and st.session_state.history:
 
 ############ 5. SUGGESTIONS TO MODIFY SENTENCE ############
 
-# Verb conjugation section
-st.write("### French Verb Conjugation")
-verb = st.text_input("Enter a French verb to conjugate:", "")
-tense = st.selectbox("Select a tense:", ["présent", "imparfait", "futur", "passé composé", "subjonctif présent"])
-
-if verb:
-    conjugated_forms = conjugate_verb(verb, tense)
-    st.write(f"**Conjugation of '{verb}' in {tense}:**")
-    for pronoun, form in conjugated_forms.items():
-        st.write(f"{pronoun}: {form}")
 
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
