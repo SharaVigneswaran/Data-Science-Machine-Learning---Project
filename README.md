@@ -59,7 +59,7 @@ To better understand the data, you can view and run the code cell in the followi
 ### Data Preview
 Here's a preview of the first few rows of our augmented training dataset:
 
-```python
+\```python
 import pandas as pd
 
 # URL of the augmented training data
@@ -70,7 +70,7 @@ new_df_training_data = pd.read_csv(new_training_data_url)
 
 # Display the first few rows of the DataFrame
 new_df_training_data.head()
-\\\
+\```
 
 
 ### Data Generation and Augmentation through Coding
