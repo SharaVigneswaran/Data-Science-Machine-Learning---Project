@@ -74,34 +74,7 @@ def display_difficulty(prediction):
                "Engage in complex discussions and read a variety of French literature to stay sharp.")
     }
 
-    exercises = {
-        "A1": ("Conjugate the verb 'être' in present tense.",
-               "je suis, tu es, il/elle/on est, nous sommes, vous êtes, ils/elles sont"),
-        "A2": ("Translate the following sentence to French: 'I have a dog.'",
-               "J'ai un chien."),
-        "B1": ("Write a sentence using the future tense with the verb 'aller'.",
-               "Je vais visiter Paris l'année prochaine."),
-        "B2": ("Form a complex sentence using the subjunctive present with 'pouvoir'.",
-               "Il faut que tu puisses finir ce projet avant vendredi."),
-        "C1": ("Write a short paragraph discussing an abstract idea, such as freedom.",
-               "La liberté est essentielle pour le développement personnel. Elle permet aux individus de s'exprimer et de réaliser leur potentiel."),
-        "C2": ("Translate the following complex sentence to French: 'The juxtaposition of tradition and modernity in French culture is fascinating.'",
-               "La juxtaposition de la tradition et de la modernité dans la culture française est fascinante.")
-    }
-
     st.markdown(f"**Suggestion:** {suggestions[prediction]}")
-
-    exercise_text, answer = exercises[prediction]
-    st.markdown(f"**Exercise:** {exercise_text}")
-
-    if f"show_answer_{prediction}" not in st.session_state:
-        st.session_state[f"show_answer_{prediction}"] = False
-
-    if st.button(f"Show Answer for {prediction}"):
-        st.session_state[f"show_answer_{prediction}"] = True
-
-    if st.session_state[f"show_answer_{prediction}"]:
-        st.markdown(f"**Answer:** {answer}")
         
 if 'history' not in st.session_state:
     st.session_state.history = []
