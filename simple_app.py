@@ -184,6 +184,27 @@ quiz_questions = {
     ]
 }
 
+# Initialize session state for points and achievements
+if 'points' not in st.session_state:
+    st.session_state.points = 0
+
+if 'achievements' not in st.session_state:
+    st.session_state.achievements = []
+
+def update_points(correct):
+    if correct:
+        st.session_state.points += 10
+    else:
+        st.session_state.points -= 5
+
+def check_achievements():
+    if st.session_state.points >= 50 and "50 Points" not in st.session_state.achievements:
+        st.session_state.achievements.append("50 Points")
+        st.success("Achievement Unlocked: 50 Points!")
+    if st.session_state.points >= 100 and "100 Points" not in st.session_state.achievements:
+        st.session_state.achievements.append("100 Points")
+        st.success("Achievement Unlocked: 100 Points!")
+
 def display_quiz(level):
     if level in quiz_questions:
         questions = quiz_questions[level]
@@ -198,8 +219,11 @@ def display_quiz(level):
             if st.button(f"Submit Answer {i+1}", key=f"submit_{level}_{i}"):
                 if user_answer == correct_answer:
                     st.success("Correct!")
+                    update_points(True)
                 else:
                     st.error(f"Incorrect! The correct answer is: {correct_answer}")
+                    update_points(False)
+                check_achievements()
 
 # Call this function to display the quiz after the difficulty level is determined
 def main():
@@ -247,43 +271,8 @@ def main():
     """)
 
 
-############ 6. VOCABULARY BUILDING ############
-vocabulary = {
-    "A1": [
-        {"word": "chat", "definition": "cat", "example": "Le chat dort."},
-        {"word": "chien", "definition": "dog", "example": "Le chien aboie."}
-    ],
-    "A2": [
-        {"word": "maison", "definition": "house", "example": "La maison est grande."},
-        {"word": "voiture", "definition": "car", "example": "La voiture est rouge."}
-    ],
-    "B1": [
-        {"word": "liberté", "definition": "freedom", "example": "La liberté est essentielle."},
-        {"word": "culture", "definition": "culture", "example": "La culture française est riche."}
-    ],
-    "B2": [
-        {"word": "complexe", "definition": "complex", "example": "C'est une idée complexe."},
-        {"word": "développement", "definition": "development", "example": "Le développement personnel est important."}
-    ],
-    "C1": [
-        {"word": "nuance", "definition": "nuance", "example": "Il y a une nuance subtile dans son discours."},
-        {"word": "réfléchi", "definition": "thoughtful", "example": "C'est un commentaire réfléchi."}
-    ],
-    "C2": [
-        {"word": "juxtaposition", "definition": "juxtaposition", "example": "La juxtaposition des idées est fascinante."},
-        {"word": "profondeur", "definition": "depth", "example": "Il parle avec beaucoup de profondeur."}
-    ]
-}
+############ 6.  ############
 
-def display_vocabulary(level):
-    if level in vocabulary:
-        st.markdown("**Vocabulary List:**")
-        for entry in vocabulary[level]:
-            word = entry["word"]
-            definition = entry["definition"]
-            example = entry["example"]
-            st.markdown(f"**{word}**: {definition}")
-            st.markdown(f"_Example_: {example}")
 
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
