@@ -119,9 +119,9 @@ def display_quiz(level):
         correct_answer = quiz_questions[level]["answer"]
 
         st.markdown(f"**Quiz Question:** {question}")
-        user_answer = st.radio("Choose an answer:", options)
+        user_answer = st.radio("Choose an answer:", options, key=f"quiz_{level}")
 
-        if st.button("Submit Answer"):
+        if st.button("Submit Answer", key=f"submit_{level}"):
             if user_answer == correct_answer:
                 st.success("Correct!")
             else:
@@ -142,6 +142,10 @@ def main():
             display_quiz(prediction)
             # Update history
             st.session_state.history.append((sentence, prediction))
+        else:
+            # Retain the previous prediction and display the quiz
+            prediction = predict_difficulty(sentence)
+            display_quiz(prediction)
 
     if show_history and st.session_state.history:
         st.write("### Sentence History")
