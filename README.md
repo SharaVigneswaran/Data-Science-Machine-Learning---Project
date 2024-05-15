@@ -33,14 +33,14 @@ During this phase, we discovered that while these "basic" models provided reason
 
 --> Say why we used each model (inclusio-exclusion criteria): why we don't keep it. the motivation for the model.
 
-add the Colab that corresponds to this 
+Please find the link to the code below if you wish to execute it:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/11rgJZTWWMqIaSiTx5SHHPN_lp4qAIdty?usp=sharing#scrollTo=_bG_aWh4jyVH)
 
 </div>
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="LogoRank.jpeg" alt="LogoRank" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="Colab 1.png" alt="LogoRank" style="width: 400px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
