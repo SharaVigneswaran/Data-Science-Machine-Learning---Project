@@ -164,13 +164,14 @@ def main():
         - Use flashcards for vocabulary building.
 
         **Recommended Apps:**
-        - **Duolingo:** A fun app for learning languages with gamified lessons.
-        - **Babbel:** Offers interactive courses with a focus on real-life conversations.
-        - **Memrise:** Helps you learn through spaced repetition and mnemonic techniques.
-        - **HelloTalk:** Connects you with native speakers for language exchange.
-        - **Tandem:** Another great app for finding language exchange partners.
-        - **LingQ:** Provides extensive reading and listening resources to immerse yourself in French.
+        - **[Duolingo](https://fr.duolingo.com/):** A fun app for learning languages with gamified lessons.
+        - **[Babbel](https://fr.babbel.com/):** Offers interactive courses with a focus on real-life conversations.
+        - **[Memrise](https://www.memrise.com/fr/):** Helps you learn through spaced repetition and mnemonic techniques.
+        - **[HelloTalk](https://www.hellotalk.com/):** Connects you with native speakers for language exchange.
+        - **[Tandem](https://www.tandem.net/fr):** Another great app for finding language exchange partners.
+        - **[LingQ](https://www.lingq.com/fr/):** Provides extensive reading and listening resources to immerse yourself in French.
     """)
+
 
 ############ 6. VOCABULARY BUILDING ############
 vocabulary = {
