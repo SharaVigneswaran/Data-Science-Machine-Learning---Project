@@ -151,6 +151,26 @@ def main():
         st.write("### Sentence History")
         for sent, pred in reversed(st.session_state.history):
             st.text(f"Sentence: {sent} - Level: {pred}")
+            
+    st.write("### Enhance Your French Skills")
+    st.write("""
+        Improving your French doesn't stop here! Here are some tips and partner apps that can help you enhance your French proficiency:
+
+        **Tips:**
+        - Practice speaking with native speakers as often as possible.
+        - Watch French movies and series with subtitles.
+        - Read French books, newspapers, and articles.
+        - Write daily journals or essays in French to improve your writing skills.
+        - Use flashcards for vocabulary building.
+
+        **Recommended Apps:**
+        - **Duolingo:** A fun app for learning languages with gamified lessons.
+        - **Babbel:** Offers interactive courses with a focus on real-life conversations.
+        - **Memrise:** Helps you learn through spaced repetition and mnemonic techniques.
+        - **HelloTalk:** Connects you with native speakers for language exchange.
+        - **Tandem:** Another great app for finding language exchange partners.
+        - **LingQ:** Provides extensive reading and listening resources to immerse yourself in French.
+    """)
 
 ############ 6. VOCABULARY BUILDING ############
 vocabulary = {
