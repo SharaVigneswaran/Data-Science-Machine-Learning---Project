@@ -53,14 +53,26 @@ def display_difficulty(prediction):
 
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
     
-# Suggestions for improvement based on level
+# Friendly suggestions for improvement based on level
     suggestions = {
-        "A1": "To move from A1 to A2, try adding more adjectives and basic conjunctions (e.g., et, mais). Expand your vocabulary with common nouns and verbs.",
-        "A2": "To move from A2 to B1, start using more complex sentence structures, such as relative clauses. Increase your use of past and future tenses.",
-        "B1": "To move from B1 to B2, focus on using more advanced grammar structures, including the subjunctive mood. Improve your vocabulary with less common words and idiomatic expressions.",
-        "B2": "To move from B2 to C1, aim to perfect your use of advanced tenses and moods. Enhance your ability to discuss abstract ideas and complex topics.",
-        "C1": "To move from C1 to C2, work on achieving near-native fluency. Focus on nuanced language use, including stylistic elements and advanced idiomatic expressions.",
-        "C2": "Congratulations! You've reached the highest proficiency level. Continue practicing to maintain and further refine your skills."
+        "A1": ("To move from A1 to A2, try adding more adjectives and basic conjunctions (e.g., et, mais). "
+               "Expand your vocabulary with common nouns and verbs. "
+               "For example, instead of 'Le chat dort,' you could say 'Le chat noir dort et rêve.'"),
+        "A2": ("To move from A2 to B1, start using more complex sentence structures, such as relative clauses. "
+               "Increase your use of past and future tenses. "
+               "For example, instead of 'Je mange une pomme,' try 'Je mange une pomme que j'ai achetée hier.'"),
+        "B1": ("To move from B1 to B2, focus on using more advanced grammar structures, including the subjunctive mood. "
+               "Improve your vocabulary with less common words and idiomatic expressions. "
+               "For example, instead of 'Je pense que c'est bon,' try 'Il faut que tu saches que c'est excellent.'"),
+        "B2": ("To move from B2 to C1, aim to perfect your use of advanced tenses and moods. "
+               "Enhance your ability to discuss abstract ideas and complex topics. "
+               "For example, instead of 'Je veux voyager,' try 'J'aspire à explorer de nouvelles cultures.'"),
+        "C1": ("To move from C1 to C2, work on achieving near-native fluency. "
+               "Focus on nuanced language use, including stylistic elements and advanced idiomatic expressions. "
+               "For example, instead of 'C'est intéressant,' try 'Cela suscite un intérêt profond et réfléchi.'"),
+        "C2": ("Congratulations! You've reached the highest proficiency level. "
+               "Continue practicing to maintain and further refine your skills. "
+               "Engage in complex discussions and read a variety of French literature to stay sharp.")
     }
 
     st.markdown(f"**Suggestion:** {suggestions[prediction]}")
