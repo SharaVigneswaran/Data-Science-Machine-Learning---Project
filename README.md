@@ -72,8 +72,6 @@ To enhance the robustness and diversity of our training data for LogoRank, we em
 
 The initial dataset contained 4,800 sentences, and through synonym replacement, we expanded this to a total of 9,600 sentences. This was achieved by iterating over each sentence in the original dataset and replacing up to one word per sentence with one of its synonyms, using the NLTK library's WordNet resource. The augmented sentences retained the same difficulty labels as their originals, ensuring consistency in the learning targets. This method enabled us to increase our model's accuracy. 
 
-### Conclusion
-In summary, our application development process encompassed a comprehensive journey of exploration, experimentation, and innovation. By iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies, we were able to create a robust and effective application capable of delivering accurate and reliable predictions in real-world scenarios. Our commitment to continuous improvement and adaptation ensured that our application remained at the forefront of advancements in machine learning and natural language processing, poised to address evolving challenges and opportunities in the digital landscape.
 
 ### Reporting Table Initial Models
 
@@ -93,7 +91,9 @@ In summary, our application development process encompassed a comprehensive jour
 | F1-score     | 0.4729       | 0.4703                  | 0.4924              | 0.5995       |
 | Accuracy     | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
 
-CamenBERT augmented 
+
+### Conclusion
+In summary, our application development process encompassed a comprehensive journey of exploration, experimentation, and innovation. By iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies, we were able to create a robust and effective application capable of delivering accurate and reliable predictions in real-world scenarios. Our commitment to continuous improvement and adaptation ensured that our application remained at the forefront of advancements in machine learning and natural language processing, poised to address evolving challenges and opportunities in the digital landscape.
 
 
 ## The Most accurate Model
@@ -114,13 +114,7 @@ The difficulty labels ('A1', 'A2', 'B1', 'B2', 'C1', 'C2') were encoded using La
 **Training Setup:** The model was trained on the NVIDIA CUDA-enabled GPU, which significantly accelerates the training process by enabling parallel processing over large batches of data.
 
 **The Training Process**
-The training was conducted over 5 epochs, with each epoch iterating through all the batches of the training data. We used a batch size of 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a learning rate of 3×1
-0
-−
-5
-3×10 
-−5
- , which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages.
+The training was conducted over 5 epochs, with each epoch iterating through all the batches of the training data. We used a batch size of 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a learning rate of (3 \times 10^{-5}\), which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages.
 
 Loss and Backpropagation: In each training batch, the model computed the loss (error) between its predictions and the actual labels, using this loss to adjust the model weights through backpropagation. This is crucial for the model to learn from the training data effectively.
 The confusion matrix shows ...
