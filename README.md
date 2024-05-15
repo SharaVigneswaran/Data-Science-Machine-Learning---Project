@@ -1,6 +1,6 @@
 <div align="center">
   
-# Welcome to LogoRank 
+# Welcome to LogoRank 👋🏽
 </div>
 <div align="center">
   <div style="position: relative; text-align: right;">
@@ -18,7 +18,7 @@ Reading materials that align with one's language proficiency is crucial in maste
 
 For learners, being presented with too-difficult texts can hinder learning, while too-easy texts may not offer enough challenges to facilitate growth. LogoRank addresses this by providing text recommendations that are just right for the user's current level. This approach enhances learning efficiency and boosts learner confidence and engagement.
 
-### Our Goals
+### Our Goals 🎯
 
 Our long-term goal is to integrate LogoRank into the daily learning routine of language learners worldwide, making it an indispensable tool in their language learning journey. Before testing our App, here is how we created an algorithm just for you!
 
@@ -74,7 +74,7 @@ To enhance the robustness and diversity of our training data for LogoRank, we em
 The initial dataset contained 4,800 sentences, and through synonym replacement, we expanded this to a total of 9,600 sentences. This was achieved by iterating over each sentence in the original dataset and replacing up to one word per sentence with one of its synonyms, using the NLTK library's WordNet resource. The augmented sentences retained the same difficulty labels as their originals, ensuring consistency in the learning targets. This method enabled us to increase our model's accuracy. 
 
 
-### Reporting Table Initial Models
+### Reporting Table Initial Models 
 
 | Metric     | Logistic Regression | KNN    | Decision Tree | Random Forest | Neural Network | Neural Network (CNN) | XGBoost      | 
 |------------|---------------------|--------|---------------|---------------|----------------|----------------------|--------------|
@@ -97,7 +97,7 @@ The initial dataset contained 4,800 sentences, and through synonym replacement, 
 In summary, our application development process encompassed a comprehensive journey of exploration, experimentation, and innovation. By iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies, we were able to create a robust and effective application capable of delivering accurate and reliable predictions in real-world scenarios. Our commitment to continuous improvement and adaptation ensured that our application remained at the forefront of advancements in machine learning and natural language processing, poised to address evolving challenges and opportunities in the digital landscape.
 
 
-## The Most accurate Model
+## The Most accurate Model 🏆
 
 For classifying the difficulty level of French texts, we utilized the CamembertForSequenceClassification model, a variant of the RoBERTa model pre-trained on French language texts. This choice was driven by Camembert's proven effectiveness in understanding and processing French text, making it ideally suited for our specific application in educational technology.
 
@@ -135,7 +135,7 @@ The model behaves by
 - show the difdferent column
 - 
 
-## Challenges and Erronerous Predictions
+## Challenges and Erronerous Predictions ⁉️
 
 During the development of our machine learning model, we encountered several significant challenges. 
 
