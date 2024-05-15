@@ -152,6 +152,44 @@ def main():
         for sent, pred in reversed(st.session_state.history):
             st.text(f"Sentence: {sent} - Level: {pred}")
 
+############ 6. VOCABULARY BUILDING ############
+vocabulary = {
+    "A1": [
+        {"word": "chat", "definition": "cat", "example": "Le chat dort."},
+        {"word": "chien", "definition": "dog", "example": "Le chien aboie."}
+    ],
+    "A2": [
+        {"word": "maison", "definition": "house", "example": "La maison est grande."},
+        {"word": "voiture", "definition": "car", "example": "La voiture est rouge."}
+    ],
+    "B1": [
+        {"word": "liberté", "definition": "freedom", "example": "La liberté est essentielle."},
+        {"word": "culture", "definition": "culture", "example": "La culture française est riche."}
+    ],
+    "B2": [
+        {"word": "complexe", "definition": "complex", "example": "C'est une idée complexe."},
+        {"word": "développement", "definition": "development", "example": "Le développement personnel est important."}
+    ],
+    "C1": [
+        {"word": "nuance", "definition": "nuance", "example": "Il y a une nuance subtile dans son discours."},
+        {"word": "réfléchi", "definition": "thoughtful", "example": "C'est un commentaire réfléchi."}
+    ],
+    "C2": [
+        {"word": "juxtaposition", "definition": "juxtaposition", "example": "La juxtaposition des idées est fascinante."},
+        {"word": "profondeur", "definition": "depth", "example": "Il parle avec beaucoup de profondeur."}
+    ]
+}
+
+def display_vocabulary(level):
+    if level in vocabulary:
+        st.markdown("**Vocabulary List:**")
+        for entry in vocabulary[level]:
+            word = entry["word"]
+            definition = entry["definition"]
+            example = entry["example"]
+            st.markdown(f"**{word}**: {definition}")
+            st.markdown(f"_Example_: {example}")
+
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
 # Adding a footer image or branding
