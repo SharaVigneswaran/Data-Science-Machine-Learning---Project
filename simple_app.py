@@ -38,7 +38,7 @@ def predict_difficulty(sentence):
     words_count = len(sentence.split())
     return "A1" if words_count < 10 else "A2" if words_count < 20 else "B1" if words_count < 30 else "B2" if words_count < 40 else "C1" if words_count < 50 else "C2"
 
-def display_difficulty(prediction):
+def display_difficulty(prediction, display_animation):
     difficulty_scale = {'A1': (0.1, '🟢', 'Beginner'), 'A2': (0.2, '🟡', 'Elementary'),
                         'B1': (0.4, '🔵', 'Intermediate'), 'B2': (0.6, '🟣', 'Upper Intermediate'),
                         'C1': (0.8, '🟠', 'Advanced'), 'C2': (1.0, '🔴', 'Proficiency')}
@@ -74,6 +74,7 @@ def display_difficulty(prediction):
                "Continue practicing to maintain and further refine your skills. "
                "Engage in complex discussions and read a variety of French literature to stay sharp.")
     }
+    st.markdown(suggestions[prediction])
 
 ############ 5. INTERACTIVE QUIZ ############
 
@@ -137,7 +138,7 @@ def main():
         if "last_input" not in st.session_state or sentence != st.session_state.last_input:
             st.session_state.last_input = sentence
             prediction = predict_difficulty(sentence)
-            display_difficulty(prediction)
+            display_difficulty(prediction, display_animation)
             display_quiz(prediction)
             # Update history
             st.session_state.history.append((sentence, prediction))
