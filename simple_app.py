@@ -184,27 +184,6 @@ quiz_questions = {
     ]
 }
 
-# Initialize session state for points and achievements
-if 'points' not in st.session_state:
-    st.session_state.points = 0
-
-if 'achievements' not in st.session_state:
-    st.session_state.achievements = []
-
-def update_points(correct):
-    if correct:
-        st.session_state.points += 10
-    else:
-        st.session_state.points -= 5
-
-def check_achievements():
-    if st.session_state.points >= 50 and "50 Points" not in st.session_state.achievements:
-        st.session_state.achievements.append("50 Points")
-        st.success("Achievement Unlocked: 50 Points!")
-    if st.session_state.points >= 100 and "100 Points" not in st.session_state.achievements:
-        st.session_state.achievements.append("100 Points")
-        st.success("Achievement Unlocked: 100 Points!")
-
 def display_quiz(level):
     if level in quiz_questions:
         questions = quiz_questions[level]
@@ -219,11 +198,8 @@ def display_quiz(level):
             if st.button(f"Submit Answer {i+1}", key=f"submit_{level}_{i}"):
                 if user_answer == correct_answer:
                     st.success("Correct!")
-                    update_points(True)
                 else:
                     st.error(f"Incorrect! The correct answer is: {correct_answer}")
-                    update_points(False)
-                check_achievements()
 
 # Call this function to display the quiz after the difficulty level is determined
 def main():
