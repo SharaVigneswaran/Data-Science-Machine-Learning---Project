@@ -32,11 +32,12 @@ with c2:
     """)
 
 ############ 4. APP FUNCTIONALITY ############
+
 def predict_difficulty(sentence):
     # Placeholder prediction logic
     words_count = len(sentence.split())
     return "A1" if words_count < 10 else "A2" if words_count < 20 else "B1" if words_count < 30 else "B2" if words_count < 40 else "C1" if words_count < 50 else "C2"
-    
+
 def display_difficulty(prediction):
     difficulty_scale = {'A1': (0.1, '🟢', 'Beginner'), 'A2': (0.2, '🟡', 'Elementary'),
                         'B1': (0.4, '🔵', 'Intermediate'), 'B2': (0.6, '🟣', 'Upper Intermediate'),
@@ -51,7 +52,7 @@ def display_difficulty(prediction):
                 st.progress(percent_complete / 100.0)
 
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
-
+    
     # Friendly suggestions for improvement based on level
     suggestions = {
         "A1": ("To move from A1 to A2, try adding more adjectives and basic conjunctions (e.g., et, mais). "
@@ -74,27 +75,8 @@ def display_difficulty(prediction):
                "Engage in complex discussions and read a variety of French literature to stay sharp.")
     }
 
-    st.markdown(f"**Suggestion:** {suggestions[prediction]}")
-        
-if 'history' not in st.session_state:
-    st.session_state.history = []
+############ 5. INTERACTIVE QUIZ ############
 
-sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
-
-if sentence:
-    if "last_input" not in st.session_state or sentence != st.session_state.last_input:
-        st.session_state.last_input = sentence
-        prediction = predict_difficulty(sentence)
-        display_difficulty(prediction)
-        # Update history
-        st.session_state.history.append((sentence, prediction))
-
-if show_history and st.session_state.history:
-    st.write("### Sentence History")
-    for sent, pred in reversed(st.session_state.history):
-        st.text(f"Sentence: {sent} - Level: {pred}")
-
-############ 5. QUIZ ############
 # Define quiz questions and answers
 quiz_questions = {
     "A1": {
@@ -136,9 +118,38 @@ def display_quiz(level):
         correct_answer = quiz_questions[level]["answer"]
 
         st.markdown(f"**Quiz Question:** {question}")
-        user_answer = st.radio("Choose an answer:", options
+        user_answer = st.radio("Choose an answer:", options)
+
+        if st.button("Submit Answer"):
+            if user_answer == correct_answer:
+                st.success("Correct!")
+            else:
+                st.error(f"Incorrect! The correct answer is: {correct_answer}")
+
+# Call this function to display the quiz after the difficulty level is determined
+def main():
+    if 'history' not in st.session_state:
+        st.session_state.history = []
+
+    sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
+
+    if sentence:
+        if "last_input" not in st.session_state or sentence != st.session_state.last_input:
+            st.session_state.last_input = sentence
+            prediction = predict_difficulty(sentence)
+            display_difficulty(prediction)
+            display_quiz(prediction)
+            # Update history
+            st.session_state.history.append((sentence, prediction))
+
+    if show_history and st.session_state.history:
+        st.write("### Sentence History")
+        for sent, pred in reversed(st.session_state.history):
+            st.text(f"Sentence: {sent} - Level: {pred}")
 
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
 # Adding a footer image or branding
 
+if __name__ == "__main__":
+    main()
