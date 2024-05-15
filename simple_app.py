@@ -52,12 +52,19 @@ def display_difficulty(prediction):
                 st.progress(percent_complete / 100.0)
 
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
+    
+# Suggestions for improvement based on level
+    suggestions = {
+        "A1": "To move from A1 to A2, try adding more adjectives and basic conjunctions (e.g., et, mais). Expand your vocabulary with common nouns and verbs.",
+        "A2": "To move from A2 to B1, start using more complex sentence structures, such as relative clauses. Increase your use of past and future tenses.",
+        "B1": "To move from B1 to B2, focus on using more advanced grammar structures, including the subjunctive mood. Improve your vocabulary with less common words and idiomatic expressions.",
+        "B2": "To move from B2 to C1, aim to perfect your use of advanced tenses and moods. Enhance your ability to discuss abstract ideas and complex topics.",
+        "C1": "To move from C1 to C2, work on achieving near-native fluency. Focus on nuanced language use, including stylistic elements and advanced idiomatic expressions.",
+        "C2": "Congratulations! You've reached the highest proficiency level. Continue practicing to maintain and further refine your skills."
+    }
 
-def conjugate_verb(verb, tense="présent"):
-    conjugator = Conjugator()
-    conjugated_forms = conjugator.conjugate(verb)[tense]
-    return conjugated_forms
-
+    st.markdown(f"**Suggestion:** {suggestions[prediction]}")
+    
 if 'history' not in st.session_state:
     st.session_state.history = []
 
@@ -82,4 +89,4 @@ if show_history and st.session_state.history:
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
 # Adding a footer image or branding
-st.image("images/Logo.jpeg", width=600, caption="LogoRank")
+
