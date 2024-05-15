@@ -95,9 +95,14 @@ def display_difficulty(prediction):
     exercise_text, answer = exercises[prediction]
     st.markdown(f"**Exercise:** {exercise_text}")
 
-    if st.button(f"Show Answer for {prediction}"):
-        st.markdown(f"**Answer:** {answer}")
+    if f"show_answer_{prediction}" not in st.session_state:
+        st.session_state[f"show_answer_{prediction}"] = False
 
+    if st.button(f"Show Answer for {prediction}"):
+        st.session_state[f"show_answer_{prediction}"] = not st.session_state[f"show_answer_{prediction}"]
+
+    if st.session_state[f"show_answer_{prediction}"]:
+        st.markdown(f"**Answer:** {answer}")
     
 if 'history' not in st.session_state:
     st.session_state.history = []
