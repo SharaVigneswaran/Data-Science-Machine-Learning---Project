@@ -37,7 +37,7 @@ For learners, being presented with too-difficult texts can hinder learning, whil
 
 Our long-term goal is to integrate LogoRank into the daily learning routine of language learners worldwide, making it an indispensable tool in their language learning journey. Before testing our App, here is how we created an algorithm just for you!
 
-## Application Development Process ⚙️💻
+## Section 1: Application Development Process ⚙️💻
 
 Our journey in developing the application involved a meticulous process of testing various models, integrating sophisticated language models, and implementing data augmentation techniques to enhance performance and accuracy. Here's an overview of our development process:
 
@@ -120,7 +120,7 @@ The initial dataset contained 4,800 sentences, and through synonym replacement, 
 In summary, our application development process encompassed a comprehensive journey of exploration, experimentation, and innovation. By iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies, we were able to create a robust and effective application capable of delivering accurate and reliable predictions in real-world scenarios. Our commitment to continuous improvement and adaptation ensured that our application remained at the forefront of advancements in machine learning and natural language processing, poised to address evolving challenges and opportunities in the digital landscape.
 
 
-## The Most accurate Model 🏆
+## Section 2: The Most accurate Model 🏆
 
 For classifying the difficulty level of French texts, we utilized the CamembertForSequenceClassification model, a variant of the RoBERTa model pre-trained on French language texts. This choice was driven by Camembert's proven effectiveness in understanding and processing French text, making it ideally suited for our specific application in educational technology.
 
@@ -162,7 +162,7 @@ Here is a snipp of the code ...
 The confusion matrix shown here represents the performance of a model predicting the difficulty level of French text, categorized into six classes: A1, A2, B1, B2, C1, and C2. Each row represents the true difficulty level, while each column represents the predicted difficulty level. Overall, the model demonstrates a strong performance in predicting the difficulty levels, particularly for the A1 and B2 categories. Misclassifications are more frequent in adjacent difficulty levels (e.g., A1-A2, B1-B2), indicating the model's sensitivity to subtle differences between neighboring levels.
 
 
-## Challenges and Erronerous Predictions ⁉️
+## Section 3: Challenges and Erronerous Predictions ⁉️
 
 During the development of our machine learning model, we encountered several significant challenges. 
 
