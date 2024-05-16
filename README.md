@@ -11,7 +11,7 @@
 
 **LogoRank** is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
 
-**Curious to learn more about LogoRank and its features? Click on this link to watch a short tutorial that walks you through the application's functionalities. After watching the tutorial, dive into Section 3 for a detailed exploration of everything LogoRank has to offer. Don't miss out on mastering this powerful tool!**
+<p style="color:blue;">Curious to learn more about LogoRank and its features? Click on this link to watch a short tutorial that walks you through the application's functionalities. After watching the tutorial, dive into Section 3 for a detailed exploration of everything LogoRank has to offer. Don't miss out on mastering this powerful tool!</p>
 
 *Video Link*
 
