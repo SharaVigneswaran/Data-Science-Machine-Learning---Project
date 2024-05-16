@@ -11,9 +11,11 @@
 
 **LogoRank** is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
 
-<p style="color:blue;">Curious to learn more about LogoRank and its features? Click on this link to watch a short tutorial that walks you through the application's functionalities. After watching the tutorial, dive into Section 3 for a detailed exploration of everything LogoRank has to offer. Don't miss out on mastering this powerful tool!</p>
+Curious to learn more about LogoRank and its features? 📚
 
-*Video Link*
+Click on this link to watch a short tutorial that walks you through the application's functionalities. After watching the tutorial, dive into Section 3 for a detailed exploration of everything LogoRank has to offer. Don't miss out on mastering this powerful tool!
+
+👉🏽 *Video Link*
 
 
 ## The Idea Behind LogoRank 💡
@@ -37,8 +39,6 @@ Our journey in developing the application involved a meticulous process of testi
 We commenced our application development by evaluating a suite of fundamental machine learning models, including logistic regression, neural networks, and k-nearest neighbors (KNN). This initial phase aimed to establish a baseline understanding of model performance and to identify the strengths and limitations of each approach.
 
 During this phase, we discovered that while these "basic" models provided reasonable performance on certain tasks, they often struggled to capture the nuanced complexities inherent in natural language processing tasks. Their performance was limited by factors such as feature engineering requirements, model capacity, and scalability issues, prompting us to explore more advanced methodologies.
-
---> Say why we used each model (inclusio-exclusion criteria): why we don't keep it. the motivation for the model.
 
 Please find the link to the code below if you wish to execute it:
 
@@ -85,7 +85,7 @@ By integrating BERT and CamenBERT into our application pipeline, we observed sub
 
 Please find the link to the code below if you wish to execute it:
 
-add LLM file
+-->....add LLM file
 
 ### Reporting Table Large Language Models
  
@@ -137,13 +137,14 @@ The model was trained on the NVIDIA CUDA-enabled GPU, which significantly accele
 
 **The Training Process**
 
-The training was conducted over 5 epochs, with each epoch iterating through all the batches of the training data. We used a batch size of 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a learning rate of \(3 \times 10^{-5}\), which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages.
+The training was conducted over 5 epochs, with each epoch iterating through all the batches of the training data. We used a batch size of 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a learning rate of 3*10^{-5}, which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages.
 
 Loss and Backpropagation: In each training batch, the model computed the loss (error) between its predictions and the actual labels, using this loss to adjust the model weights through backpropagation. This is crucial for the model to learn from the training data effectively.
 The confusion matrix shows ...
 
 Here is a snipp of the code ...
-confusion matrix
+
+**Confusion Matrix**
 
 <div align="center">
   <div style="position: relative; text-align: right;">
@@ -151,11 +152,8 @@ confusion matrix
 </div>
 </div>
 
-The model behaves by 
+The confusion matrix shown here represents the performance of a model predicting the difficulty level of French text, categorized into six classes: A1, A2, B1, B2, C1, and C2. Each row represents the true difficulty level, while each column represents the predicted difficulty level. Overall, the model demonstrates a strong performance in predicting the difficulty levels, particularly for the A1 and B2 categories. Misclassifications are more frequent in adjacent difficulty levels (e.g., A1-A2, B1-B2), indicating the model's sensitivity to subtle differences between neighboring levels.
 
-- show the graph with correlation Between lenght and difficulty 
-- show the difdferent column
-- 
 
 ## Challenges and Erronerous Predictions ⁉️
 
@@ -183,7 +181,7 @@ While developing our machine learning model for sequence classification using th
 
 In our specific case, the evidence of overfitting was clear from the divergence between the training and validation loss, as seen in our experiments. Initially, the training and validation losses decreased, indicating good learning progress. However, as training continued, the training loss kept decreasing. In contrast, the validation loss increased after the third epoch, suggesting that the model was beginning to fit excessively to the noise or specific details of the training dataset rather than capturing the underlying general patterns.
 
-Several factors could have contributed to overfitting in our model:
+**Several factors could have contributed to overfitting in our model:**
 
 **• Model Complexity:** The Camembert model is inherently complex and has many parameters. This complexity provides the model with high representational power. Still, it also makes it prone to overfitting, especially when the amount of data is insufficient to support learning such a number of parameters without memorising the data.
 
