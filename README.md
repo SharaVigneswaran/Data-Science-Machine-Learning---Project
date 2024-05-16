@@ -14,6 +14,7 @@
 
 <p style="color:blue;">This is a blue text.</p>
 
+
 *Video Link*
 
 ## The Idea Behind LogoRank 💡
