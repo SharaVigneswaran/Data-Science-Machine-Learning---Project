@@ -17,7 +17,7 @@
 
 </div>
 
-Click on this link to watch a short tutorial that walks you through the application's functionalities. After watching the tutorial, dive into Section 3 for a detailed exploration of everything LogoRank has to offer. Don't miss out on mastering this powerful tool!
+Click on this link to watch a short tutorial that walks you through the application's functionalities. Don't miss out on mastering this powerful tool!
 
 <div align="center">
   
@@ -284,14 +284,6 @@ Inherent Challenges:
 **• Model Training and Data Representation:** GPT-3.5 Turbo has not been fine-tuned on a corpus specifically curated for grading French text difficulty, which likely contributed to the suboptimal accuracy observed (23.12%). The model's broad training base may not sufficiently capture the specific features relevant to the linguistic challenges faced by English speakers learning French
 
 While GPT-3.5 Turbo offers a strong foundation due to its advanced natural language processing capabilities, its deployment in LogoRank highlighted the need for more specialized solutions in educational applications. Moving forward, by focusing on specialized training and enhanced model interaction strategies, LogoRank can better achieve its goal of seamlessly integrating into the language learning journey of individuals globally.
-
-## Features of the LogoRank Application 📲
-
-- history of sentences
-- learning difficuly bar
-- recommendations
-- partner d'autre site pour apprendre.
-- sensitive analysis 
 
 
 
