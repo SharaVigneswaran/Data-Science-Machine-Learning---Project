@@ -96,12 +96,12 @@ Please find the link to the code below if you wish to execute it:
 
 ### Reporting Table Large Language Models
  
-| Metric       | RoBERTa      | OpenAI Embeddings <br> *model="text-embedding-3-large"*     | BERT (Multilingual) <br>  *model= 'bert-base-multilingual-cased'* | CamemBERT <br> *low learning rate of 3e-5* |
-|--------------|--------------|-------------------------|---------------------|--------------|
-| Precision    | 0.5054       | 0.4706                  | 0.5533              | 0.6220       |
-| Recall       | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
-| F1-score     | 0.4729       | 0.4703                  | 0.4924              | 0.5995       |
-| Accuracy     | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
+| Metric       | RoBERTa      | OpenAI Embeddings <br> *model="text-embedding-3-large"*     | BERT (Multilingual) <br>  *model='bert-base-multilingual-cased'* | CamemBERT <br> *low learning rate of 3e-5* | CamemBERT (With Data Generation) |
+|--------------|--------------|-------------------------|---------------------|--------------|--------------------------|
+| Precision    | 0.5054       | 0.4706                  | 0.5533              | 0.6220       | 0.7725                   |
+| Recall       | 0.4750       | 0.4813                  | 0.4958              | 0.6021       | 0.7677                   |
+| F1-score     | 0.4729       | 0.4703                  | 0.4924              | 0.5995       | 0.7648                   |
+| Accuracy     | 0.4750       | 0.4813                  | 0.4958              | 0.6021       | 0.7677                   |
 
 ### Data Size Augmentation with ChatGPT
 
