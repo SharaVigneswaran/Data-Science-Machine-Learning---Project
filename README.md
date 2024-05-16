@@ -54,7 +54,7 @@ Please find the link to the code below if you wish to execute it:
 </div>
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="Colab 1.png" alt="LogoRank" style="width: 400px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="images/Colab 1.png" alt="LogoRank" style="width: 400px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
@@ -155,7 +155,7 @@ Here is a snipp of the code ...
 
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="Confidence M. Best.png" alt="LogoRank" style="width: 500px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="images/Confidence M. Best.png" alt="LogoRank" style="width: 500px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
@@ -178,7 +178,7 @@ To address such challenges in future implementations, we had to start using Cola
 
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="Overload error.png" alt="LogoRank" style="width: 700px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="images/Overload error.png" alt="LogoRank" style="width: 700px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
@@ -201,7 +201,7 @@ In our specific case, the evidence of overfitting was clear from the divergence 
 
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="Overfitting.png" alt="LogoRank" style="width: 450px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="images/Overfitting.png" alt="LogoRank" style="width: 450px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
@@ -227,7 +227,7 @@ Here is another example of a model, Camembert with data augmentation trained on 
 
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="overfitting 2.png" alt="LogoRank" style="width: 450px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="images/overfitting 2.png" alt="LogoRank" style="width: 450px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
@@ -270,7 +270,7 @@ In our project, another significant challenge we faced was the issue of model in
 
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="Chat3.5.png" alt="LogoRank" style="width: 600px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="images/Chat3.5.png" alt="LogoRank" style="width: 600px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
