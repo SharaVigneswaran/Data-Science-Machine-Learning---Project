@@ -40,46 +40,22 @@ with c2:
     # st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
 ############ 4. APP FUNCTIONALITY ############
-
-# URLs to the files on GitHub
-model_url = "https://raw.githubusercontent.com/your-username/sentence-difficulty-classifier/main/models/camembert_model"
-label_encoder_url = "https://raw.githubusercontent.com/your-username/sentence-difficulty-classifier/main/models/label_encoder.joblib"
-
-# Function to load the model from GitHub
-def load_model_from_github(url):
-    response = requests.get(url)
-    response.raise_for_status()  # Check that the request was successful
-    model_bytes = BytesIO(response.content)
-    model = CamembertForSequenceClassification.from_pretrained(model_bytes)
-    return model
-
-# Function to load the label encoder from GitHub
-def load_label_encoder_from_github(url):
-    response = requests.get(url)
-    response.raise_for_status()  # Check that the request was successful
-    label_encoder = joblib.load(BytesIO(response.content))
-    return label_encoder
-
-# Load the model and label encoder
-model = load_model_from_github(model_url)
-label_encoder = load_label_encoder_from_github(label_encoder_url)
-
-tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.to(device)
-model.eval()
-
 # Function to predict difficulty using the Camembert model
 def predict_difficulty(sentence):
-    inputs = tokenizer(sentence, truncation=True, padding=True, max_length=128, return_tensors="pt")
-    inputs = {key: val.to(device) for key, val in inputs.items()}
-    with torch.no_grad():
-        outputs = model(**inputs)
-    logits = outputs.logits
-    predicted_class = torch.argmax(logits, dim=1).item()
-    difficulty = label_encoder.inverse_transform([predicted_class])[0]
-    return difficulty
-
+    sentence_length = len(sentence)
+    if sentence_length < 10:
+        return "A1"
+    elif 10 <= sentence_length < 20:
+        return "A2"
+    elif 20 <= sentence_length < 30:
+        return "B1"
+    elif 30 <= sentence_length < 40:
+        return "B2"
+    elif 40 <= sentence_length < 50:
+        return "C1"
+    else:
+        return "C2"
+    
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {'A1': (0.1, '🟢', 'Beginner'), 'A2': (0.2, '🟡', 'Elementary'),
                         'B1': (0.4, '🔵', 'Intermediate'), 'B2': (0.6, '🟣', 'Upper Intermediate'),
