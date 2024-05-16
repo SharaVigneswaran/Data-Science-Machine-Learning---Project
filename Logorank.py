@@ -1,5 +1,8 @@
 import streamlit as st
 from PIL import Image
+import torch
+from transformers import CamembertTokenizer, CamembertForSequenceClassification
+from sklearn.preprocessing import LabelEncoder
 import time
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
@@ -34,31 +37,50 @@ with c2:
     # Add a related video
     # st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
-############ 4. APP FUNCTIONALITY ############
-# Function to predict difficulty using the Camembert model
+############ 4. LOAD THE MODEL AND TOKENIZER ############
+
+# Load the pretrained model and tokenizer
+model = CamembertForSequenceClassification.from_pretrained('camembert_model')
+tokenizer = CamembertTokenizer.from_pretrained('camembert_tokenizer')
+
+# Load the label encoder
+label_encoder = LabelEncoder()
+label_encoder.classes_ = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']  # Make sure this matches the classes used during training
+
+############ 5. APP FUNCTIONALITY ############
+
 def predict_difficulty(sentence):
-    sentence_length = len(sentence)
-    if sentence_length < 10:
-        return "A1"
-    elif 10 <= sentence_length < 20:
-        return "A2"
-    elif 20 <= sentence_length < 30:
-        return "B1"
-    elif 30 <= sentence_length < 40:
-        return "B2"
-    elif 40 <= sentence_length < 50:
-        return "C1"
-    else:
-        return "C2"
+    # Tokenize the input sentence
+    inputs = tokenizer(sentence, return_tensors='pt', padding=True, truncation=True, max_length=128)
     
+    # Move the inputs to the device
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    inputs = {key: val.to(device) for key, val in inputs.items()}
+    
+    # Move the model to the device
+    model.to(device)
+    
+    # Predict the label
+    with torch.no_grad():
+        outputs = model(**inputs)
+    logits = outputs.logits
+    prediction = torch.argmax(logits, dim=1)
+    predicted_label = label_encoder.inverse_transform(prediction.cpu().numpy())[0]
+    
+    return predicted_label
+
 def display_difficulty(prediction, display_animation):
-    difficulty_scale = {'A1': (0.1, '🟢', 'Beginner'), 'A2': (0.2, '🟡', 'Elementary'),
-                        'B1': (0.4, '🔵', 'Intermediate'), 'B2': (0.6, '🟣', 'Upper Intermediate'),
-                        'C1': (0.8, '🟠', 'Advanced'), 'C2': (1.0, '🔴', 'Proficiency')}
+    difficulty_scale = {
+        'A1': (0.1, '🟢', 'Beginner'), 
+        'A2': (0.2, '🟡', 'Elementary'),
+        'B1': (0.4, '🔵', 'Intermediate'), 
+        'B2': (0.6, '🟣', 'Upper Intermediate'),
+        'C1': (0.8, '🟠', 'Advanced'), 
+        'C2': (1.0, '🔴', 'Proficiency')
+    }
     progress_value, emoji, level_desc = difficulty_scale[prediction]
 
     if display_animation:
-        # Function to animate progress
         with st.empty():
             for percent_complete in range(int(progress_value * 100) + 1):
                 time.sleep(0.05)
@@ -66,7 +88,6 @@ def display_difficulty(prediction, display_animation):
 
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
     
-    # Friendly suggestions for improvement based on level
     suggestions = {
         "A1": ("To move from A1 to A2, try adding more adjectives and basic conjunctions (e.g., et, mais). "
                "Expand your vocabulary with common nouns and verbs. "
