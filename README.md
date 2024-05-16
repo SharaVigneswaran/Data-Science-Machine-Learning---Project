@@ -257,7 +257,8 @@ Another significant challenge in our project was model inaccuracy, as evidenced 
 </div>
 
 We employed OpenAI's GPT-3.5 Turbo model, precisely the "gpt-3.5-turbo-instruct" configuration, to classify text according to a set difficulty scale from A1 to C2. This model is designed to understand and generate natural language or code based on the input provided, making it suitable for tasks requiring a nuanced understanding of text.
-Inherent Challenges:
+
+**Inherent Challenges::**
 
 **• Generalization Over Specialization:** GPT-3.5 Turbo is a highly generalized model designed to understand and generate natural language or code. While it excels in broad applications, it lacks specialized training on educational data that specifically addresses the nuances of language learning and text difficulty assessment for French texts aimed at English speakers.
 
