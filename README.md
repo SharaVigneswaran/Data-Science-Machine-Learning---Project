@@ -109,26 +109,6 @@ To enhance the robustness and diversity of our training data for LogoRank, we em
 
 The initial dataset contained 4,800 sentences, and through synonym replacement, we expanded this to a total of 9,600 sentences. This was achieved by iterating over each sentence in the original dataset and replacing up to one word per sentence with one of its synonyms, using the NLTK library's WordNet resource. The augmented sentences retained the same difficulty labels as their originals, ensuring consistency in the learning targets. This method enabled us to increase our model's accuracy. 
 
-
-### Reporting Table Initial Models 
-
-| Metric     | Logistic Regression | KNN    | Decision Tree | Random Forest | Neural Network | Neural Network (CNN) | XGBoost      | 
-|------------|---------------------|--------|---------------|---------------|----------------|----------------------|--------------|
-| Precision  | 0.4374              | 0.4003 | 0.2932        | 0.3706        | 0.4391         | 0.4735               | 0.4021       | 
-| Recall     | 0.4427              | 0.3552 | 0.2938        | 0.3729        | 0.4375         | 0.4646               | 0.4094       |
-| F1-score   | 0.4347              | 0.3303 | 0.2767        | 0.3649        | 0.4375         | 0.4614               | 0.4000       | 
-| Accuracy   | 0.4427              | 0.3552 | 0.2938        | 0.3729        | 0.4375         | 0.4646               | 0.4094       |
-
-### Reporting Table Large Language Models
- 
-| Metric       | RoBERTa      | OpenAI Embeddings <br> *model="text-embedding-3-large"*     | BERT (Multilingual) <br>  *model= 'bert-base-multilingual-cased'* | CamemBERT <br> *low learning rate of 3e-5* |
-|--------------|--------------|-------------------------|---------------------|--------------|
-| Precision    | 0.5054       | 0.4706                  | 0.5533              | 0.6220       |
-| Recall       | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
-| F1-score     | 0.4729       | 0.4703                  | 0.4924              | 0.5995       |
-| Accuracy     | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
-
-
 ### Conclusion
 In summary, our application development process encompassed a comprehensive journey of exploration, experimentation, and innovation. By iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies, we were able to create a robust and effective application capable of delivering accurate and reliable predictions in real-world scenarios. Our commitment to continuous improvement and adaptation ensured that our application remained at the forefront of advancements in machine learning and natural language processing, poised to address evolving challenges and opportunities in the digital landscape.
 
@@ -164,6 +144,12 @@ The confusion matrix shows ...
 
 Here is a snipp of the code ...
 confusion matrix
+
+<div align="center">
+  <div style="position: relative; text-align: right;">
+  <img src="Confidence M. Best.png" alt="LogoRank" style="width: 500px; height: auto; position: absolute; top: 10px; right: 10px;">
+</div>
+</div>
 
 The model behaves by 
 
