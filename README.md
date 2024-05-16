@@ -9,7 +9,7 @@
 </div>
 
 
-**LogoRank** is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
+LogoRank is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
 
 <div align="center">
   
