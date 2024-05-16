@@ -1,11 +1,6 @@
 import streamlit as st
 from PIL import Image
 import time
-import torch
-import joblib
-from transformers import CamembertTokenizer, CamembertForSequenceClassification
-import requests
-from io import BytesIO
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
