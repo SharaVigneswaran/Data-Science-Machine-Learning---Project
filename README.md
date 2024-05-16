@@ -8,13 +8,13 @@
 </div>
 </div>
 
-<div align="center">
+
 **LogoRank** is a visionary startup. Our mission is to enhance language learning experiences and support learners in progressing at their own pace using innovative technology.
 
 **Curious to learn more about LogoRank and its features? Click on this link to watch a short tutorial that walks you through the application's functionalities. After watching the tutorial, dive into Section 3 for a detailed exploration of everything LogoRank has to offer. Don't miss out on mastering this powerful tool!**
 
 *Video Link*
-</div>
+
 
 ## The Idea Behind LogoRank 💡
 
@@ -57,8 +57,11 @@ Recognizing the transformative potential of large language models, we transition
 
 By integrating BERT and CamenBERT into our application pipeline, we observed substantial improvements in performance across various metrics, including accuracy, precision, and recall. The model demonstrated a remarkable ability to understand context, discern subtle nuances, and generate accurate predictions, thereby elevating the overall efficacy of our application.
 
-### Data Size Augmentation with ChatGPT
+Please find the link to the code below if you wish to execute it:
 
+add LLM file
+
+### Data Size Augmentation with ChatGPT
 In addition to leveraging advanced models, we employed data augmentation techniques to enhance the diversity and robustness of our training data. Leveraging the conversational abilities of ChatGPT, we generated synthetic data instances to supplement our existing dataset. This was achieved by giving ChatGPT our labeled dataset and asking it to generate similar sentences for each difficulty level. We added 50 lines to each difficulty level from A1 to C2, expanding the dataset from 4,800 to 5,100 lines.
 
 We thought that this approach would enable us to create a more comprehensive and varied training dataset, encompassing a wider range of linguistic patterns, styles, and contexts. However, we realized that the accuracy scores diminished when utilizing this augmented dataset. Consequently, the new training set was not representative of the true distribution of text difficulty levels encountered by English speakers learning French.
