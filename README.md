@@ -126,21 +126,13 @@ To classify the difficulty level of French texts, we utilized the CamembertForSe
 
 For this model, we used the following parameters and configuration:
 
-**Tokenizer:**
+**Tokenizer:** We used CamembertTokenizer to convert text data into a format suitable for model input. This involves encoding the texts into token IDs, sequences of integers representing each token uniquely identifiable in the Camembert vocabulary.
 
-We used CamembertTokenizer to convert text data into a format suitable for model input. This involves encoding the texts into token IDs, sequences of integers representing each token uniquely identifiable in the Camembert vocabulary.
+**Sequence Length:** To maintain uniformity in input size, each input sequence was truncated or padded to a maximum length of 128 tokens.
 
-**Sequence Length:** 
+**Label Encoding:** The difficulty labels ('A1', 'A2', 'B1', 'B2', 'C1', 'C2') were encoded using LabelEncoder from the sci-kit-learn library, converting them into a numerical format for model training.
 
-To maintain uniformity in input size, each input sequence was truncated or padded to a maximum length of 128 tokens.
-
-**Label Encoding:** 
-
-The difficulty labels ('A1', 'A2', 'B1', 'B2', 'C1', 'C2') were encoded using LabelEncoder from the sci-kit-learn library, converting them into a numerical format for model training.
-
-**Training Setup:** 
-
-The model was trained on the NVIDIA CUDA-enabled GPU, which significantly accelerates the training process by enabling parallel processing over large batches of data.
+**Training Setup:** The model was trained on the NVIDIA CUDA-enabled GPU, which significantly accelerates the training process by enabling parallel processing over large batches of data.
 
 **The Training Process**
 
