@@ -33,6 +33,7 @@ Our long-term goal is to integrate LogoRank into the daily learning routine of l
 Our journey in developing the application involved a meticulous process of testing various models, integrating sophisticated language models, and implementing data augmentation techniques to enhance performance and accuracy. Here's an overview of our development process:
 
 ### Initial Model Testing
+
 We commenced our application development by evaluating a suite of fundamental machine learning models, including logistic regression, neural networks, and k-nearest neighbors (KNN). This initial phase aimed to establish a baseline understanding of model performance and to identify the strengths and limitations of each approach.
 
 During this phase, we discovered that while these "basic" models provided reasonable performance on certain tasks, they often struggled to capture the nuanced complexities inherent in natural language processing tasks. Their performance was limited by factors such as feature engineering requirements, model capacity, and scalability issues, prompting us to explore more advanced methodologies.
@@ -50,6 +51,31 @@ Please find the link to the code below if you wish to execute it:
 </div>
 </div>
 
+Each model was chosen based on its distinct strengths and suitability for different aspects of predicting the difficulty of French sentences. Unfortunately, some of these models were not accurate enough in predicting the difficulty of French sentences, highlighting the need for more sophisticated and specialized approaches.
+
+**Logistic Regression:** Selected for its simplicity and interpretability, logistic regression provided a straightforward baseline. However, its linear nature was insufficient to capture the complexities of sentence difficulty, leading to subpar performance.
+
+**K-Nearest Neighbors (KNN):** KNN was utilized for its ability to capture non-linear relationships without extensive training. Nevertheless, it struggled with high-dimensional data and computational inefficiency, making it unsuitable for large datasets.
+
+**Decision Tree:** Chosen for its ability to handle categorical features and interpretability, the decision tree model quickly overfit the training data, resulting in poor generalization to new sentences.
+
+**Random Forest:** This ensemble method aimed to improve upon decision trees by reducing overfitting. While it showed better performance, it still fell short in accurately predicting the nuanced difficulty levels of French sentences.
+
+**Neural Network:** Implemented to leverage its capacity to learn complex patterns, the neural network required significant computational resources and extensive tuning, ultimately failing to outperform simpler models significantly.
+
+**Neural Network (CNN):** The convolutional neural network was tested for its ability to capture local patterns within the sentences. Despite its advanced architecture, it did not provide a noticeable improvement in prediction accuracy.
+
+**XGBoost:** Known for its robustness and efficiency in handling structured data, XGBoost was included to test its gradient boosting capabilities. While it outperformed several other models, it still did not meet the desired accuracy levels for sentence difficulty prediction.
+
+### Reporting Table Initial Models 
+
+| Metric     | Logistic Regression | KNN    | Decision Tree | Random Forest | Neural Network | Neural Network (CNN) | XGBoost      | 
+|------------|---------------------|--------|---------------|---------------|----------------|----------------------|--------------|
+| Precision  | 0.4374              | 0.4003 | 0.2932        | 0.3706        | 0.4391         | 0.4735               | 0.4021       | 
+| Recall     | 0.4427              | 0.3552 | 0.2938        | 0.3729        | 0.4375         | 0.4646               | 0.4094       |
+| F1-score   | 0.4347              | 0.3303 | 0.2767        | 0.3649        | 0.4375         | 0.4614               | 0.4000       | 
+| Accuracy   | 0.4427              | 0.3552 | 0.2938        | 0.3729        | 0.4375         | 0.4646               | 0.4094       |
+
 
 ### Integration of Large Language Models
 
@@ -61,13 +87,24 @@ Please find the link to the code below if you wish to execute it:
 
 add LLM file
 
+### Reporting Table Large Language Models
+ 
+| Metric       | RoBERTa      | OpenAI Embeddings <br> *model="text-embedding-3-large"*     | BERT (Multilingual) <br>  *model= 'bert-base-multilingual-cased'* | CamemBERT <br> *low learning rate of 3e-5* |
+|--------------|--------------|-------------------------|---------------------|--------------|
+| Precision    | 0.5054       | 0.4706                  | 0.5533              | 0.6220       |
+| Recall       | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
+| F1-score     | 0.4729       | 0.4703                  | 0.4924              | 0.5995       |
+| Accuracy     | 0.4750       | 0.4813                  | 0.4958              | 0.6021       |
+
 ### Data Size Augmentation with ChatGPT
+
 In addition to leveraging advanced models, we employed data augmentation techniques to enhance the diversity and robustness of our training data. Leveraging the conversational abilities of ChatGPT, we generated synthetic data instances to supplement our existing dataset. This was achieved by giving ChatGPT our labeled dataset and asking it to generate similar sentences for each difficulty level. We added 50 lines to each difficulty level from A1 to C2, expanding the dataset from 4,800 to 5,100 lines.
 
 We thought that this approach would enable us to create a more comprehensive and varied training dataset, encompassing a wider range of linguistic patterns, styles, and contexts. However, we realized that the accuracy scores diminished when utilizing this augmented dataset. Consequently, the new training set was not representative of the true distribution of text difficulty levels encountered by English speakers learning French.
 
 
 ### Data Generation and Augmentation through Coding
+
 To enhance the robustness and diversity of our training data for LogoRank, we employed a technique called data augmentation. Specifically, we used synonym replacement, which involves replacing words in sentences with their synonyms to create new, varied versions of existing texts. This approach helps in mimicking the variability encountered in natural language, thereby improving the model's ability to generalize to new, unseen texts.
 
 The initial dataset contained 4,800 sentences, and through synonym replacement, we expanded this to a total of 9,600 sentences. This was achieved by iterating over each sentence in the original dataset and replacing up to one word per sentence with one of its synonyms, using the NLTK library's WordNet resource. The augmented sentences retained the same difficulty labels as their originals, ensuring consistency in the learning targets. This method enabled us to increase our model's accuracy. 
