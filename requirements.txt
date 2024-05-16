@@ -1,7 +1,0 @@
-streamlit
-pandas
-plotly
-matplotlib
-scikit-learn
-torch
-Pillow
