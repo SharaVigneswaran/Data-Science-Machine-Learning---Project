@@ -4,7 +4,7 @@
 </div>
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="LogoRank.jpeg" alt="LogoRank" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="images/LogoRank.jpeg" alt="LogoRank" style="width: 200px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
