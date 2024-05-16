@@ -19,8 +19,11 @@
 
 Click on this link to watch a short tutorial that walks you through the application's functionalities. After watching the tutorial, dive into Section 3 for a detailed exploration of everything LogoRank has to offer. Don't miss out on mastering this powerful tool!
 
+<div align="center">
+  
 👉🏽 *Video Link*
 
+</div>
 
 ## The Idea Behind LogoRank 💡
 
