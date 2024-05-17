@@ -32,7 +32,7 @@ with c2:
     """)
 
 # Add a related video
-    st.video("https://www.youtube.com/watch?v=N-TCJquxeFk&t=2656s")
+    # st.video("https://www.youtube.com/watch?v=N-TCJquxeFk&t=2656s")
 ############ 4. APP FUNCTIONALITY ############
 
 def predict_difficulty(sentence):
