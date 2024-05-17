@@ -36,15 +36,15 @@ with c2:
 
 ############ 5. APP FUNCTIONALITY ############
 def predict_difficulty(sentence):
-    if sentence > 10: 
+    if len(sentence) > 10: 
         return A1
-    elif sentence > 20: 
+    elif len(sentence) > 20: 
         return A2
-    elif sentence > 30: 
+    elif len(sentence) > 30: 
         return B1
-    elif sentence > 40: 
+    elif len(sentence) > 40: 
         return B2
-    elif sentence > 50: 
+    elif len(sentence) > 50: 
         return C1
     else: 
         return C2
