@@ -31,23 +31,23 @@ with c2:
         Simply type your sentence below, and let LogoRank determine your current CEFR level in French. Start your language learning adventure with us today!
     """)
     
-    # Add a related video
+    # Add a related video (commented out for now)
     # st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
-############ 5. APP FUNCTIONALITY ############
+############ 4. APP FUNCTIONALITY ############
 def predict_difficulty(sentence):
-    if len(sentence) > 10: 
-        return A1
-    elif len(sentence) > 20: 
-        return A2
-    elif len(sentence) > 30: 
-        return B1
-    elif len(sentence) > 40: 
-        return B2
-    elif len(sentence) > 50: 
-        return C1
-    else: 
-        return C2
+    if len(sentence) <= 10:
+        return "A1"
+    elif len(sentence) <= 20:
+        return "A2"
+    elif len(sentence) <= 30:
+        return "B1"
+    elif len(sentence) <= 40:
+        return "B2"
+    elif len(sentence) <= 50:
+        return "C1"
+    else:
+        return "C2"
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
