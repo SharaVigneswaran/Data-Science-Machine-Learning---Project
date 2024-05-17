@@ -226,12 +226,20 @@ def main():
             st.session_state.last_input = sentence
             prediction = predict_difficulty(sentence)
             display_difficulty(prediction, display_animation)
+            
+            # Add the text here
+            st.write("### Now let's test your knowledge with a quick quiz!")
+            
             display_quiz(prediction)
             # Update history
             st.session_state.history.append((sentence, prediction))
         else:
             # Retain the previous prediction and display the quiz
             prediction = predict_difficulty(sentence)
+            
+            # Add the text here as well
+            st.write("### Now let's test your knowledge with a quick quiz!")
+            
             display_quiz(prediction)
 
     if show_history and st.session_state.history:
