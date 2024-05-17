@@ -31,7 +31,8 @@ with c2:
         Just type in a sentence below, and LogoRank will provide you with an accurate level assessment. We'll also offer personalized tips and resources to help you on your language learning journey. Let's get started and make learning French fun and easy!
     """)
 
-
+# Add a related video
+    # st.video("https://www.youtube.com/watch?v=N-TCJquxeFk&t=2656s")
 ############ 4. APP FUNCTIONALITY ############
 
 def predict_difficulty(sentence):
