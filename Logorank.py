@@ -221,7 +221,7 @@ def display_quiz(level):
 
             if i == 1:
                 with col2:
-                    st.image("images/Learning French.jpeg", width=700)  
+                    st.image("images/Learning French.jpeg", width=350)  
 
 ############ MAIN FUNCTION ############
 
