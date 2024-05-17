@@ -30,11 +30,9 @@ with c2:
 
         Simply type your sentence below, and let LogoRank determine your current CEFR level in French. Start your language learning adventure with us today!
     """)
-    
-    # Add a related video (commented out for now)
-    # st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 
 ############ 4. APP FUNCTIONALITY ############
+
 def predict_difficulty(sentence):
     if len(sentence) <= 10:
         return "A1"
@@ -61,13 +59,13 @@ def display_difficulty(prediction, display_animation):
     progress_value, emoji, level_desc = difficulty_scale[prediction]
 
     if display_animation:
-        with st.empty():
-            for percent_complete in range(int(progress_value * 100) + 1):
-                time.sleep(0.05)
-                st.progress(percent_complete / 100.0)
+        progress_bar = st.progress(0)
+        for percent_complete in range(int(progress_value * 100) + 1):
+            time.sleep(0.05)
+            progress_bar.progress(percent_complete / 100.0)
 
     st.markdown(f"**Difficulty Level:** {emoji} {prediction} - {level_desc}")
-    
+
     suggestions = {
         "A1": ("To move from A1 to A2, try adding more adjectives and basic conjunctions (e.g., et, mais). "
                "Expand your vocabulary with common nouns and verbs. "
@@ -215,10 +213,8 @@ def display_quiz(level):
                 else:
                     st.error(f"Incorrect! The correct answer is: {correct_answer}")
 
-            # Adding images to questions
-            # st.image("images/quiz_image.jpg", use_column_width=True)
+############ MAIN FUNCTION ############
 
-# Call this function to display the quiz after the difficulty level is determined
 def main():
     if 'history' not in st.session_state:
         st.session_state.history = []
