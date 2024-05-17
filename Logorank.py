@@ -20,7 +20,7 @@ with st.sidebar:
 # Using columns to layout the main components
 c1, c2, c3 = st.columns([0.2, 0.6, 0.2])
 
-with c2:
+with c1:
     st.image("images/Logo.jpeg", use_column_width=True)  # An illustrative image related to language learning
     st.title("Test Your French Level")
     st.write("""
