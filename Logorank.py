@@ -4,7 +4,7 @@ import time
 
 # Define the paths to the model and tokenizer
 model_path = "models/camembert"
-tokenizer_path = "models/camembert"
+tokenizer_path = "models/tokenizer"
 
 # Load the trained model and tokenizer
 tokenizer = CamembertTokenizer.from_pretrained(tokenizer_path)
