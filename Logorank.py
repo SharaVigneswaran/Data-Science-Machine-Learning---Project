@@ -203,7 +203,7 @@ def display_quiz(level):
         questions = quiz_questions[level]
         
         for i, q in enumerate(questions):
-            col1, col2 = st.columns([0.7, 0.3])  # Adjust the column width as needed
+            col1, col2 = st.columns([0.4, 0.6])  # Adjust the column width as needed
             
             with col1:
                 question = q["question"]
