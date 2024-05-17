@@ -1,8 +1,5 @@
 import streamlit as st
 from PIL import Image
-import torch
-from transformers import CamembertTokenizer, CamembertForSequenceClassification
-from sklearn.preprocessing import LabelEncoder
 import time
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
@@ -36,16 +33,6 @@ with c2:
     
     # Add a related video
     # st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
-
-############ 4. LOAD THE MODEL AND TOKENIZER ############
-
-# Load the pretrained model and tokenizer
-model = CamembertForSequenceClassification.from_pretrained('camembert_model')
-tokenizer = CamembertTokenizer.from_pretrained('camembert_tokenizer')
-
-# Load the label encoder
-label_encoder = LabelEncoder()
-label_encoder.classes_ = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']  # Make sure this matches the classes used during training
 
 ############ 5. APP FUNCTIONALITY ############
 def predict_difficulty(sentence):
