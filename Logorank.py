@@ -26,8 +26,11 @@ with c2:
     st.write("""
         Welcome to LogoRank! We're here to help you quickly find out your current French level and give you the tools to keep improving.
 
-        Just type in a sentence below, and LogoRank will tell you your CEFR level in French. We'll also provide tips and resources to help you on your language learning journey. Let's get started and make learning French fun and easy!
+        LogoRank is an innovative app developed by two EPFL students, designed to revolutionize the way you learn French. Using advanced CamemBERT machine learning technology, LogoRank assesses your CEFR level in French with just a simple sentence input.
+
+        Just type in a sentence below, and LogoRank will provide you with an accurate level assessment. We'll also offer personalized tips and resources to help you on your language learning journey. Let's get started and make learning French fun and easy!
     """)
+
 
 ############ 4. APP FUNCTIONALITY ############
 
