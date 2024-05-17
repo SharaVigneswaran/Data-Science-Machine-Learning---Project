@@ -221,7 +221,7 @@ def main():
     if 'history' not in st.session_state:
         st.session_state.history = []
 
-    sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
+    sentence = st.text_input("Enter a sentence to classify its difficulty level:", "", class_="input-bar")
 
     if sentence:
         if "last_input" not in st.session_state or sentence != st.session_state.last_input:
