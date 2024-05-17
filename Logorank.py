@@ -221,7 +221,7 @@ def display_quiz(level):
 
             if i == 1:
                 with col2:
-                    st.image("images/Learning French.jpeg", use_column_width=True)  # Add the path to your image
+                    st.image("images/Learning French.jpeg", width=700)  
 
 ############ MAIN FUNCTION ############
 
