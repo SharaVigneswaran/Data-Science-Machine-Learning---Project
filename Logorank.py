@@ -226,7 +226,7 @@ def main():
             display_difficulty(prediction, display_animation)
             
             # Add the text here
-            st.write("### Now let's test your knowledge further with a quick quiz!")
+            st.write("### Now let's test your knowledge with a quick quiz!")
             
             display_quiz(prediction)
             # Update history
@@ -241,7 +241,7 @@ def main():
             display_quiz(prediction)
 
     if show_history and st.session_state.history:
-        st.write("### Sentence History")
+        st.write("### Check Your Progress")
         for sent, pred in reversed(st.session_state.history):
             st.text(f"Sentence: {sent} - Level: {pred}")
             
@@ -269,6 +269,7 @@ def main():
         - **[Tandem](https://www.tandem.net/fr):** Another great app for finding language exchange partners.
         - **[LingQ](https://www.lingq.com/fr/):** Provides extensive reading and listening resources to immerse yourself in French.
     """)
+
 
 ############ ADDITIONAL VISUAL ELEMENTS ############
 
