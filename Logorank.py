@@ -219,8 +219,9 @@ def display_quiz(level):
                     else:
                         st.error(f"Incorrect! The correct answer is: {correct_answer}")
 
-            with col2:
-                st.image("images/Learning French.jpeg", use_column_width=True)
+            if i == 1:
+                with col2:
+                    st.image("images/Learning French.jpeg", use_column_width=True)  # Add the path to your image
 
 ############ MAIN FUNCTION ############
 
