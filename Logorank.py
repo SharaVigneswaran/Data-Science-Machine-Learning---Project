@@ -219,6 +219,9 @@ def display_quiz(level):
                     else:
                         st.error(f"Incorrect! The correct answer is: {correct_answer}")
 
+            with col2:
+                st.image("images/Learning French.jpeg", use_column_width=True)
+
 ############ MAIN FUNCTION ############
 
 def main():
