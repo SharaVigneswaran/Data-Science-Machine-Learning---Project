@@ -32,7 +32,7 @@ with c2:
     """)
 
 # Add a related video
-    st.video("https://www.youtube.com/watch?v=N-TCJquxeFk&t=2656s")
+    # st.video("https://www.youtube.com/watch?v=N-TCJquxeFk&t=2656s")
 ############ 4. APP FUNCTIONALITY ############
 
 def predict_difficulty(sentence):
@@ -201,19 +201,23 @@ quiz_questions = {
 def display_quiz(level):
     if level in quiz_questions:
         questions = quiz_questions[level]
+        
         for i, q in enumerate(questions):
-            question = q["question"]
-            options = q["options"]
-            correct_answer = q["answer"]
+            col1, col2 = st.columns([0.7, 0.3])  # Adjust the column width as needed
+            
+            with col1:
+                question = q["question"]
+                options = q["options"]
+                correct_answer = q["answer"]
 
-            st.markdown(f"**Quiz Question {i+1}:** {question}")
-            user_answer = st.radio("Choose an answer:", options, key=f"quiz_{level}_{i}")
+                st.markdown(f"**Quiz Question {i+1}:** {question}")
+                user_answer = st.radio("Choose an answer:", options, key=f"quiz_{level}_{i}")
 
-            if st.button(f"Submit Answer {i+1}", key=f"submit_{level}_{i}"):
-                if user_answer == correct_answer:
-                    st.success("Correct!")
-                else:
-                    st.error(f"Incorrect! The correct answer is: {correct_answer}")
+                if st.button(f"Submit Answer {i+1}", key=f"submit_{level}_{i}"):
+                    if user_answer == correct_answer:
+                        st.success("Correct!")
+                    else:
+                        st.error(f"Incorrect! The correct answer is: {correct_answer}")
 
 ############ MAIN FUNCTION ############
 
@@ -230,7 +234,7 @@ def main():
             display_difficulty(prediction, display_animation)
             
             # Add the text here
-            st.write("### Now let's test your knowledge with a quick quiz!")
+            st.write("### Now let's test your knowledge further with a quick quiz!")
             
             display_quiz(prediction)
             # Update history
