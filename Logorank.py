@@ -48,26 +48,19 @@ label_encoder = LabelEncoder()
 label_encoder.classes_ = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']  # Make sure this matches the classes used during training
 
 ############ 5. APP FUNCTIONALITY ############
-
 def predict_difficulty(sentence):
-    # Tokenize the input sentence
-    inputs = tokenizer(sentence, return_tensors='pt', padding=True, truncation=True, max_length=128)
-    
-    # Move the inputs to the device
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    inputs = {key: val.to(device) for key, val in inputs.items()}
-    
-    # Move the model to the device
-    model.to(device)
-    
-    # Predict the label
-    with torch.no_grad():
-        outputs = model(**inputs)
-    logits = outputs.logits
-    prediction = torch.argmax(logits, dim=1)
-    predicted_label = label_encoder.inverse_transform(prediction.cpu().numpy())[0]
-    
-    return predicted_label
+    if sentence > 10: 
+        return A1
+    elif sentence > 20: 
+        return A2
+    elif sentence > 30: 
+        return B1
+    elif sentence > 40: 
+        return B2
+    elif sentence > 50: 
+        return C1
+    else: 
+        return C2
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
