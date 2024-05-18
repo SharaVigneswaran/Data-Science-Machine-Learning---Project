@@ -1,4 +1,4 @@
-| Task name + description 🛠️ | Name 👤 |
+| Task + Description 🛠️ | Name 👤 |
 |-----------------------------|---------|
 | Create the GitHub + import data | Shara |
 | Logistic Regression code | |
