@@ -27,7 +27,7 @@ Click on this link for a short tutorial on the application's functionalities. Do
 
 ## The Idea Behind LogoRank 💡
 
-Reading materials that align with one's language proficiency is crucial in mastering a new language. However, finding texts that match a learner's level can be challenging. LogoRank aims to simplify this process by developing a tool that predicts the difficulty of French texts for English speakers, facilitating a more tailored learning experience.
+Reading materials that align with language proficiency is crucial in mastering a new language. However, finding texts that match a learner's level can be challenging. LogoRank aims to simplify this process by developing a tool that predicts the difficulty of French texts for English speakers, facilitating a more tailored learning experience.
 
 ### The Potential Impact
 
@@ -58,7 +58,7 @@ Please find the link to the code below if you wish to execute it:
 </div>
 </div>
 
-Each model was chosen based on its distinct strengths and suitability for predicting the difficulty of French sentences. Unfortunately, some of these models were not accurate enough, highlighting the need for more sophisticated and specialized approaches.
+Each model was chosen based on its distinct strengths and suitability for predicting the difficulty of French sentences. Unfortunately, some of these models were inaccurate, highlighting the need for more sophisticated and specialized approaches.
 
 **Logistic Regression:** Selected for its simplicity and interpretability, logistic regression provided a straightforward baseline. However, its linear nature was insufficient to capture the complexities of sentence difficulty, leading to subpar performance.
 
@@ -121,10 +121,10 @@ We thought this approach would enable us to create a more comprehensive and vari
 
 We employed data augmentation to enhance the robustness and diversity of our training data for LogoRank. Specifically, we used synonym replacement, which involves replacing words in sentences with their synonyms to create new, varied versions of existing texts. This approach helps mimic the variability encountered in natural language, thereby improving the model's ability to generalize to new, unseen texts.
 
-The initial dataset contained 4,800 sentences, and through synonym replacement, we expanded this to 9,600 sentences. This was achieved by iterating over each sentence in the original dataset and replacing up to one word per sentence with one of its synonyms using the NLTK library's WordNet resource. The augmented sentences retained the same difficulty labels as their originals, ensuring consistency in the learning targets. This method enabled us to increase our model's accuracy. 
+The initial dataset contained 4,800 sentences; we expanded this to 9,600 sentences through synonym replacement. This was achieved by iterating over each sentence in the original dataset and replacing up to one word per sentence with one of its synonyms using the NLTK library's WordNet resource. The augmented sentences retained the same difficulty labels as their originals, ensuring consistency in the learning targets. This method enabled us to increase our model's accuracy. 
 
 ### Conclusion
-In summary, our application development process encompassed a comprehensive exploration, experimentation, and innovation journey. By iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies, we created a robust and effective application capable of delivering accurate and reliable predictions in real-world scenarios. Our commitment to continuous improvement and adaptation ensured that our application remained at the forefront of advancements in machine learning and natural language processing, poised to address evolving challenges and opportunities in the digital landscape.
+Our application development process encompassed a comprehensive exploration, experimentation, and innovation journey. We created a robust and practical application capable of delivering predictions in real-world scenarios by iteratively testing different models, integrating cutting-edge language technologies, and embracing novel data augmentation strategies. 
 
 
 ## Section 2: The Most Accurate Model 🏆
@@ -143,9 +143,7 @@ For this model, we used the following parameters and configuration:
 
 **The Training Process**
 
-The training was conducted over five epochs, with each epoch iterating through all the batches of the training data. We used a batch size 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a 3*10^{-5} learning rate, which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages.
-
-Loss and Backpropagation: In each training batch, the model computed the loss (error) between its predictions and the actual labels, using this loss to adjust the model weights through backpropagation. This is crucial for the model to learn from the training data effectively.
+The training was conducted over five epochs, with each epoch iterating through all the batches of the training data. We used a batch size 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a 3*10^{-5} learning rate, which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages. In each training batch, the model computed the loss (error) between its predictions and the actual labels, using this loss to adjust the model weights through backpropagation. This is crucial for the model to learn from the training data effectively.
 
 **Snip of the Code for Model Training**
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jx5RsQY7qSj256u_0h9zCcsnuZyj0K19?usp=sharing#scrollTo=fx1XRzelchgl)
@@ -199,11 +197,11 @@ While developing our machine learning model, we encountered several significant 
 
 A critical issue was the long-running time on Google Colab, exacerbated by our dependency on external APIs for generating text embeddings. Particularly, we faced a 'ServiceUnavailableError' indicating that the OpenAI's server was temporarily overloaded or under maintenance (as shown in the error screenshot). 
 
-The primary issue indicated by the error is that the server hosting the model (in this case, OpenAI's server for embeddings) was temporarily unavailable or overloaded. This can happen during periods of high demand or server maintenance. The error reflects our dependency on third-party services and the need for robust error handling and retry mechanisms in our code.
+The primary issue indicated by the error is that the server hosting the model (in this case, OpenAI's server for embeddings) was temporarily unavailable or overloaded. This can happen during periods of high demand or server maintenance. The error reflects our dependency on third-party services and our code's need for robust error handling and retry mechanisms.
 
-Moreover, our large-scale machine learning models, especially those involving extended datasets and complex computations, had long running times. This can be exacerbated when dependent on external services, where network latency and server response times add to the overall execution time.
+Moreover, our large-scale machine-learning models had long running times, especially those involving extended datasets and complex computations. This can be exacerbated when dependent on external services, where network latency and server response times add to the overall execution time.
 
-We had to start using Colab Pro and execute the code with better-performing GPUs to address such challenges in future implementations.
+To address such challenges in future implementations, we had to start using Colab Pro and execute the code with better-performing GPUs.
 
 <div align="center">
   <div style="position: relative; text-align: right;">
@@ -252,7 +250,7 @@ This graph represents the training and validation losses over eight epochs for a
 </div>
 
 
-Here is another example of a model, Camembert, with data augmentation trained on the full dataset, that overfitted. Indeed, the rapid decrease in training loss compared to the relatively stagnant validation loss is a classic sign of overfitting. The model performs exceptionally well on the training data but struggles to replicate this performance on the validation data, indicating poor generalization. Using the full training set to train the model did not improve our results; instead, it created overfitting.
+Here is another example of a model, Camembert, with data augmentation trained on the full dataset. Indeed, the rapid decrease in training loss compared to the relatively stagnant validation loss is a classic sign of overfitting. The model performs exceptionally well on the training data but struggles to replicate this performance on the validation data, indicating poor generalization. Using the full training set to train the model did not improve our results; instead, it created overfitting.
 
 <div align="center">
   <div style="position: relative; text-align: right;">
@@ -295,7 +293,7 @@ We employed OpenAI's GPT-3.5 Turbo model, precisely the "gpt-3.5-turbo-instruct"
 
 **• Model Training and Data Representation:** GPT-3.5 Turbo has not been fine-tuned on a corpus specifically curated for grading French text difficulty, likely contributing to the suboptimal accuracy observed (23.12%). The model's broad training base may not sufficiently capture the specific features relevant to the linguistic challenges faced by English speakers learning French.
 
-While GPT-3.5 Turbo offers a strong foundation due to its advanced natural language processing capabilities, its deployment in LogoRank highlighted the need for more specialized solutions in educational applications. Moving forward, by focusing on specialized training and enhanced model interaction strategies, LogoRank can better achieve its goal of seamlessly integrating into the language learning journey of individuals globally.
+While GPT-3.5 Turbo offers a strong foundation due to its advanced natural language processing capabilities, its deployment in LogoRank highlighted the need for more specialized solutions in educational applications. Moving forward, by focusing on specialized training and enhanced model interaction strategies, LogoRank can better achieve its goal of seamlessly integrating into individuals' language learning journeys globally.
 
 
 
