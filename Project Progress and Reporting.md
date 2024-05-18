@@ -20,7 +20,7 @@ We gained valuable insights throughout this project and thoroughly enjoyed the j
 | RoBERTa | Jeanne |
 | BERT | Shara + Jeanne |
 | FlauBERT | Shara |
-| To the reporting (statistic) table of the models | Jeanne |
+| Do the reporting (statistic) table of the models | Jeanne |
 | Stream-lit App + Code | Shara |
 | Write the Report | Jeanne |
 | Do the Video | Shara + Jeanne |
