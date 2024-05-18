@@ -34,35 +34,11 @@ with c2:
 # Add a related video
     # st.video("https://www.youtube.com/watch?v=N-TCJquxeFk&t=2656s")
 ############ 4. APP FUNCTIONALITY ############
-
-# URLs for model and tokenizer files
-MODEL_URL = "https://drive.google.com/drive/folders/1vqSoOrKzpdMNmGVd1CQeP_FQU8mpOA3l?usp=drive_link"
-TOKENIZER_URL = "https://drive.google.com/drive/folders/1Q86_YqDEl0mBimluee9U_S3qdRIkm45G?usp=drive_link"
-
-# Function to download file from a URL
-def download_file(url, dest_path):
-    response = requests.get(url, stream=True)
-    total_size = int(response.headers.get('content-length', 0))
-    with open(dest_path, 'wb') as file, st.progress(0) as progress:
-        for data in response.iter_content(chunk_size=8192):
-            file.write(data)
-            progress.progress(len(data) / total_size)
-
-# Function to load model and tokenizer
+# Load the model and tokenizer
 @st.cache(allow_output_mutation=True)
 def load_model_and_tokenizer():
-    model_path = "model"
-    tokenizer_path = "tokenizer"
-
-    if not os.path.exists(model_path): 
-        st.info("Downloading model...")
-        download_file(MODEL_URL, model_path)
-    if not os.path.exists(tokenizer_path):
-        st.info("Downloading tokenizer...")
-        download_file(TOKENIZER_URL, tokenizer_path)
-
-    tokenizer = CamembertTokenizer.from_pretrained(tokenizer_path)
-    model = CamembertForSequenceClassification.from_pretrained(model_path)
+    tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
+    model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=6)
     return tokenizer, model
 
 # Load the model and tokenizer
