@@ -146,9 +146,39 @@ For this model, we used the following parameters and configuration:
 The training was conducted over five epochs, with each epoch iterating through all the batches of the training data. We used a batch size 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a 3*10^{-5} learning rate, which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages.
 
 Loss and Backpropagation: In each training batch, the model computed the loss (error) between its predictions and the actual labels, using this loss to adjust the model weights through backpropagation. This is crucial for the model to learn from the training data effectively.
-The confusion matrix shows ...
 
-Here is a snipp of the code ...
+**Snip of the Code for Model Training**
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jx5RsQY7qSj256u_0h9zCcsnuZyj0K19?usp=sharing#scrollTo=fx1XRzelchgl)
+
+```python
+# Split data and prepare datasets
+train_texts, val_texts, train_labels, val_labels = train_test_split(augmented_df['sentence'], augmented_df['encoded_labels'], test_size=0.1, random_state=42)
+train_dataset = prepare_data(train_texts, train_labels.tolist())
+val_dataset = prepare_data(val_texts, val_labels.tolist())
+
+# Model
+model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=len(label_encoder.classes_))
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.to(device)
+
+# Optimizer and scheduler setup
+optimizer = AdamW(model.parameters(), lr=3e-5)
+total_steps = len(train_dataset) * 5  # Assuming 5 epochs
+scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0, num_training_steps=total_steps)
+
+# Training loop
+model.train()
+for epoch in range(5):
+    for batch in DataLoader(train_dataset, batch_size=16, shuffle=True):
+        batch = {k: v.to(device) for k, v in batch.items()}
+        outputs = model(**batch)
+        loss = outputs.loss
+        loss.backward()
+        optimizer.step()
+        scheduler.step()
+        optimizer.zero_grad()
+    print(f'Epoch {epoch+1}, Loss: {loss.item()}')
+```
 
 **Confusion Matrix**
 
