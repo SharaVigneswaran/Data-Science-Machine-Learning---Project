@@ -34,21 +34,6 @@ with c2:
 # Add a related video
     # st.video("https://www.youtube.com/watch?v=N-TCJquxeFk&t=2656s")
 ############ 4. APP FUNCTIONALITY ############
-# Load the model and tokenizer
-@st.cache(allow_output_mutation=True)
-def load_model_and_tokenizer():
-    tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
-    model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=6)
-    return tokenizer, model
-
-# Load the model and tokenizer
-tokenizer, model = load_model_and_tokenizer()
-
-def predict_difficulty(sentence):
-    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True)
-    outputs = model(**inputs)
-    prediction = torch.argmax(outputs.logits, dim=1).item()
-    return prediction
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
