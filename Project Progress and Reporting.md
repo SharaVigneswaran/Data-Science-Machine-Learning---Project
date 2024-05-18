@@ -1,9 +1,11 @@
+We gained valuable insights throughout this project and thoroughly enjoyed the journey, despite the numerous code iterations. We both agree that the work was equitably divided between coding, developing the Streamlit app, writing the report, and creating the video.
+
 | Task + Description 🛠️ | Name 👤 |
 |-----------------------------|---------|
 | Create the GitHub + import data | Shara |
 | Logistic Regression code | Jeanne |
 | KNN code | Jeanne |
-| Decision Tree code | |
+| Decision Tree code | Jeanne |
 | Neural Network code | Jeanne |
 | CNN code | Shara |
 | Random Forest | Jeanne |
