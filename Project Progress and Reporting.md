@@ -19,7 +19,7 @@ We gained valuable insights throughout this project and thoroughly enjoyed the j
 | OpenAI text embedding models | Jeanne |
 | RoBERTa | Jeanne |
 | BERT | Shara + Jeanne |
-| FlauBERT | Shara |
+| FlauBERT | Jeanne |
 | Do the reporting (statistic) table of the models | Jeanne |
 | Stream-lit App + Code | Shara |
 | Write the Report | Jeanne |
