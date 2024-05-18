@@ -2,20 +2,6 @@ import streamlit as st
 from PIL import Image
 import time
 
-# Define the paths to the model and tokenizer
-model_path = "models/camembert"
-tokenizer_path = "models/tokenizer"
-
-# Load the trained model and tokenizer
-tokenizer = CamembertTokenizer.from_pretrained(tokenizer_path)
-model = CamembertForSequenceClassification.from_pretrained(model_path)
-
-# Ensure the model is in evaluation mode
-model.eval()
-
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.to(device)
-
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
 # Configure the Streamlit page with layout settings, title, and icon
