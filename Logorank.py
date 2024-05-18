@@ -54,7 +54,7 @@ def load_model_and_tokenizer():
     model_path = "model"
     tokenizer_path = "tokenizer"
 
-    if not os.path.exists(model_path):
+    if not os.path.exists(model_path): 
         st.info("Downloading model...")
         download_file(MODEL_URL, model_path)
     if not os.path.exists(tokenizer_path):
