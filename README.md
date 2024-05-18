@@ -97,18 +97,18 @@ Please find the link to the code below if you wish to execute it:
 </div>
 <div align="center">
   <div style="position: relative; text-align: right;">
-  <img src="images/Colab 1.png" alt="LogoRank" style="width: 400px; height: auto; position: absolute; top: 10px; right: 10px;">
+  <img src="images/LLM.png" alt="LogoRank" style="width: 400px; height: auto; position: absolute; top: 10px; right: 10px;">
 </div>
 </div>
 
 ### Reporting Table Large Language Models
 
-| Metric       | RoBERTa      | OpenAI Embeddings <br> *model="text-embedding-3-large"*     | BERT (Multilingual) <br>  *model='bert-base-multilingual-cased'* | CamemBERT <br> *low learning rate of 3e-5* | Camembert (Augmented Generation) | Camembert (Full Dataset, Augmented Data) |
-|--------------|--------------|-------------------------|---------------------|--------------|--------------------------|---------------------------------------|
-| Precision    | 0.5054       | 0.4706                  | 0.5533              | 0.6220       | 0.7725                   | 0.9800                                |
-| Recall       | 0.4750       | 0.4813                  | 0.4958              | 0.6021       | 0.7677                   | 0.9797                                |
-| F1-score     | 0.4729       | 0.4703                  | 0.4924              | 0.5995       | 0.7648                   | 0.9797                                |
-| Accuracy     | 0.4750       | 0.4813                  | 0.4958              | 0.6021       | 0.7677                   | 0.9797                                |
+| Metric       | RoBERTa      | OpenAI Embeddings <br> *model="text-embedding-3-large"*     | BERT (Multilingual) <br>  *model='bert-base-multilingual-cased'* | CamemBERT <br> *low learning rate of 3e-5* | Camembert (Augmented Generation) | Camembert (Full Dataset, Augmented Data) | FlauBERT |
+|--------------|--------------|-------------------------|---------------------|--------------|--------------------------|---------------------------------------|----------|
+| Precision    | 0.5054       | 0.4706                  | 0.5533              | 0.6220       | 0.7725                   | 0.9800                                | 0.7113   |
+| Recall       | 0.4750       | 0.4813                  | 0.4958              | 0.6021       | 0.7677                   | 0.9797                                | 0.7083   |
+| F1-score     | 0.4729       | 0.4703                  | 0.4924              | 0.5995       | 0.7648                   | 0.9797                                | 0.7079   |
+| Accuracy     | 0.4750       | 0.4813                  | 0.4958              | 0.6021       | 0.7677                   | 0.9797                                | 0.7083   |
 
 ### Data Size Augmentation with ChatGPT
 
