@@ -92,7 +92,14 @@ By integrating BERT and CamemBERT into our application pipeline, we observed sub
 
 Please find the link to the code below if you wish to execute it:
 
--->....add LLM file
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jx5RsQY7qSj256u_0h9zCcsnuZyj0K19?usp=sharing#scrollTo=fx1XRzelchgl)
+
+</div>
+<div align="center">
+  <div style="position: relative; text-align: right;">
+  <img src="images/Colab 1.png" alt="LogoRank" style="width: 400px; height: auto; position: absolute; top: 10px; right: 10px;">
+</div>
+</div>
 
 ### Reporting Table Large Language Models
 
