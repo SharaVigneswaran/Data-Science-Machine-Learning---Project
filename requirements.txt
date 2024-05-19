@@ -6,3 +6,4 @@ scikit-learn
 Pillow
 torch
 transformers
+os
