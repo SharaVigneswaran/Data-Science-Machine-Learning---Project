@@ -36,34 +36,9 @@ with c2:
     """)
 
 ############ 4. APP FUNCTIONALITY ############
-# Function to load the model and tokenizer from the specified location
-@st.cache_resource
-def load_model_and_tokenizer():
-    model_path = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/model.safetensors"
-    config_path = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/config.json"
-    tokenizer_path = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/tokenizer/"
-
-    try:
-        # Load the model with the specified state dictionary
-        model = AutoModelForSequenceClassification.from_pretrained(config_path, state_dict=torch.load(model_path))
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, use_fast=True)
-    except Exception as e:
-        st.error(f"Error loading model or tokenizer: {e}")
-        return None, None
-
-    return model, tokenizer
-
 # Function to predict the difficulty of a given sentence
 def predict_difficulty(sentence, model, tokenizer):
-    difficulty_mapping = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}
-    
-    inputs = tokenizer(sentence, return_tensors="pt", padding="max_length", truncation=True, max_length=512)
-    with torch.no_grad():
-        outputs = model(**inputs)
-    predicted_label = torch.argmax(outputs.logits, dim=1).item()
-    predicted_difficulty = difficulty_mapping[predicted_label]
-
-    return predicted_difficulty
+    pass
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
