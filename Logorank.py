@@ -36,9 +36,21 @@ with c2:
     """)
 
 ############ 4. APP FUNCTIONALITY ############
-# Function to predict the difficulty of a given sentence
+@st.cache(allow_output_mutation=True)
+def load_model_and_tokenizer():
+    model_path = "saved_model"
+    tokenizer = AutoTokenizer.from_pretrained('camembert-base')  # Assuming the tokenizer is the same
+    model = AutoModelForSequenceClassification.from_pretrained(model_path, from_safetensors=True)
+    return model, tokenizer
+
 def predict_difficulty(sentence, model, tokenizer):
-    pass
+    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=128)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    logits = outputs.logits
+    prediction = torch.argmax(logits, dim=1).item()
+    label_map = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}
+    return label_map[prediction]
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
@@ -228,19 +240,12 @@ def main():
             prediction = predict_difficulty(sentence, model, tokenizer)
             display_difficulty(prediction, display_animation)
             
-            # Add the text here
             st.write("### Now let's test your knowledge further with a quick quiz!")
-            
             display_quiz(prediction)
-            # Update history
             st.session_state.history.append((sentence, prediction))
         else:
-            # Retain the previous prediction and display the quiz
             prediction = st.session_state.history[-1][1]
-            
-            # Add the text here as well
             st.write("### Now let's test your knowledge with a quick quiz!")
-            
             display_quiz(prediction)
 
     if show_history and st.session_state.history:
