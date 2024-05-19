@@ -4,7 +4,6 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import requests
 import time
-import os
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
