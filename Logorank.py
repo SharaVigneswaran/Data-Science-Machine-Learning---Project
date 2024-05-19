@@ -251,7 +251,7 @@ def main():
         st.write("### Check Your Progress")
         for sent, pred in reversed(st.session_state.history):
             st.text(f"Sentence: {sent} - Level: {pred}")
-            
+
     st.write("### Enhance Your French Skills")
     st.write("""
         Improving your French doesn't stop here! Here are some tips and partner apps that can help you enhance your French proficiency:
@@ -266,7 +266,6 @@ def main():
     
     # Add a related video
     
-
     st.write("""
         **Recommended Apps:**
         - **[Duolingo](https://fr.duolingo.com/):** A fun app for learning languages with gamified lessons.
@@ -276,6 +275,7 @@ def main():
         - **[Tandem](https://www.tandem.net/fr):** Another great app for finding language exchange partners.
         - **[LingQ](https://www.lingq.com/fr/):** Provides extensive reading and listening resources to immerse yourself in French.
     """)
+
 
 
 ############ ADDITIONAL VISUAL ELEMENTS ############
