@@ -226,6 +226,8 @@ def display_quiz(level):
                     #st.image("images/Learning French.jpeg", use_column_width=True)  
 
 ############ MAIN FUNCTION ############
+with open("file.txt", "r") as f:
+# Code block missing or incorrectly indented here
 def main():
     if 'history' not in st.session_state:
         st.session_state.history = []
@@ -275,6 +277,7 @@ def main():
         - **[Tandem](https://www.tandem.net/fr):** Another great app for finding language exchange partners.
         - **[LingQ](https://www.lingq.com/fr/):** Provides extensive reading and listening resources to immerse yourself in French.
     """)
+
 
 
 
