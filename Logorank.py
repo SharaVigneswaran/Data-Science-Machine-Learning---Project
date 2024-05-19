@@ -41,9 +41,12 @@ with c2:
 @st.cache_resource
 def load_model_and_tokenizer():
     model_path = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/model.safetensors"
+    config_path = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/config.json"
     tokenizer_path = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/tokenizer/"
+
     try:
-        model = AutoModelForSequenceClassification.from_pretrained(model_path)
+        # Load the model with the specified state dictionary
+        model = AutoModelForSequenceClassification.from_pretrained(config_path, state_dict=torch.load(model_path))
         tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
     except Exception as e:
         st.error(f"Error loading model or tokenizer: {e}")
