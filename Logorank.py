@@ -234,7 +234,6 @@ def display_quiz(level):
                     st.image("images/Learning French.jpeg", use_column_width=True)  
 
 ############ MAIN FUNCTION ############
-
 def main():
     if 'history' not in st.session_state:
         st.session_state.history = []
@@ -256,7 +255,7 @@ def main():
             st.session_state.history.append((sentence, prediction))
         else:
             # Retain the previous prediction and display the quiz
-            prediction = predict_difficulty(sentence, model, tokenizer)
+            prediction = st.session_state.history[-1][1]
             
             # Add the text here as well
             st.write("### Now let's test your knowledge with a quick quiz!")
