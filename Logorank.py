@@ -37,7 +37,7 @@ with c2:
 ############ 4. APP FUNCTIONALITY ############
 @st.cache_resource
 def load_model_and_tokenizer():
-    model_path = "saved_model 
+    model_path = "saved_model"
     tokenizer = AutoTokenizer.from_pretrained(model_path)
     model = AutoModelForSequenceClassification.from_pretrained(model_path, from_safetensors=True)
     return model, tokenizer
