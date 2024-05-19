@@ -40,8 +40,8 @@ with c2:
 # Function to load the model and tokenizer from the specified location
 @st.cache_resource
 def load_model_and_tokenizer():
-    model_path = "path/to/your/model"
-    tokenizer_path = "path/to/your/tokenizer"
+    model_path = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/model.safetensors"
+    tokenizer_path = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/tokenizer/"
     try:
         model = AutoModelForSequenceClassification.from_pretrained(model_path)
         tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
