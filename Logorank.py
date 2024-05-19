@@ -36,6 +36,7 @@ with c2:
     """)
 
 ############ 4. APP FUNCTIONALITY ############
+
 # Function to download a file from a URL
 def download_file(url, local_path):
     response = requests.get(url)
@@ -297,7 +298,7 @@ def main():
     """)
     
     # Add a related video
-    # st.video("https://www.youtube.com/watch?v=5MgBikgcWnY")
+    st.video("https://www.youtube.com/watch?v=5MgBikgcWnY")
 
     st.write("""
         **Recommended Apps:**
