@@ -36,7 +36,6 @@ with c2:
     """)
 
 ############ 4. APP FUNCTIONALITY ############
-
 # Function to load the model and tokenizer from the specified location
 @st.cache_resource
 def load_model_and_tokenizer():
@@ -47,7 +46,7 @@ def load_model_and_tokenizer():
     try:
         # Load the model with the specified state dictionary
         model = AutoModelForSequenceClassification.from_pretrained(config_path, state_dict=torch.load(model_path))
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_path, use_fast=True)
     except Exception as e:
         st.error(f"Error loading model or tokenizer: {e}")
         return None, None
