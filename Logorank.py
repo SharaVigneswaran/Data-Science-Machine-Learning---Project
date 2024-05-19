@@ -3,6 +3,7 @@ from PIL import Image
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 import requests
+import time
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
@@ -39,8 +40,8 @@ with c2:
 @st.cache(allow_output_mutation=True)
 def load_model_and_tokenizer(): 
     model_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/.gitattributes"
-    config_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/maon/tokenizer/tokenizer_config.json"
-    tokenizer_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/Ml-Project/models/tokenizer"
+    config_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/tokenizer/tokenizer_config.json"
+    tokenizer_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/tokenizer"
 
     model = AutoModelForSequenceClassification.from_pretrained(config_url, state_dict=torch.hub.load_state_dict_from_url(model_url))
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_url)
