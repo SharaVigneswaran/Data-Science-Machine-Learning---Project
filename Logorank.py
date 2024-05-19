@@ -287,7 +287,7 @@ def main():
     """)
     
     # Add a related video
-    st.video("https://www.youtube.com/watch?v=5MgBikgcWnY")
+    
 
     st.write("""
         **Recommended Apps:**
