@@ -24,7 +24,7 @@ with st.sidebar:
 c1, c2, c3 = st.columns([0.2, 0.6, 0.2])
 
 with c2:
-    st.image("images/Logo.jpeg", use_column_width=True)  # An illustrative image related to language learning
+    #st.image("images/Logo.jpeg", use_column_width=True)  # An illustrative image related to language learning
     st.title("Test Your French Level")
     st.write("""
         Welcome to LogoRank! We're here to help you quickly find out your current French level and give you the tools to keep improving.
@@ -223,7 +223,7 @@ def display_quiz(level):
 
             if i == 1:
                 with col2:
-                    st.image("images/Learning French.jpeg", use_column_width=True)  
+                    #st.image("images/Learning French.jpeg", use_column_width=True)  
 
 ############ MAIN FUNCTION ############
 def main():
