@@ -1,6 +1,8 @@
 import streamlit as st
 from PIL import Image
-import time
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
+import requests
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
@@ -31,9 +33,31 @@ with c2:
         Just type in a sentence below, and LogoRank will provide you with an accurate level assessment. We'll also offer personalized tips and resources to help you on your language learning journey. Let's get started and make learning French fun and easy!
     """)
 
-# Add a related video
-    # st.video("https://www.youtube.com/watch?v=N-TCJquxeFk&t=2656s")
 ############ 4. APP FUNCTIONALITY ############
+
+# Function to load the model and tokenizer from GitHub
+@st.cache(allow_output_mutation=True)
+def load_model_and_tokenizer(): 
+    model_url = "https://github.com/your-username/your-repo/raw/main/saved_model/pytorch_model.bin"
+    config_url = "https://github.com/your-username/your-repo/raw/main/saved_model/config.json"
+    tokenizer_url = "https://github.com/your-username/your-repo/raw/main/saved_model/tokenizer.json"
+
+    model = AutoModelForSequenceClassification.from_pretrained(config_url, state_dict=torch.hub.load_state_dict_from_url(model_url))
+    tokenizer = AutoTokenizer.from_pretrained(tokenizer_url)
+
+    return model, tokenizer
+
+# Function to predict the difficulty of a given sentence
+def predict_difficulty(sentence, model, tokenizer):
+    difficulty_mapping = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}
+    
+    inputs = tokenizer(sentence, return_tensors="pt", padding="max_length", truncation=True, max_length=512)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    predicted_label = torch.argmax(outputs.logits, dim=1).item()
+    predicted_difficulty = difficulty_mapping[predicted_label]
+
+    return predicted_difficulty
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
