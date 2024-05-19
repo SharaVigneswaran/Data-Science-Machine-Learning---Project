@@ -36,7 +36,7 @@ with c2:
 
 ############ 4. APP FUNCTIONALITY ############
 # Function to load the model and tokenizer from GitHub
-@st.cache_resource(allow_output_mutation=True)
+@st.cache_resource
 def load_model_and_tokenizer():
     model_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/model.safetensors"
     config_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/config.json"
