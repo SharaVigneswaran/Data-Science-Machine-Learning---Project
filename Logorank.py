@@ -35,13 +35,12 @@ with c2:
     """)
 
 ############ 4. APP FUNCTIONALITY ############
-
 # Function to load the model and tokenizer from GitHub
-@st.cache(allow_output_mutation=True)
+@st.cache_resource(allow_output_mutation=True)
 def load_model_and_tokenizer():
     model_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/model.safetensors"
     config_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/config.json"
-    tokenizer_dir_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/tokenizer/"
+    tokenizer_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/tokenizer/"
 
     model = AutoModelForSequenceClassification.from_pretrained(config_url, state_dict=torch.hub.load_state_dict_from_url(model_url))
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_url)
