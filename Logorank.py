@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForSequenceClassification 
 import torch
 import requests
 import time
