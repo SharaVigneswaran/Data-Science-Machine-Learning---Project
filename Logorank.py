@@ -37,28 +37,14 @@ with c2:
 
 ############ 4. APP FUNCTIONALITY ############
 
-# Function to download a file from a URL
-def download_file(url, local_path):
-    response = requests.get(url)
-    with open(local_path, 'wb') as f:
-        f.write(response.content)
-
-# Function to load the model and tokenizer from GitHub
+# Function to load the model and tokenizer from the specified location
 @st.cache_resource
 def load_model_and_tokenizer():
-    model_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/model.safetensors"
-    config_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/config.json"
-    tokenizer_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/tokenizer/"
-
-    # Download the model file
-    model_path = "model.safetensors"
-    if not os.path.exists(model_path):
-        download_file(model_url, model_path)
-
-    # Load the model and tokenizer
+    model_path = "path/to/your/model"
+    tokenizer_path = "path/to/your/tokenizer"
     try:
-        model = AutoModelForSequenceClassification.from_pretrained(config_url, state_dict=torch.load(model_path))
-        tokenizer = AutoTokenizer.from_pretrained(tokenizer_url)
+        model = AutoModelForSequenceClassification.from_pretrained(model_path)
+        tokenizer = AutoTokenizer.from_pretrained(tokenizer_path)
     except Exception as e:
         st.error(f"Error loading model or tokenizer: {e}")
         return None, None
