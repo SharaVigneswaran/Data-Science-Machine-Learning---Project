@@ -38,10 +38,10 @@ with c2:
 
 # Function to load the model and tokenizer from GitHub
 @st.cache(allow_output_mutation=True)
-def load_model_and_tokenizer(): 
-    model_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/.gitattributes"
-    config_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/tokenizer/tokenizer_config.json"
-    tokenizer_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/tokenizer"
+def load_model_and_tokenizer():
+    model_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/pytorch_model.bin"
+    config_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/config.json"
+    tokenizer_dir_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/saved_model/tokenizer/"
 
     model = AutoModelForSequenceClassification.from_pretrained(config_url, state_dict=torch.hub.load_state_dict_from_url(model_url))
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_url)
@@ -243,9 +243,10 @@ def main():
     sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
 
     if sentence:
+        model, tokenizer = load_model_and_tokenizer()
         if "last_input" not in st.session_state or sentence != st.session_state.last_input:
             st.session_state.last_input = sentence
-            prediction = predict_difficulty(sentence)
+            prediction = predict_difficulty(sentence, model, tokenizer)
             display_difficulty(prediction, display_animation)
             
             # Add the text here
@@ -256,7 +257,7 @@ def main():
             st.session_state.history.append((sentence, prediction))
         else:
             # Retain the previous prediction and display the quiz
-            prediction = predict_difficulty(sentence)
+            prediction = predict_difficulty(sentence, model, tokenizer)
             
             # Add the text here as well
             st.write("### Now let's test your knowledge with a quick quiz!")
