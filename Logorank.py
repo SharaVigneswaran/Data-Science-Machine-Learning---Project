@@ -3,21 +3,6 @@ from PIL import Image
 from transformers import CamembertTokenizer, CamembertForSequenceClassification, CamembertConfig
 import torch
 import time
-from sklearn.preprocessing import LabelEncoder
-import json
-import sentencepiece
-
-# Load label encoder
-label_encoder = LabelEncoder()
-# Make sure the classes are in the correct order
-label_encoder.classes_ = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
-
-# Load the model and tokenizer
-model_name_or_path = "saved_model"  # Change this to your model's path
-tokenizer = CamembertTokenizer.from_pretrained(model_name_or_path)
-model = CamembertForSequenceClassification.from_pretrained(model_name_or_path)
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model.to(device)
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
@@ -50,14 +35,7 @@ with c2:
 
 ############ 4. APP FUNCTIONALITY ############
 def predict_difficulty(sentence):
-    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=128)
-    with torch.no_grad():
-        outputs = model(**inputs)
-    logits = outputs.logits
-    predicted_class = torch.argmax(logits, dim=1).item()
-    # Assuming you have a mapping from class indices to CEFR levels
-    class_to_level = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}
-    return class_to_level[predicted_class]
+    return "A1"
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
