@@ -223,10 +223,9 @@ def main():
     sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
 
     if sentence:
-        model, tokenizer = load_model_and_tokenizer()
         if "last_input" not in st.session_state or sentence != st.session_state.last_input:
             st.session_state.last_input = sentence
-            prediction = predict_difficulty(sentence, model, tokenizer)
+            prediction = predict_difficulty(sentence)
             display_difficulty(prediction, display_animation)
             
             st.write("### Now let's test your knowledge further with a quick quiz!")
@@ -241,6 +240,7 @@ def main():
         st.write("### Check Your Progress")
         for sent, pred in reversed(st.session_state.history):
             st.text(f"Sentence: {sent} - Level: {pred}")
+
             
     st.write("### Enhance Your French Skills")
     st.write("""
