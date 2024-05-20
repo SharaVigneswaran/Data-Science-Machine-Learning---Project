@@ -3,13 +3,20 @@ from PIL import Image
 from transformers import CamembertTokenizer, CamembertForSequenceClassification, CamembertConfig
 import torch
 import time
- 
-# Load the tokenizer and model from the local directory
-tokenizer = CamembertTokenizer.from_pretrained('saved_model')
-model = CamembertForSequenceClassification.from_pretrained('saved_model')
+from sklearn.preprocessing import LabelEncoder
+import json
 
-# Ensure the model is in evaluation mode
-model.eval()
+# Load label encoder
+label_encoder = LabelEncoder()
+# Make sure the classes are in the correct order
+label_encoder.classes_ = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+
+# Load the model and tokenizer
+model_name_or_path = "path/to/your/model/directory"  # Change this to your model's path
+tokenizer = CamembertTokenizer.from_pretrained(model_name_or_path)
+model = CamembertForSequenceClassification.from_pretrained(model_name_or_path)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model.to(device)
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
