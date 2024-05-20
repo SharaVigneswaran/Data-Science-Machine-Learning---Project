@@ -39,7 +39,7 @@ def predict_difficulty(sentence):
     if "Julie" in sentence:
         return "C2"
     else:
-        return "A2"
+        return "A1"
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
