@@ -6,12 +6,9 @@ import time
  
 # Load the tokenizer and model from the local directory
 tokenizer = CamembertTokenizer.from_pretrained('saved_model')
-config = CamembertConfig.from_pretrained('saved_model/config.json')
-model = CamembertForSequenceClassification.from_pretrained('saved_model', config=config)
+model = CamembertForSequenceClassification.from_pretrained('saved_model')
 
-# Load the model weights
-state_dict = torch.load('saved_model/model.safetensors', map_location=torch.device('cpu'))
-model.load_state_dict(state_dict, strict=False)
+# Ensure the model is in evaluation mode
 model.eval()
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
