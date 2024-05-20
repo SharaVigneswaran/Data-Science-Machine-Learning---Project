@@ -1,9 +1,12 @@
 import streamlit as st
 from PIL import Image
-from transformers import AutoTokenizer, AutoModelForSequenceClassification
+from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
-import requests
 import time
+
+# Load custom tokenizer and model
+tokenizer = CamembertTokenizer.from_pretrained('main/saved_model/tokenizer_config.json', local_files_only=True)
+model = CamembertForSequenceClassification.from_pretrained('main/saved_model', config='main/saved_model/config.json', state_dict=torch.load('main/saved_model/model.safetensors', map_location=torch.device('cpu')))
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
@@ -36,10 +39,12 @@ with c2:
 
 ############ 4. APP FUNCTIONALITY ############
 def predict_difficulty(sentence):
-    if "Julie" in sentence:
-        return "C2"
-    else:
-        return "A1"
+    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=128)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    logits = outputs.logits
+    predicted_class = torch.argmax(logits, dim=1).item()
+    return label_encoder.inverse_transform([predicted_class])[0]
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
