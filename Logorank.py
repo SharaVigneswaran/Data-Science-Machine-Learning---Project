@@ -5,6 +5,7 @@ import torch
 import time
 from sklearn.preprocessing import LabelEncoder
 import json
+import sentencepiece
 
 # Load label encoder
 label_encoder = LabelEncoder()
