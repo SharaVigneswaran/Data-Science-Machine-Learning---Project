@@ -12,7 +12,7 @@ label_encoder = LabelEncoder()
 label_encoder.classes_ = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
 
 # Load the model and tokenizer
-model_name_or_path = "path/to/your/model/directory"  # Change this to your model's path
+model_name_or_path = "saved_model"  # Change this to your model's path
 tokenizer = CamembertTokenizer.from_pretrained(model_name_or_path)
 model = CamembertForSequenceClassification.from_pretrained(model_name_or_path)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
