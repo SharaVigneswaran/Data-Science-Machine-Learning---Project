@@ -4,6 +4,10 @@ from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import time
 
+tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
+model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=6)  # Adjust num_labels according to your model
+model.load_state_dict(torch.load('model.pth', map_location=torch.device('cpu')))
+model.eval()
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
 # Configure the Streamlit page with layout settings, title, and icon
