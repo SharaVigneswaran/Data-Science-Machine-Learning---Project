@@ -1,8 +1,7 @@
-streamlit
-pandas
-plotly
-matplotlib
-scikit-learn
-Pillow
-torch
-transformers
+streamlit==1.17.0
+Pillow==9.5.0
+torch==2.0.1
+transformers==4.29.0
+sentencepiece==0.1.97
+scikit-learn==1.2.2
+pandas==1.5.3
