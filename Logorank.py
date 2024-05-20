@@ -3,6 +3,7 @@ from PIL import Image
 from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import time
+import sentencepiece 
 
 # Load custom tokenizer and model
 tokenizer = CamembertTokenizer.from_pretrained('main/saved_model/tokenizer_config.json', local_files_only=True)
