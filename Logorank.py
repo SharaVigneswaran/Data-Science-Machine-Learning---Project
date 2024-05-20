@@ -5,11 +5,13 @@ import torch
 import time
 
 # Load your custom tokenizer and model
-tokenizer = CamembertTokenizer.from_pretrained('./path_to_your_files')
-model = CamembertForSequenceClassification.from_pretrained('./path_to_your_files', num_labels=6)  # Adjust num_labels
-model.load_state_dict(torch.load('path_to_your_files/model.safetensors'))  # Load the model weights
-model.eval()
+tokenizer = CamembertTokenizer.from_pretrained('main/saved_model')  # Provide directory path
+model = CamembertForSequenceClassification.from_pretrained('main/saved_model', num_labels=6)  # Adjust num_labels
 
+# Load the model weights
+state_dict = torch.load('main/saved_model/model.safetensors')
+model.load_state_dict(state_dict, strict=False)
+model.eval()
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
