@@ -4,5 +4,4 @@ transformers
 scikit-learn
 pandas
 Pillow
-requests
-sentencepiece
+
