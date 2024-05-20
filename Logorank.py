@@ -4,7 +4,7 @@ from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import time
 
-# Load the tokenizer
+# Load the tokenizer 
 tokenizer = CamembertTokenizer.from_pretrained('saved_model')
 
 # Load the model configuration
