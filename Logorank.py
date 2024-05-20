@@ -1,17 +1,13 @@
 import streamlit as st
 from PIL import Image
-from transformers import CamembertTokenizer, CamembertForSequenceClassification
+from transformers import CamembertTokenizer, CamembertForSequenceClassification, CamembertConfig
 import torch
 import time
 
-# Load the tokenizer
+# Load the tokenizer and model from the local directory
 tokenizer = CamembertTokenizer.from_pretrained('saved_model')
-
-# Load the model configuration
-config = AutoConfig.from_pretrained('saved_model/config.json')
-
-# Initialize the model with the configuration
-model = CamembertForSequenceClassification.from_config(config)
+config = CamembertConfig.from_pretrained('saved_model/config.json')
+model = CamembertForSequenceClassification.from_pretrained('saved_model', config=config)
 
 # Load the model weights
 state_dict = torch.load('saved_model/model.safetensors', map_location=torch.device('cpu'))
@@ -55,7 +51,7 @@ def predict_difficulty(sentence):
     logits = outputs.logits
     predicted_class = torch.argmax(logits, dim=1).item()
     # Assuming you have a mapping from class indices to CEFR levels
-    class_to_level = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}  # Update according to your labels
+    class_to_level = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}
     return class_to_level[predicted_class]
 
 def display_difficulty(prediction, display_animation):
