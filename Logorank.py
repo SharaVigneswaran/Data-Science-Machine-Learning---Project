@@ -5,9 +5,12 @@ import torch
 import time
 import sentencepiece 
 
-# Load custom tokenizer and model
-tokenizer = CamembertTokenizer.from_pretrained('main/saved_model/tokenizer_config.json', local_files_only=True)
-model = CamembertForSequenceClassification.from_pretrained('main/saved_model', config='main/saved_model/config.json', state_dict=torch.load('main/saved_model/model.safetensors', map_location=torch.device('cpu')))
+# Load your custom tokenizer and model
+tokenizer = CamembertTokenizer.from_pretrained('./path_to_your_files')
+model = CamembertForSequenceClassification.from_pretrained('./path_to_your_files', num_labels=6)  # Adjust num_labels
+model.load_state_dict(torch.load('path_to_your_files/model.safetensors'))  # Load the model weights
+model.eval()
+
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
@@ -45,7 +48,9 @@ def predict_difficulty(sentence):
         outputs = model(**inputs)
     logits = outputs.logits
     predicted_class = torch.argmax(logits, dim=1).item()
-    return label_encoder.inverse_transform([predicted_class])[0]
+    # Assuming you have a mapping from class indices to CEFR levels
+    class_to_level = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}  # Update according to your labels
+    return class_to_level[predicted_class]
 
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
