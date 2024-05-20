@@ -8,7 +8,7 @@ import time
 tokenizer = CamembertTokenizer.from_pretrained('main/saved_model')  # Provide directory path
 model = CamembertForSequenceClassification.from_pretrained('main/saved_model', num_labels=6)  # Adjust num_labels
 
-# Load the model weights
+# Load the model weights 
 state_dict = torch.load('main/saved_model/model.safetensors')
 model.load_state_dict(state_dict, strict=False)
 model.eval()
