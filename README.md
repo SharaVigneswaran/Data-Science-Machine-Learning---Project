@@ -21,7 +21,9 @@ Click on this link for a short tutorial on the application's functionalities. Do
 
 <div align="center">
   
-👉🏽 [![Watch the video](https://img.youtube.com/vi/Uc_oZBFRNQI/maxresdefault.jpg)](https://www.youtube.com/watch?v=Uc_oZBFRNQI)
+👉🏽 <a href="https://www.youtube.com/watch?v=Uc_oZBFRNQI" target="_blank">
+    <img src="https://img.youtube.com/vi/Uc_oZBFRNQI/maxresdefault.jpg" alt="Watch the video" width="300" />
+</a>
 
 
 </div>
