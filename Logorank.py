@@ -61,7 +61,7 @@ def save_model_in_parts(model, split_size=100*1024*1024):
 
 # Assume we have a loaded model
 # Uncomment and use the line below if you need to save the model
-# save_model_in_parts(model)
+save_model_in_parts(model)
 
 ############ 5. LOAD THE MODEL IN STREAMLIT ############
 
