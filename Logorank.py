@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-from transformers import CamembertTokenizer, CamembertForSequenceClassification
+from transformers import CamembertTokenizer, CamembertForSequenceClassification, CamembertConfig
 import torch
 import time
 
@@ -8,7 +8,7 @@ import time
 tokenizer = CamembertTokenizer.from_pretrained('saved_model')
 
 # Load the model configuration
-config = AutoConfig.from_pretrained('saved_model/config.json')
+config = CamembertConfig.from_pretrained('saved_model/config.json')
 
 # Initialize the model with the configuration
 model = CamembertForSequenceClassification.from_config(config)
