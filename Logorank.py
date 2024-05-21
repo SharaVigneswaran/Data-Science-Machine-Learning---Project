@@ -41,12 +41,12 @@ with c2:
 
 # Define Google Drive file IDs and destination file paths
 file_ids = {
-    "special_tokens_map.json": "1dOldsN4cqBkRIK3a2a1KRVhkb21uxy4P&usp=drive_copy",
-    "added_tokens.json": "1n-mtbumEOA1x5FgCpoedFm5xpnwmipiE&usp=drive_copy",
-    "config.json": "1Stcydg3XLmPNJICFNQSFnIrRQPIpW0Hc&usp=drive_copy",
-    "model.safetensors": "14pPGuwcRD2SAftx5LAn6kz9e4fnoXIX8&usp=drive_copy",
-    "sentencepiece.bpe.model": "1AzM1AFAdaGg7U0g6gAZwhsUrIoFKrS6I&usp=drive_copy",
-    "tokenizer_config.json": "1UgFvBRdTN6JQZhb9HoXm1oOnilze15KJ&usp=drive_copy"
+    "special_tokens_map.json": "1dOldsN4cqBkRIK3a2a1KRVhkb21uxy4P",
+    "added_tokens.json": "1n-mtbumEOA1x5FgCpoedFm5xpnwmipiE",
+    "config.json": "1Stcydg3XLmPNJICFNQSFnIrRQPIpW0Hc",
+    "model.safetensors": "14pPGuwcRD2SAftx5LAn6kz9e4fnoXIX8",
+    "sentencepiece.bpe.model": "1AzM1AFAdaGg7U0g6gAZwhsUrIoFKrS6I",
+    "tokenizer_config.json": "1UgFvBRdTN6JQZhb9HoXm1oOnilze15KJ"
 }
 destination_folder = 'saved_model'
 
