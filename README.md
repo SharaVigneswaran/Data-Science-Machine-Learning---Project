@@ -21,7 +21,7 @@ Click on this link for a short tutorial on the application's functionalities. Do
 
 <div align="center">
   
-👉🏽 [![Watch the video](Capture d’écran 2024-05-21 à 16.52.39.png)](https://www.youtube.com/watch?v=Uc_oZBFRNQI)
+👉🏽 [![Watch the video](https://img.youtube.com/vi/Uc_oZBFRNQID/maxresdefault.jpg)](https://www.youtube.com/watch?v=Uc_oZBFRNQI)
 
 
 </div>
