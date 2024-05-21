@@ -36,8 +36,8 @@ with c2:
 
 ############ 4. MODEL LOADING ############
 def load_camembert_model():
-    tokenizer = CamembertTokenizer.from_pretrained("huggingrebecca/Camembert_final")
-    model = CamembertForSequenceClassification.from_pretrained("huggingrebecca/Camembert_final")
+    tokenizer = CamembertTokenizer.from_pretrained("Shara10/model/model_saved")
+    model = CamembertForSequenceClassification.from_pretrained("Shara10/model/model_saved")
     return tokenizer, model
 
 # Load the model and tokenizer
