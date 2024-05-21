@@ -1,8 +1,10 @@
 import streamlit as st
 from PIL import Image
-from transformers import CamembertTokenizer, CamembertForSequenceClassification
+from transformers import CamembertTokenizer, CamembertForSequenceClassification, CamembertConfig
 import torch
-import time
+import requests
+import os
+import safetensors
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
@@ -35,54 +37,46 @@ with c2:
 
 ############ 4. MODEL LOADING ############
 
-# Load the full model state_dict and split into smaller parts
-def save_model_in_parts(model, split_size=100*1024*1024):
-    state_dict = model.state_dict()
-    parts = {}
-    current_part = {}
-    current_size = 0
-    part_idx = 1
+# Function to download files from GitHub
+def download_file(url, save_path):
+    r = requests.get(url, stream=True)
+    if r.status_code == 200:
+        with open(save_path, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
+    else:
+        st.error(f"Error downloading {url}")
 
-    for key, value in state_dict.items():
-        current_size += value.numel() * value.element_size()
-        current_part[key] = value
-        if current_size >= split_size:
-            parts[f'part_{part_idx}.pth'] = current_part
-            current_part = {}
-            current_size = 0
-            part_idx += 1
+# Download necessary files from GitHub
+repo_url = "https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/main/saved_model"
+files_to_download = [
+    "special_tokens_map.json",
+    "added_tokens.json",
+    "config.json",
+    "model.safetensors",
+    "sentencepiece.bpe.model",
+    "tokenizer_config.json"
+]
 
-    if current_part:
-        parts[f'part_{part_idx}.pth'] = current_part
+os.makedirs("model_files", exist_ok=True)
 
-    # Save the parts
-    for part_name, part_dict in parts.items():
-        torch.save(part_dict, f'saved_model/{part_name}')
-        
-############ 5. LOAD THE MODEL IN STREAMLIT ############
+for file_name in files_to_download:
+    download_file(repo_url + file_name, f"model_files/{file_name}")
 
 # Load the tokenizer
-tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
+tokenizer = CamembertTokenizer.from_pretrained("model_files")
 
-# Initialize the model with the configuration
-model_config = CamembertForSequenceClassification.from_pretrained('camembert-base').config
-model = CamembertForSequenceClassification(model_config)
+# Load the model configuration
+config = CamembertConfig.from_pretrained("model_files")
 
-# Load the parts and reconstruct the state_dict
-state_dict = {}
-part_idx = 1
-while True:
-    try:
-        part_dict = torch.load(f'saved_model/part_{part_idx}.pth', map_location=torch.device('cpu'))
-        state_dict.update(part_dict)
-        part_idx += 1
-    except FileNotFoundError:
-        break
-
+# Load the model weights
+model_path = "model_files/model.safetensors"
+state_dict = safetensors.load_file(model_path)
+model = CamembertForSequenceClassification(config)
 model.load_state_dict(state_dict, strict=False)
 model.eval()
 
-############ 6. APP FUNCTIONALITY ############
+############ 5. APP FUNCTIONALITY ############
 
 def predict_difficulty(sentence):
     inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=128)
@@ -135,7 +129,7 @@ def display_difficulty(prediction, display_animation):
     }
     st.markdown(suggestions[prediction])
 
-############ 5. INTERACTIVE QUIZ ############
+############ 6. INTERACTIVE QUIZ ############
 
 # Define quiz questions and answers
 quiz_questions = {
