@@ -36,7 +36,7 @@ with c2:
 ############ 4. MODEL LOADING ############
 
 # Load the full model state_dict and split into smaller parts
-def save_model_in_parts(model, split_size=600*1024*1024):
+def save_model_in_parts(model, split_size=500*1024*1024):
     state_dict = model.state_dict()
     parts = {}
     current_part = {}
@@ -65,7 +65,7 @@ def save_model_in_parts(model, split_size=600*1024*1024):
 tokenizer = CamembertTokenizer.from_pretrained('saved_model')
 
 # Initialize the model with the configuration
-model_config = CamembertForSequenceClassification.from_pretrained('config.json').config
+model_config = CamembertForSequenceClassification.from_pretrained('saved_model').config
 model = CamembertForSequenceClassification(model_config)
 
 # Load the parts and reconstruct the state_dict
