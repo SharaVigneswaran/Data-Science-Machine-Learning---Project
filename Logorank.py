@@ -3,6 +3,8 @@ from PIL import Image
 from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import time
+import gdown
+import os
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
