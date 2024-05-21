@@ -36,18 +36,12 @@ with c2:
 
 ############ 4. MODEL LOADING ############
 
-state_dict = {}
-part_idx = 1
-while True:
-    try:
-        part_dict = torch.load(f'saved_model/part_{part_idx}.pth', map_location=torch.device('cpu'))
-        state_dict.update(part_dict)
-        part_idx += 1
-    except FileNotFoundError:
-        break
-
 # Load the tokenizer from the saved_model directory
 tokenizer = CamembertTokenizer.from_pretrained('saved_model')
+
+# Load the model from the safetensors file
+model_path = 'saved_model/model.safetensors'
+state_dict = load_file(model_path)
 
 # Initialize the model with the configuration from the saved_model directory
 model_config = CamembertForSequenceClassification.from_pretrained('saved_model').config
