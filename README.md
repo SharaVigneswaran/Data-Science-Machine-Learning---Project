@@ -17,12 +17,12 @@ LogoRank is a visionary startup. Our mission is to enhance language learning exp
 
 </div>
 
-Click on this link for a short tutorial on the application's functionalities. Don't miss out on mastering this powerful tool!
+Click on this image to discover LogoRank's App. Don't miss out on mastering this powerful tool!
 
 <div align="center">
   
 👉🏽 <a href="https://www.youtube.com/watch?v=Uc_oZBFRNQI" target="_blank">
-    <img src="https://img.youtube.com/vi/Uc_oZBFRNQI/maxresdefault.jpg" alt="Watch the video" width="300" />
+    <img src="https://img.youtube.com/vi/Uc_oZBFRNQI/maxresdefault.jpg" alt="Watch the video" width="200" />
 </a>
 
 
