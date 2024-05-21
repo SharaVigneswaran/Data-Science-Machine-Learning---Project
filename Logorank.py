@@ -35,10 +35,9 @@ with c2:
     """)
 
 ############ 4. MODEL LOADING ############
-@st.cache_resource  # Use st.cache_resource to cache the model and tokenizer
 def load_camembert_model():
-    tokenizer = CamembertTokenizer.from_pretrained("Shara10/model")
-    model = CamembertForSequenceClassification.from_pretrained("Shara10/model")
+    tokenizer = CamembertTokenizer.from_pretrained("huggingrebecca/Camembert_final")
+    model = CamembertForSequenceClassification.from_pretrained("huggingrebecca/Camembert_final")
     return tokenizer, model
 
 # Load the model and tokenizer
