@@ -21,7 +21,8 @@ Click on this link for a short tutorial on the application's functionalities. Do
 
 <div align="center">
   
-👉🏽 *Video Link*
+👉🏽 [![Watch the video](https://img.youtube.com/vi/example/maxresdefault.jpg)](https://www.youtube.com/watch?v=Uc_oZBFRNQI)
+
 
 </div>
 
