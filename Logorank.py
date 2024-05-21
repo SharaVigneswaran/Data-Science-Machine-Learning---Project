@@ -35,53 +35,52 @@ with c2:
 
 ############ 4. MODEL LOADING ############
 
-# Load the full model state_dict and split into smaller parts
-def save_model_in_parts(model, split_size=500*1024*1024):
-    state_dict = model.state_dict()
-    parts = {}
-    current_part = {}
-    current_size = 0
-    part_idx = 1
+############ 4. MODEL LOADING ############
 
-    for key, value in state_dict.items():
-        current_size += value.numel() * value.element_size()
-        current_part[key] = value
-        if current_size >= split_size:
-            parts[f'part_{part_idx}.pth'] = current_part
-            current_part = {}
-            current_size = 0
-            part_idx += 1
+# Define Google Drive file IDs and destination file paths
+file_ids = {
+    "special_tokens_map.json": "1dOldsN4cqBkRIK3a2a1KRVhkb21uxy4P&usp=drive_copy",
+    "added_tokens.json": "1n-mtbumEOA1x5FgCpoedFm5xpnwmipiE&usp=drive_copy",
+    "config.json": "1Stcydg3XLmPNJICFNQSFnIrRQPIpW0Hc&usp=drive_copy",
+    "model.safetensors": "14pPGuwcRD2SAftx5LAn6kz9e4fnoXIX8&usp=drive_copy",
+    "sentencepiece.bpe.model": "1AzM1AFAdaGg7U0g6gAZwhsUrIoFKrS6I&usp=drive_copy",
+    "tokenizer_config.json": "1UgFvBRdTN6JQZhb9HoXm1oOnilze15KJ&usp=drive_copy"
+}
+destination_folder = 'saved_model'
 
-    if current_part:
-        parts[f'part_{part_idx}.pth'] = current_part
+# Create the destination folder if it does not exist
+os.makedirs(destination_folder, exist_ok=True)
 
-    # Save the parts
-    for part_name, part_dict in parts.items():
-        torch.save(part_dict, f'saved_model/{part_name}')
-        
-############ 5. LOAD THE MODEL IN STREAMLIT ############
+# Function to download files from Google Drive
+def download_files_from_gdrive(file_ids, destination_folder):
+    for file_name, file_id in file_ids.items():
+        destination_path = os.path.join(destination_folder, file_name)
+        if not os.path.exists(destination_path):
+            url = f'https://drive.google.com/uc?id={file_id}'
+            gdown.download(url, destination_path, quiet=False)
+
+# Download the model files
+download_files_from_gdrive(file_ids, destination_folder)
 
 # Load the tokenizer
-tokenizer = CamembertTokenizer.from_pretrained('saved_model')
+tokenizer = CamembertTokenizer.from_pretrained(destination_folder)
 
-# Initialize the model with the configuration
-model_config = CamembertForSequenceClassification.from_pretrained('saved_model').config
-model = CamembertForSequenceClassification(model_config)
-
-# Load the parts and reconstruct the state_dict
-state_dict = {}
-part_idx = 1
-while True:
-    try:
-        part_dict = torch.load(f'saved_model/part_{part_idx}.pth', map_location=torch.device('cpu'))
-        state_dict.update(part_dict)
-        part_idx += 1
-    except FileNotFoundError:
-        break
-
-model.load_state_dict(state_dict, strict=False)
+# Initialize the model configuration and load state_dict
+model = CamembertForSequenceClassification.from_pretrained(destination_folder, local_files_only=True)
 model.eval()
 
+############ 5. APP FUNCTIONALITY ############
+
+def predict_difficulty(sentence):
+    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=128)
+    with torch.no_grad():
+        outputs = model(**inputs)
+    logits = outputs.logits
+    predicted_class = torch.argmax(logits, dim=1).item()
+    # Assuming you have a mapping from class indices to CEFR levels
+    class_to_level = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}  # Update according to your labels
+    return class_to_level[predicted_class]
+    
 ############ 6. APP FUNCTIONALITY ############
 
 def predict_difficulty(sentence):
