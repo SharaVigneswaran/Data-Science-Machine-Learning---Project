@@ -35,6 +35,36 @@ with c2:
 
 ############ 4. MODEL LOADING ############
 
+# Load the full model state_dict and split into smaller parts
+def save_model_in_parts(model, split_size=500*1024*1024):
+    state_dict = model.state_dict()
+    parts = {}
+    current_part = {}
+    current_size = 0
+    part_idx = 1
+
+    for key, value in state_dict.items():
+        current_size += value.numel() * value.element_size()
+        current_part[key] = value
+        if current_size >= split_size:
+            parts[f'part_{part_idx}.pth'] = current_part
+            current_part = {}
+            current_size = 0
+            part_idx += 1
+
+    if current_part:
+        parts[f'part_{part_idx}.pth'] = current_part
+
+    # Save the parts
+    for part_name, part_dict in parts.items():
+        torch.save(part_dict, f'saved_model/{part_name}')
+
+# Assume we have a loaded model
+# Uncomment and use the line below if you need to save the model
+# save_model_in_parts(model)
+
+############ 5. LOAD THE MODEL IN STREAMLIT ############
+
 # Load the tokenizer
 tokenizer = CamembertTokenizer.from_pretrained('saved_model')
 
@@ -55,7 +85,7 @@ while True:
 model.load_state_dict(state_dict, strict=False)
 model.eval()
 
-############ 5. APP FUNCTIONALITY ############
+############ 6. APP FUNCTIONALITY ############
 def predict_difficulty(sentence):
     inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=128)
     with torch.no_grad():
@@ -65,7 +95,7 @@ def predict_difficulty(sentence):
     # Assuming you have a mapping from class indices to CEFR levels
     class_to_level = {0: 'A1', 1: 'A2', 2: 'B1', 3: 'B2', 4: 'C1', 5: 'C2'}  # Update according to your labels
     return class_to_level[predicted_class]
-    
+
 def display_difficulty(prediction, display_animation):
     difficulty_scale = {
         'A1': (0.1, '🟢', 'Beginner'), 
