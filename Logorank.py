@@ -3,6 +3,7 @@ from PIL import Image
 from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import time
+from safetensors.torch import load_file
 
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
