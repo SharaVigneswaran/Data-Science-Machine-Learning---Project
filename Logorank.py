@@ -65,7 +65,21 @@ def save_model_in_parts(model, split_size=100*1024*1024):
 tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
 
 # Initialize the model with the configuration
-model = CamembertForSequenceClassification.from_pretrained('camembert-base', state_dict=None)
+model_config = CamembertForSequenceClassification.from_pretrained('camembert-base').config
+model = CamembertForSequenceClassification(model_config)
+
+# Load the parts and reconstruct the state_dict
+state_dict = {}
+part_idx = 1
+while True:
+    try:
+        part_dict = torch.load(f'saved_model/part_{part_idx}.pth', map_location=torch.device('cpu'))
+        state_dict.update(part_dict)
+        part_idx += 1
+    except FileNotFoundError:
+        break
+
+model.load_state_dict(state_dict, strict=False)
 model.eval()
 
 ############ 6. APP FUNCTIONALITY ############
