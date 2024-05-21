@@ -4,9 +4,18 @@ from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import time
 
-tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
-model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=6)  # Adjust num_labels according to your model
-model.load_state_dict(torch.load('model.pth', map_location=torch.device('cpu')))
+# Load the tokenizer 
+tokenizer = CamembertTokenizer.from_pretrained('saved_model')
+
+# Load the model configuration
+config = AutoConfig.from_pretrained('saved_model/config.json')
+
+# Initialize the model with the configuration
+model = CamembertForSequenceClassification.from_config(config)
+
+# Load the model weights
+state_dict = torch.load('saved_model/model.safetensors', map_location=torch.device('cpu'))
+model.load_state_dict(state_dict, strict=False)
 model.eval()
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
