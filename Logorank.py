@@ -62,10 +62,10 @@ def save_model_in_parts(model, split_size=100*1024*1024):
 ############ 5. LOAD THE MODEL IN STREAMLIT ############
 
 # Load the tokenizer
-tokenizer = CamembertTokenizer.from_pretrained('saved_model')
+tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
 
 # Initialize the model with the configuration
-model = CamembertForSequenceClassification.from_pretrained('saved_model', state_dict=None)
+model = CamembertForSequenceClassification.from_pretrained('camembert-base', state_dict=None)
 model.eval()
 
 ############ 6. APP FUNCTIONALITY ############
