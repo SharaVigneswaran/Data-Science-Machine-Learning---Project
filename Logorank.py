@@ -35,16 +35,10 @@ with c2:
     """)
 
 ############ 4. MODEL LOADING ############
-
-# Load the model from a GitHub URL
-model_url = 'https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/model.pth'
-num_labels = 6  # Adjust to the number of classes in your classification task
-model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=num_labels)
-model.load_state_dict(torch.hub.load_state_dict_from_url(model_url, map_location=torch.device('cpu')))
-model.eval()
-
-# Load the tokenizer
-tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
+def load_camembert_model():
+    tokenizer = CamembertTokenizer.from_pretrained("Shara10/model")
+    model = CamembertForSequenceClassification.from_pretrained("Shara10/model")
+    return tokenizer, model
 
 ############ 6. APP FUNCTIONALITY ############
 
