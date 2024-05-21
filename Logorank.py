@@ -34,37 +34,11 @@ with c2:
     """)
 
 ############ 4. MODEL LOADING ############
-
-# Function to save the full model state_dict into smaller parts
-def save_model_in_parts(model, split_size=100*1024*1024):
-    state_dict = model.state_dict()
-    parts = {}
-    current_part = {}
-    current_size = 0
-    part_idx = 1
-
-    for key, value in state_dict.items():
-        current_size += value.numel() * value.element_size()
-        current_part[key] = value
-        if current_size >= split_size:
-            parts[f'part_{part_idx}.pth'] = current_part
-            current_part = {}
-            current_size = 0
-            part_idx += 1
-
-    if current_part:
-        parts[f'part_{part_idx}.pth'] = current_part
-
-    # Save the parts
-    for part_name, part_dict in parts.items():
-        torch.save(part_dict, f'saved_model/{part_name}')
-
-# Loading the model in Streamlit
 # Load the tokenizer
-tokenizer = CamembertTokenizer.from_pretrained('saved_model')
+tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
 
 # Initialize the model with the configuration
-model_config = CamembertForSequenceClassification.from_pretrained('saved_model').config
+model_config = CamembertForSequenceClassification.from_pretrained('camembert-base').config
 model = CamembertForSequenceClassification(model_config)
 
 # Load the parts and reconstruct the state_dict
