@@ -34,6 +34,7 @@ with c2:
     """)
 
 ############ 4. MODEL LOADING ############
+
 # Load the parts and reconstruct the state_dict
 state_dict = {}
 part_idx = 1
@@ -54,7 +55,7 @@ model = CamembertForSequenceClassification(model_config)
 
 model.load_state_dict(state_dict, strict=False)
 model.eval()
- 
+
 ############ 6. APP FUNCTIONALITY ############
 
 def predict_difficulty(sentence):
