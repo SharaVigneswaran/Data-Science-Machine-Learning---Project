@@ -14,8 +14,8 @@ st.set_page_config(layout="wide", page_title="LogoRank")
 # Sidebar for user settings or additional options
 with st.sidebar:
     st.title("Settings")
-    display_animation = st.checkbox("Animate Progress Bar", value=True)
-    show_history = st.checkbox("Show Sentence History", value=True)
+    display_animation = st.checkbox("Animate Progress Bar", value=True, key="display_animation")
+    show_history = st.checkbox("Show Sentence History", value=True, key="show_history")
 
 ############ 3. MAIN PAGE LAYOUT ############
 
@@ -87,6 +87,7 @@ model.load_state_dict(state_dict, strict=False)
 model.eval()
 
 ############ 6. APP FUNCTIONALITY ############
+
 def predict_difficulty(sentence):
     inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=128)
     with torch.no_grad():
@@ -277,8 +278,8 @@ def main():
         st.session_state.history = []
 
     # Define default values for display_animation if not already defined
-    display_animation = st.sidebar.checkbox("Animate Progress Bar", value=True)
-    show_history = st.sidebar.checkbox("Show Sentence History", value=True)
+    display_animation = st.sidebar.checkbox("Animate Progress Bar", value=True, key="display_animation_sidebar")
+    show_history = st.sidebar.checkbox("Show Sentence History", value=True, key="show_history_sidebar")
 
     sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
 
