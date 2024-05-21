@@ -35,7 +35,6 @@ with c2:
 
 ############ 4. MODEL LOADING ############
 
-# Load the parts and reconstruct the state_dict
 state_dict = {}
 part_idx = 1
 while True:
@@ -46,11 +45,11 @@ while True:
     except FileNotFoundError:
         break
 
-# Load the tokenizer
-tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
+# Load the tokenizer from the saved_model directory
+tokenizer = CamembertTokenizer.from_pretrained('saved_model')
 
-# Initialize the model with the configuration
-model_config = CamembertForSequenceClassification.from_pretrained('camembert-base').config
+# Initialize the model with the configuration from the saved_model directory
+model_config = CamembertForSequenceClassification.from_pretrained('saved_model').config
 model = CamembertForSequenceClassification(model_config)
 
 model.load_state_dict(state_dict, strict=False)
