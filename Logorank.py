@@ -234,10 +234,6 @@ def main():
     if 'history' not in st.session_state:
         st.session_state.history = []
 
-    # Define default values for display_animation if not already defined
-    display_animation = st.sidebar.checkbox("Animate Progress Bar", value=True, key="display_animation_sidebar")
-    show_history = st.sidebar.checkbox("Show Sentence History", value=True, key="show_history_sidebar")
-
     sentence = st.text_input("Enter a sentence to classify its difficulty level:", "")
 
     if sentence:
