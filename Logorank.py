@@ -48,10 +48,10 @@ while True:
         break
 
 # Load the tokenizer
-tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
+tokenizer = CamembertTokenizer.from_pretrained('saved_model/tokenizer_config.json')
 
 # Initialize the model with the configuration
-model_config = CamembertForSequenceClassification.from_pretrained('camembert-base').config
+model_config = CamembertForSequenceClassification.from_pretrained('saved_model/model.safetensors').config
 model = CamembertForSequenceClassification(model_config)
 
 model.load_state_dict(state_dict, strict=False)
