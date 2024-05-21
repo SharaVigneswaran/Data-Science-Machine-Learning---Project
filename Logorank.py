@@ -4,15 +4,6 @@ from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import time
 
-# Load the tokenizer 
-tokenizer = CamembertTokenizer.from_pretrained('saved_model')
-
-# Initialize the model with the configuration and weights
-model = CamembertForSequenceClassification.from_pretrained('saved_model')
-
-# Set the model to evaluation mode
-model.eval()
-
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
 # Configure the Streamlit page with layout settings, title, and icon
@@ -42,7 +33,29 @@ with c2:
         Just type in a sentence below, and LogoRank will provide you with an accurate level assessment. We'll also offer personalized tips and resources to help you on your language learning journey. Let's get started and make learning French fun and easy!
     """)
 
-############ 4. APP FUNCTIONALITY ############
+############ 4. MODEL LOADING ############
+
+# Load the tokenizer
+tokenizer = CamembertTokenizer.from_pretrained('saved_model')
+
+# Initialize the model with the configuration
+model = CamembertForSequenceClassification.from_pretrained('saved_model', state_dict=None)
+
+# Load the parts and reconstruct the state_dict
+state_dict = {}
+part_idx = 1
+while True:
+    try:
+        part_dict = torch.load(f'saved_model/part_{part_idx}.pth', map_location=torch.device('cpu'))
+        state_dict.update(part_dict)
+        part_idx += 1
+    except FileNotFoundError:
+        break
+
+model.load_state_dict(state_dict, strict=False)
+model.eval()
+
+############ 5. APP FUNCTIONALITY ############
 def predict_difficulty(sentence):
     inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True, max_length=128)
     with torch.no_grad():
