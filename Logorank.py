@@ -1,22 +1,18 @@
 import streamlit as st
 from PIL import Image
-from transformers import CamembertTokenizer, CamembertForSequenceClassification, CamembertConfig
+from transformers import CamembertTokenizer, CamembertForSequenceClassification
 import torch
 import time
 
 # Load the tokenizer 
 tokenizer = CamembertTokenizer.from_pretrained('saved_model')
 
-# Load the model configuration
-config = CamembertConfig.from_pretrained('saved_model/config.json')
+# Initialize the model with the configuration and weights
+model = CamembertForSequenceClassification.from_pretrained('saved_model')
 
-# Initialize the model with the configuration
-model = CamembertForSequenceClassification.from_config(config)
-
-# Load the model weights
-state_dict = torch.load('saved_model/model.safetensors', map_location=torch.device('cpu'))
-model.load_state_dict(state_dict, strict=False)
+# Set the model to evaluation mode
 model.eval()
+
 ############ 1. SETTING UP THE PAGE LAYOUT AND TITLE ############
 
 # Configure the Streamlit page with layout settings, title, and icon
