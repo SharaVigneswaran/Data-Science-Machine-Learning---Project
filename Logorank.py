@@ -36,26 +36,15 @@ with c2:
 
 ############ 4. MODEL LOADING ############
 
-# Load the parts and reconstruct the state_dict
-state_dict = {}
-part_idx = 1
-while True:
-    try:
-        part_dict = torch.load(f'saved_model/part_{part_idx}.pth', map_location=torch.device('cpu'))
-        state_dict.update(part_dict)
-        part_idx += 1
-    except FileNotFoundError:
-        break
+# Load the model from a GitHub URL
+model_url = 'https://github.com/SharaVigneswaran/Data-Science-Machine-Learning-Project/raw/main/model.pth'
+num_labels = 6  # Adjust to the number of classes in your classification task
+model = CamembertForSequenceClassification.from_pretrained('camembert-base', num_labels=num_labels)
+model.load_state_dict(torch.hub.load_state_dict_from_url(model_url, map_location=torch.device('cpu')))
+model.eval()
 
 # Load the tokenizer
-tokenizer = CamembertTokenizer.from_pretrained('saved_model/tokenizer_config.json')
-
-# Initialize the model with the configuration
-model_config = CamembertForSequenceClassification.from_pretrained('saved_model/model.safetensors').config
-model = CamembertForSequenceClassification(model_config)
-
-model.load_state_dict(state_dict, strict=False)
-model.eval()
+tokenizer = CamembertTokenizer.from_pretrained('camembert-base')
 
 ############ 6. APP FUNCTIONALITY ############
 
