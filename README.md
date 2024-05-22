@@ -294,5 +294,15 @@ We employed OpenAI's GPT-3.5 Turbo model, precisely the "gpt-3.5-turbo-instruct"
 
 While GPT-3.5 Turbo offers a strong foundation due to its advanced natural language processing capabilities, its deployment in LogoRank highlighted the need for more specialized solutions in educational applications. Moving forward, by focusing on specialized training and enhanced model interaction strategies, LogoRank can better achieve its goal of seamlessly integrating into individuals' language learning journeys globally.
 
+## Navigating on Our GitHub 💡
+
+Under the repertory Data-Science-Machine-Learning-Project in the branch ML-Project, you will find the following files: 
+
+• Access to this Readme file.
+• Access to two ".py" files linked to our Colab Notebooks with the detailed code for each model tested. One Notebook called "Advanced" comprises the large language model, and one called "" comprises the initial models.
+• Access to the streamlit app's code under the file "".
+• Access to a reporting table of how did what for this project under file named "".
+
+
 
 
