@@ -298,7 +298,7 @@ While GPT-3.5 Turbo offers a strong foundation due to its advanced natural langu
 
 Under the repertory Data-Science-Machine-Learning-Project in the branch ML-Project, you will find the following files: 
 
-## Project Resources
+**Project Resources**
 
 1. Access this README file.
 2. Access two ".pynb" files linked to our Colab Notebooks with the detailed code for each model tested:
