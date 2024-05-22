@@ -1,7 +1,0 @@
-streamlit
-torch
-transformers
-scikit-learn
-pandas
-Pillow
-sentencepiece
