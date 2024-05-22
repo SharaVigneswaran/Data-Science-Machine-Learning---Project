@@ -310,7 +310,7 @@ Under the repertory Data-Science-Machine-Learning-Project in the branch ML-Proje
 
 ## Remarks☝🏽
 
-1. This project was conducted in the Data Science and Machine Learning course taught by Professor Michalis Vlachos.
+1. This project was conducted in the "Data Science and Machine Learning" course taught by Professor Michalis Vlachos.
 2. Our model achieved 60% accuracy in the Kaggel Competition, resulting in our team's 16th-place ranking.
 3. Our Streamlit App is heavy, and if it reaches the resource limits of Streamlit Community Cloud, you simply need to reboot it to clear the memory.
 4. URL YouTube link to the video: https://www.youtube.com/watch?v=Uc_oZBFRNQI 
