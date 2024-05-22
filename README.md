@@ -298,10 +298,16 @@ While GPT-3.5 Turbo offers a strong foundation due to its advanced natural langu
 
 Under the repertory Data-Science-Machine-Learning-Project in the branch ML-Project, you will find the following files: 
 
-• Access to this Readme file.
-• Access to two ".py" files linked to our Colab Notebooks with the detailed code for each model tested. One Notebook called "Advanced" comprises the large language model, and one called "" comprises the initial models.
-• Access to the streamlit app's code under the file "".
-• Access to a reporting table of how did what for this project under file named "".
+## Project Resources
+
+1. Access this README file.
+2. Access two ".pynb" files linked to our Colab Notebooks with the detailed code for each model tested:
+   - **Google_Code_Advanced.ipynb**: This notebook comprises the large language model.
+   - **Google_Code.ipynb**: This notebook comprises the initial models.
+3. Access the Streamlit app's code under the file **Logorank.py**.
+4. Access a reporting table of who did what for this project under the file named **Project Progress and Reporting.md**.
+5. Access a file called **images** with the images used in the README document.
+
 
 
 
