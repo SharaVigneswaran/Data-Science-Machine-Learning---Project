@@ -34,7 +34,7 @@ For learners, being presented with too-difficult texts can hinder learning, whil
 
 ### Our Goals 
 
-Our long-term goal is to integrate LogoRank into the daily learning routine of language learners worldwide, making it an indispensable tool in their language learning journey. Before testing our App, here is how we created an algorithm just for you!
+Our long-term goal is to integrate LogoRank into the daily learning routine of language learners worldwide, making it an indispensable tool in their language learning journey. Here is how we created an algorithm just for you!
 
 ## Section 1: Application Development Process ⚙️💻
 
@@ -85,7 +85,7 @@ Each model was chosen based on its distinct strengths and suitability for predic
 
 ### Integration of Large Language Models
 
-Recognizing the transformative potential of large language models, we transitioned to leveraging state-of-the-art architectures such as RoBERTa, Open AI, etc., and the powerful capabilities offered by these models to process and understand natural language data.
+Recognizing the transformative potential of large language models, we transitioned to leveraging state-of-the-art architectures such as RoBERTa, Open AI, etc., and the powerful capabilities these models offer to process and understand natural language data.
 
 By integrating BERT and CamemBERT into our application pipeline, we observed substantial improvements in performance across various metrics, including accuracy, precision, and recall. The model demonstrated a remarkable ability to understand context, discern subtle nuances, and generate accurate predictions, thereby elevating the overall efficacy of our application.
 
@@ -144,7 +144,7 @@ For this model, we used the following parameters and configuration:
 
 The training was conducted over five epochs, with each epoch iterating through all the batches of the training data. We used a batch size 16 for effective learning that balances speed and memory usage. The AdamW optimizer was employed with a 3*10^{-5} learning rate, which is a typical choice for fine-tuning models on smaller datasets. Additionally, a linear scheduler with warmup was used to adjust the learning rate dynamically during training, helping to stabilize the learning process in its early stages. In each training batch, the model computed the loss (error) between its predictions and the actual labels, using this loss to adjust the model weights through backpropagation. This is crucial for the model to learn from the training data effectively.
 
-**Snip of the Code for Model Training**
+**A Snip of the Code for Model Training**
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1jx5RsQY7qSj256u_0h9zCcsnuZyj0K19?usp=sharing#scrollTo=fx1XRzelchgl)
 
 ```python
@@ -185,7 +185,7 @@ for epoch in range(5):
 </div>
 </div>
 
-The confusion matrix shown here represents the performance of a model predicting the difficulty level of French text, categorized into six classes: A1, A2, B1, B2, C1, and C2. Each row represents the true difficulty level, while each column represents the predicted difficulty level. Overall, the model demonstrates a strong performance in predicting the difficulty levels, particularly for the A1 and B2 categories. Misclassifications are more frequent in adjacent difficulty levels (e.g., A1-A2, B1-B2), indicating the model's sensitivity to subtle differences between neighboring levels.
+The confusion matrix shown here represents the performance of a model predicting the difficulty level of French text, categorized into six classes: A1, A2, B1, B2, C1, and C2. Each row represents the true difficulty level, while each column represents the predicted difficulty level. Overall, the model demonstrates a strong performance in predicting the difficulty levels, particularly for the A1 and B2 categories. Misclassifications are more frequent in adjacent difficulty levels (e.g., A1-A2, B1-B2), indicating the model's sensitivity to subtle differences between neighbouring levels.
 
 
 ## Section 3: Challenges and Erroneous Predictions ⁉️
@@ -274,7 +274,7 @@ Finally, although the dataset was expanded, the increase (from 4,800 to 5,100 li
 
 ### **4. Non-Accurate Model**
 
-Another significant challenge in our project was model inaccuracy, as evidenced by the low accuracy rate achieved by using an external language model, OpenAI's GPT-3.5 Turbo, to perform text classification.
+Another significant challenge in our project was model inaccuracy, as evidenced by the low accuracy rate of using an external language model, OpenAI's GPT-3.5 Turbo, to perform text classification.
 
 <div align="center">
   <div style="position: relative; text-align: right;">
@@ -290,7 +290,7 @@ We employed OpenAI's GPT-3.5 Turbo model, precisely the "gpt-3.5-turbo-instruct"
 
 **• Prompt Sensitivity:** The efficacy of GPT-3.5's responses is highly dependent on the prompt's construction. Subtle nuances in how prompts are phrased can lead to significant variances in the output, which may not always align with the specific educational standards used to define text difficulty levels.
 
-**• Model Training and Data Representation:** GPT-3.5 Turbo has not been fine-tuned on a corpus specifically curated for grading French text difficulty, likely contributing to the suboptimal accuracy observed (23.12%). The model's broad training base may not sufficiently capture the specific features relevant to the linguistic challenges faced by English speakers learning French.
+**• Model Training and Data Representation:** GPT-3.5 Turbo has not been fine-tuned on a corpus specifically curated for grading French text difficulty, likely contributing to the suboptimal accuracy observed (23.12%). The model's broad training base may not sufficiently capture the specific features relevant to the linguistic challenges English speakers learning French face.
 
 While GPT-3.5 Turbo offers a strong foundation due to its advanced natural language processing capabilities, its deployment in LogoRank highlighted the need for more specialized solutions in educational applications. Moving forward, by focusing on specialized training and enhanced model interaction strategies, LogoRank can better achieve its goal of seamlessly integrating into individuals' language learning journeys globally.
 
